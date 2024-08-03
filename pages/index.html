@@ -29,14 +29,23 @@
       <!-- Navbar de Bootstrap -->
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span class="navbar-toggler-icon"></span>
-          </button>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Inicio</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#servicios">Servicios</a>
@@ -61,7 +70,7 @@
     </header>
 
     <!-- Sección Hero de Bienvenida -->
-    <section class="hero">
+    <section class="hero" id="inicio">
       <div class="hero-content">
         <h1>Bienvenidos a Dr. Michito</h1>
         <p>Atención veterinaria para perros y gatos.<br />Servicio 24 horas.</p>
@@ -87,13 +96,59 @@
     </section>
 
     <!-- Sección de Testimonios -->
-    <section id="testimonios">
-      <h2>Testimonios</h2>
-    </section>
+    <section class="testimonials" id="testimonios">
+      <h2>Lo que dicen nuestros clientes</h2>
 
-    <!-- Sección de Servicios -->
-    <section id="servicios">
-      <h2>Nuestros Servicios</h2>
+      <!-- Tarjetas de Testimonios -->
+      <div class="testimonials-container">
+        <div class="circle-card" id="testimonial-1">
+          <div class="testimonial-content">
+            <p>
+              "¡El equipo de Veterinaria Dr. Michito es increíble! Siempre
+              tratan a mi perro Max con mucho cariño y profesionalismo. Estoy
+              muy agradecida por su dedicación y cuidado."
+            </p>
+            <p><strong>Carlos López ★★★★★</strong></p>
+          </div>
+        </div>
+
+        <div class="circle-card" id="testimonial-2">
+          <div class="testimonial-content">
+            <p>
+              “Llevo a mis dos gatos a la Veterinaria Dr. Michito desde hace
+              años, y siempre he recibido un servicio excelente. El personal es
+              muy atento y las instalaciones están impecables.”
+            </p>
+            <p><strong>Ana García ★★★★★</strong></p>
+          </div>
+        </div>
+
+        <div class="testimonial-image">
+          <img src="../images/testimonials-dog.png" alt="Perro-Testimonios" />
+        </div>
+
+        <div class="circle-card" id="testimonial-3">
+          <div class="testimonial-content">
+            <p>
+              "Tuve una emergencia con mi perrito y el equipo de Dr. Michito lo
+              atendió de inmediato. Gracias a su rápido y excelente trabajo, mi
+              mascota está feliz y saludable."
+            </p>
+            <p><strong>María Fernández ★★★★★</strong></p>
+          </div>
+        </div>
+
+        <div class="circle-card" id="testimonial-4">
+          <div class="testimonial-content">
+            <p>
+              “Llevo a mis dos gatos a la Veterinaria Dr. Michito desde hace
+              años, y siempre he recibido un servicio excelente. El personal es
+              muy atento y las instalaciones están impecables.”
+            </p>
+            <p><strong>Fernando Rodriguez ★★★★★</strong></p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Sección de Contacto -->
