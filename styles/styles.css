@@ -107,6 +107,45 @@
     justify-content: center;
     align-items: center;
   }
+  /****************Sobre nosotros y nuestro equipo *******************/
+  #equipo {
+    text-align: center;
+    padding: 40px 0;
+  }
+  #equipo h2 {
+    font-size: 40px;
+    color: #44344F;
+    margin-bottom: 20px;
+  }
+  .team-carousel {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .team-member {
+    background-color: #44344F;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 10px;
+    color: #fff;
+  }
+  .team-member img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 150px;
+    display: block;
+    margin: 0 auto 10px;
+  }
+  .team-member h3 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  .team-member p {
+    font-size: 14px;
+    color: #BEB2C8;
+  }
   /********************************************************************/
   h1,
   h2,
