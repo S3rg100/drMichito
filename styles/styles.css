@@ -167,11 +167,11 @@
     min-height: 450px; /* Ajustar según sea necesario */
   }
   .team-member img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    width: 170px;  /* Puedes ajustar el tamaño según sea necesario */
+    height: 170px; /* Puedes ajustar el tamaño según sea necesario */
     display: block;
     margin: 0 auto 10px;
+    object-fit: contain; /* Asegura que las imágenes mantengan su proporción original */
   }
   .team-member h3 {
     font-size: 30px;
