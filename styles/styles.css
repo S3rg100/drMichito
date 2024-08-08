@@ -545,38 +545,52 @@ nav ul {
 }
 
 .contact-form {
-  background-color: #fff;
+  background-color: #B49FCC; /* Color de fondo morado */
   padding: 40px 20px;
-  text-align: center;
+  text-align: left;
+  border-radius: 5px;
+  position: relative;
 }
 
 .contact-form h2 {
-  font-size: 36px;
+  font-size: 100px;
   color: #44344f;
   margin-bottom: 20px;
+  margin-left: 80px;
 }
 
 .contact-form form {
-  max-width: 600px;
+  max-width: 1200px;
   margin: 0 auto;
+  max-height: 800px;
+}
+
+.contact-form .form-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .contact-form label {
-  display: block;
   font-size: 18px;
   color: #44344f;
   margin-bottom: 8px;
-  text-align: left;
+  display: block;
 }
 
 .contact-form input,
 .contact-form textarea {
-  width: 100%;
+  width: 48%;
   padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 2px solid #44344f; /* Línea de subrayado */
+  background-color: transparent;
   font-size: 16px;
+}
+
+.contact-form textarea {
+  width: 100%;
 }
 
 .contact-form button {
@@ -587,11 +601,22 @@ nav ul {
   border-radius: 5px;
   font-size: 18px;
   cursor: pointer;
+  display: block;
+  margin: 0 auto;
 }
 
 .contact-form button:hover {
   background-color: #564d80;
 }
+
+/* Agregando las huellas */
+.contact-form::after {
+  content: url('path/to/pawprints.png');
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+}
+
 
 footer {
   background-color: #46315f;
