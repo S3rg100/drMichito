@@ -206,6 +206,169 @@
   }
   /********************************************************************/
   h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    font-family: Jomhuria, serif;
+    letter-spacing: 5px;
+    line-height: 30px;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .LogoPrincipal{
+    width: 100px;
+    height: 100px;
+    margin: 0px;
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #44344f;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 45px;
+  }
+  
+  .auth-buttons a {
+    text-decoration: none;
+    margin-left: 10px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .auth-buttons .login {
+    color: #44344f;
+    border: 1px solid #44344f;
+  }
+  
+  .auth-buttons .register {
+    background-color: #564d80;
+    color: #fff;
+    border: none;
+  }
+  
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #44344f;
+    padding: 50px 140px;
+    color: #c2f970;
+  }
+  
+  .hero-content {
+    max-width: 600px;
+  }
+  
+  .hero-content h1 {
+    font-size: 150px;
+    line-height: 80px;
+    font-weight: 400;
+    color: #c2f970;
+  }
+  
+  .hero-content p {
+    font-size: 24px;
+    margin: 20px 0;
+    line-height: 40px;
+  }
+  
+  .contact-button {
+    display: flexbox;
+    background-color: #c2f970;
+    color: #44344f;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .hero-image img {
+    max-width: 120%;
+    max-height: 200;
+    height: auto;
+    width: auto;
+    position: relative;
+    top: 155px;
+  }
+  
+  .testimonials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 80px;
+  }
+  
+  .testimonials h2 {
+    font-size: 100px;
+    line-height: 80px;
+    font-weight: 400;
+    color: #c2f970;
+  }
+  
+  .testimonials-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+    height: 800px;
+    padding: 20px 0px;
+  }
+  
+  .circle-card {
+    background-color: #44344f;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    border: 5px solid #c2f970;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+  
+  .testimonial-content {
+    max-width: 160px;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 10px;
+    font-style: italic;
+  }
+  
+  #testimonial-1 {
+    top: 40%;
+  }
+  
+  #testimonial-2 {
+    left: 5%;
+  }
+  
+  #testimonial-3 {
+    right: 5%;
+  }
+  
+  #testimonial-4 {
+    top: 40%;
+  }
 h2,
 h3,
 h4,
