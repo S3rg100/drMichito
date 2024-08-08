@@ -608,16 +608,7 @@ nav ul {
 .contact-form button:hover {
   background-color: #564d80;
 }
-
-/* Agregando las huellas */
-.contact-form::after {
-  content: url('path/to/pawprints.png');
-  position: absolute;
-  bottom: 10px;
-  right: 20px;
-}
-
-
+/**************** FOOTER LEFT *********************/
 footer {
   background-color: #46315f;
   color: #ffffff;
@@ -641,7 +632,20 @@ footer {
 .footer-left {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* Mantener los elementos centrados */
+  position: relative;
+}
+
+.footer-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.LogoPrincipalBlanco {
+  width: 150px;
+  height: 150px;
+  margin: 0px;
 }
 
 
@@ -672,6 +676,7 @@ footer {
 .footer-copyright {
   text-align: center;
   margin-top: 20px;
+  margin-bottom: 0px;
   font-size: 14px;
 }
 
