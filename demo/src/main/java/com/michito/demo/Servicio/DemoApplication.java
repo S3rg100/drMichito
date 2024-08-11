@@ -1,4 +1,4 @@
-package com.michito.demo;
+package com.michito.demo.Servicio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
