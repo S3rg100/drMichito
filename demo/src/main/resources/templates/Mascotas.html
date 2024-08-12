@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dr. Michito</title>
+    <link rel="stylesheet" href="css/styles2.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- *******************CARRUSEL SLICK******************* -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo"><img src="../images/iconos/Logo_principal_dr.michito.png" class="LogoPrincipal">Dr. Michito</div>
+
+      <!-- Navbar de Bootstrap -->
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Inicio</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#servicios">Servicios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#nosotros">Sobre Nosotros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#testimonios">Testimonios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contacto">Contacto</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="auth-buttons">
+        <a href="#" class="login">Iniciar Sesión</a>
+        <a href="#" class="register">Registrarse</a>
+      </div>
+    </header>
+
+    <!-- Sección Hero de Bienvenida -->
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <h1>Bienvenidos a Dr. Michito</h1>
+        <p>Atención veterinaria para perros y gatos.<br />Servicio 24 horas.</p>
+        <br />
+        <a href="#" class="contact-button">Conoce Nuestros Servicios</a>
+      </div>
+      <div class="hero-image">
+        <img
+          src="../images/ImagenBienvenidaPerroyGato.webp"
+          alt="Perro y Gato"
+        />
+      </div>
+    </section>
+
+    <table>
+      <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Peso</th>
+            <th>Enfermedad</th>
+            <th>Foto</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr th:each = "mascota: ${Mascotas}">
+          <td th:text="${mascota.nombre}"></td>
+          <td th:text="${mascota.edad}"></td>
+          <td th:text="${mascota.peso}"></td>
+          <td th:text="${mascota.enfermedad}"></td>
+          <td th:text="${mascota.foto}"></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="CambioSec"><hr /></div>
+    <!-- Sección de Contacto -->
+<section class="contact-form" id="contacto">
+  <h2>Contacto</h2>
+
+  <!-- Formulario de Contacto -->
+  <form action="#">
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required />
+      
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" name="apellido" required />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Correo:</label>
+      <input type="email" id="email" name="email" required />
+      
+      <label for="direccion">Dirección:</label>
+      <input type="text" id="direccion" name="direccion" required />
+    </div>
+
+    <label for="message">Mensaje:</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+
+    <button type="submit">Enviar</button>
+  </form>
+</section>
+
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-left">
+          <div class="footer-logo">
+            <img src="../images/iconos/Logo_principal_dr.michito_blanco.png" class="LogoPrincipalBlanco">
+          </div>
+          <p>Dr. Michito</p>
+          <div class="social-icons">
+            <a href="#"><img src="../images/facebook.svg" alt="Facebook" /></a>
+            <a href="#"><img src="../images/youtube.svg" alt="YouTube" /></a>
+            <a href="#"><img src="../images/instagram.svg" alt="Instagram"/></a>
+          </div>
+        </div>
+        <div class="footer-right">
+          <p>Dirección: Calle Falsa 123, Ciudad, País</p>
+          <p>Teléfono: (123) 456-7890</p>
+          <p>Email: contacto@drmichito.com</p>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>© 2024 Dr. Michito. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+    <!-- *******************CARRUSEL SLICK******************* -->
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.11.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        $(".team-carousel").slick({
+          dots: false,
+          infinite: true,
+          speed: 800,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: true,
+              },
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              },
+            },
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+          ],
+        });
+      });
+    </script>
+  </body>
+</html>
