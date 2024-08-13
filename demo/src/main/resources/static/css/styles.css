@@ -716,3 +716,10 @@ footer {
     max-width: 150px;
   }
 }
+/**************************************************/
+.foto_mascota{
+  width: 100px;
+}
+#mascotas_table{
+  padding: 40px;
+}
