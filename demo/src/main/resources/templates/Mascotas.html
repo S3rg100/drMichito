@@ -49,6 +49,7 @@
       <table class="table">
         <thead class="table-dark">
             <tr>
+              <th>Id</th>
               <th>Nombre</th>
               <th>Edad</th>
               <th>Peso</th>
@@ -58,6 +59,7 @@
         </thead>
         <tbody>
           <tr th:each = "mascota: ${Mascotas}">
+            <td th:text="${mascota.id}"></td>
             <td th:text="${mascota.nombre}"></td>
             <td th:text="${mascota.edad}"></td>
             <td th:text="${mascota.peso}"></td>
