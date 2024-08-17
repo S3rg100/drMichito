@@ -7,7 +7,7 @@ public class Mascota {
     private int peso;
     private String enfermedad;
     private String foto;
-    
+    public Mascota(){}
     public Mascota(int id,String nombre,int edad,int peso,String enfermedad,String foto){
         this.id=id;
         this.nombre=nombre;
