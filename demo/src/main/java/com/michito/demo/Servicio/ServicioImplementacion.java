@@ -1,4 +1,8 @@
 package com.michito.demo.Servicio;
+import com.michito.demo.Entidades.Cliente;
+import com.michito.demo.Entidades.Mascota;
+import com.michito.demo.Repositorio.MascotasRepositorio;
+
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +26,34 @@ public class ServicioImplementacion implements Servicio{
     @Override
     public Collection<Mascota> searchAll() {
         return repo.findAll();
+    }
+    @Override
+    public Cliente searchByIdCliente(int id){
+        return repo.findByIdCliente(id);
+    }
+
+    @Override
+    public Collection<Cliente> searchAllClientes() {
+        return repo.findAllClientes();
+    }
+
+    @Override
+    public void deleteCliente(int id) {
+        repo.deleteCliente(id);
+    }
+
+    @Override
+    public void updateCliente(Cliente cliente) {
+        repo.updateCliente(cliente);
+    }
+
+    @Override
+    public void addCliente(Cliente cliente) {
+        repo.addCliente(cliente);
+    }
+
+    @Override
+    public Collection<Mascota> searchMascotasDeCliente(int id) {
+        return repo.findByClienteId(id);
     }
 }

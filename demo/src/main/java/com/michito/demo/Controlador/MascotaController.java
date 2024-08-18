@@ -17,6 +17,7 @@ public class MascotaController {
 
     @GetMapping("/info/{id}")
     public String mostrarMascota(Model model, @PathVariable("id") int identificador) {
+        
         model.addAttribute("Mascotas", serv.searchById(identificador));
         return "Mascotas";
     }

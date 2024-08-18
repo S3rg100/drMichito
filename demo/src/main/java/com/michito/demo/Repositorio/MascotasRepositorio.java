@@ -1,13 +1,9 @@
 package com.michito.demo.Repositorio;
-
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Map;
-
+import java.util.*;
 import org.springframework.stereotype.Repository;
-
-import com.michito.demo.Entidades.Cliente;
 import com.michito.demo.Entidades.Mascota;
+import com.michito.demo.Entidades.Cliente;
 
 @Repository
 public class MascotasRepositorio {
@@ -51,15 +47,16 @@ public class MascotasRepositorio {
     }
     
     public Mascota findById(int id){
+        Mascota ms= new Mascota();
         for (Cliente c : data.values()) {
               for(Mascota m: c.getMascotas().values())  {
                 if(m.getId()==id){
-                    return m;
+                    ms= m;
                 }
               }
         }
         
-        return null;
+        return ms;
     }
     public Collection<Mascota> findAll(){
         Map<Integer,Mascota>aux = new HashMap<>();
@@ -81,6 +78,15 @@ public class MascotasRepositorio {
       }
         return aux.values();
     }
+
+    public Collection<Cliente> findAllClientes(){
+      
+        return data.values();
+    }
+    public Cliente findByIdCliente(int id){        
+        return data.get(id);
+    }
+
     public void deleteCliente(int id){
         data.remove(id);
     }
