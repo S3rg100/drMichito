@@ -1,5 +1,4 @@
 package com.michito.demo.Repositorio;
-
 import java.util.HashMap;
 import java.util.*;
 import org.springframework.stereotype.Repository;
@@ -79,6 +78,7 @@ public class MascotasRepositorio {
       }
         return aux.values();
     }
+
     public Collection<Cliente> findAllClientes(){
       
         return data.values();
@@ -86,6 +86,7 @@ public class MascotasRepositorio {
     public Cliente findByIdCliente(int id){        
         return data.get(id);
     }
+
     public void deleteCliente(int id){
         data.remove(id);
     }

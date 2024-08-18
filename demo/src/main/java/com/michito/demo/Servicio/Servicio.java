@@ -7,7 +7,6 @@ import com.michito.demo.Entidades.Mascota;
 public interface Servicio {
     public Mascota searchById(int id);
     public Collection<Mascota> searchAll();
-    
     public Cliente searchByIdCliente(int id);
     public Collection<Cliente> searchAllClientes();
     public void deleteCliente(int id);
