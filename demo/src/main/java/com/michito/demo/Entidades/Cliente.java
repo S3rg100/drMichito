@@ -1,6 +1,7 @@
 package com.michito.demo.Entidades;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Cliente {
     private int id;
@@ -26,6 +27,7 @@ public class Cliente {
     public void agregarMascota(int id,Mascota mascota){
         mascotas.put(id,mascota);
     }
+    
     public void setCedula(String cedula){
         this.cedula=cedula;
     }

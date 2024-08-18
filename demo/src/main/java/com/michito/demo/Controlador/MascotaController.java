@@ -4,9 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.michito.demo.Entidades.Mascota;
 import com.michito.demo.Servicio.Servicio;
 
 @Controller
@@ -29,7 +32,16 @@ public class MascotaController {
     }
 
     @GetMapping("/agregar")
-    public String Agregar(Model model) {
+    public String redirigirAgregar(Model model) {
+        Mascota newMascota = new Mascota(0, "", 0, 0, "", "");
+        model.addAttribute("mascota", newMascota);
         return "agregarMascota";
+    }
+
+    @PostMapping("/agregar")
+    public String Agregar(@ModelAttribute ("mascota") Mascota newMascota) {
+        
+        serv.addMascota(newMascota);
+        return "redirect:/Mascotas/all";
     }
 }

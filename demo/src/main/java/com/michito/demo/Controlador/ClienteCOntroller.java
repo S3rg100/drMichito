@@ -42,7 +42,7 @@ public class ClienteCOntroller {
         model.addAttribute("cliente", serv.searchByIdCliente(identificador));
         return "modificar-cliente";
     }
-    
+
     @PostMapping("/update/{id}")
     public String actualizar(@ModelAttribute("cliente") Cliente cliente) {
         serv.updateCliente(cliente);
