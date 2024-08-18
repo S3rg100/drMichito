@@ -9,22 +9,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.michito.demo.Servicio.Servicio;
 
-
 @Controller
 @RequestMapping("/Mascotas")
 public class MascotaController {
     @Autowired
     Servicio serv;
 
-
     @GetMapping("/info/{id}")
     public String mostrarMascota(Model model, @PathVariable("id") int identificador) {
         model.addAttribute("Mascotas", serv.searchById(identificador));
         return "Mascotas";
     }
+
     @GetMapping("/all")
     public String mostrarMascota(Model model) {
         model.addAttribute("Mascotas", serv.searchAll());
-        return "Mascotas";
+        return "vistaMascotas";
+    }
+
+    @GetMapping("/agregar")
+    public String Agregar(Model model) {
+        return "agregarMascota";
     }
 }

@@ -1,0 +1,129 @@
+body {
+    font-family: 'Roboto', serif;
+    background-color: #f8f9fa;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #44344F;
+    color: white;
+    min-height: 100vh;
+    padding-top: 40px;
+    font-family: 'Roboto', serif;
+}
+
+.sidebar .nav-link {
+    color: white;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.sidebar .nav-link.active {
+    background-color: #5a4076;
+    border-radius: 4px;
+}
+
+/* Estilo del encabezado */
+.h2 {
+    font-family: 'Jomhuria', serif;
+    letter-spacing: 4px;
+    color: #5a4076;
+    font-size: 80px;
+}
+
+/* Estilo de la tabla */
+.table th, .table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table-responsive {
+    margin-top: 20px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #adcc9f;
+}
+
+/* Redimensionar y redondear la imagen */
+.foto_mascota {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #c0c0c0;
+}
+
+/* Estilo de los botones de acción */
+.action-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.btn-edit {
+    margin-right: 10px;
+}
+
+.btn-green {
+    background-color: #C2F970;
+    border-color: #C2F970;
+    color: #44344F;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+}
+
+.pagination .page-item .page-link {
+    color: #6f42c1;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+    color: white;
+}
+
+/* Estilo de la tarjeta de agregar mascota */
+.agregar-mascota-card {
+    margin: auto;
+    max-width: 600px;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: #B49FCC;
+    font-family: 'Roboto', serif;
+}
+
+/* Estilo del título */
+.agregar-mascota-titulo {
+    font-family: Jomhuria, serif;
+    letter-spacing: 4px;
+    color: #5a4076;
+    font-size: 80px;
+}
+
+/* Botones */
+.btn-outline-secondary {
+    border: none;
+    background: transparent;
+}
+
+.btn-outline-secondary:hover {
+    background: #6f42c1;
+    color: white;
+}
+
+.btn-dark {
+    background-color: #5a4076;
+    border-color: #5a4076;
+}
+
+.btn-dark:hover {
+    background-color: #44344f;
+}
