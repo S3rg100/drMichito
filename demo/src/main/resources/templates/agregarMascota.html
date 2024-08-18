@@ -38,16 +38,16 @@
                 <a class="nav-link" href="#">Medicamentos</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="#">Mascotas</a>
+                <a class="nav-link" href="/Mascotas/all">Mascotas</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Clientes</a>
+                <a class="nav-link" href="/Clientes/all">Clientes</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Tratamientos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Salir</a>
+                <a class="nav-link" href="/">Salir</a>
               </li>
             </ul>
           </div>
@@ -70,10 +70,15 @@
               <h2 class="text-center agregar-mascota-titulo">
                 Agregar Mascota
               </h2>
-              <form th:action="@{/mascotas/guardar}" method="post">
+              <form
+                th:object="${mascota}"
+                th:action="@{/Mascotas/agregar}"
+                method="post"
+              >
                 <div class="mb-3">
                   <label for="nombre" class="form-label">Nombre</label>
                   <input
+                    th:field="*{nombre}"
                     type="text"
                     class="form-control"
                     id="nombre"
@@ -86,6 +91,7 @@
                   <div class="col-md-6 mb-3">
                     <label for="edad" class="form-label">Edad</label>
                     <input
+                      th:field="*{edad}"
                       type="number"
                       class="form-control"
                       id="edad"
@@ -97,6 +103,7 @@
                   <div class="col-md-6 mb-3">
                     <label for="peso" class="form-label">Peso (kg)</label>
                     <input
+                      th:field="*{peso}"
                       type="number"
                       class="form-control"
                       id="peso"
@@ -107,23 +114,25 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <label for="raza" class="form-label">Raza</label>
+                  <label for="enfermedad" class="form-label">Enfermedad</label>
                   <input
+                    th:field="*{enfermedad}"
                     type="text"
                     class="form-control"
-                    id="raza"
-                    name="raza"
-                    placeholder="Ingrese la raza de la mascota"
+                    id="enfermedad"
+                    name="enfermedad"
+                    placeholder="Ingrese la enfermedad"
                     required
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="fotoUrl" class="form-label">Foto</label>
+                  <label for="foto" class="form-label">Foto</label>
                   <input
+                    th:field="*{foto}"
                     type="url"
                     class="form-control"
-                    id="fotoUrl"
-                    name="fotoUrl"
+                    id="foto"
+                    name="foto"
                     placeholder="Ingrese la URL de la foto"
                     required
                   />
