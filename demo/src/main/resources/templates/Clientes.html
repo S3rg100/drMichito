@@ -54,7 +54,11 @@
               <th>Nombre</th>
               <th>Correo</th>
               <th>Celular</th>
-              <th><button type="submit">Agregar</button></th>
+              <th>
+                <div class="auth-buttons">
+                <a th:href="@{/Clientes/agregar}" class="register">Agregar</a>
+                </div>
+              </th>
             </tr>
         </thead>
         <tbody>
@@ -65,9 +69,15 @@
             <td th:text="${Clientes.correo}"></td>
             <td th:text="${Clientes.celular}"></td>
             <td>
-                <button type="submit" name="action" value="info" >Información</button>
-                <button type="submit" name="action" value="delete">Eliminar</button>
-                <button type="submit" name="action" value="update">Actualizar</button>
+              <div class="auth-buttons">
+                <a th:href="@{/Clientes/Mascotas/{id}(id=${Clientes.id})}" class="infobtn">Información</a>
+              </div>
+              <div class="auth-buttons">
+                <a th:href="@{/Clientes/delete/{id}(id=${Clientes.id})}" class="deletebtn">Eliminar</a>
+              </div>
+              <div class="auth-buttons">
+                <a th:href="@{/Clientes/update/{id}(id=${Clientes.id})}" class="register">Actualizar</a>
+              </div>
             </td>
           </tr>
         </tbody>

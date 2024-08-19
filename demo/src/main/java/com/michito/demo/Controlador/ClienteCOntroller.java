@@ -23,7 +23,7 @@ public class ClienteCOntroller {
     @GetMapping("/agregar")
     public String Agregar(Model model) {
         int x=serv.searchAllClientes().size();
-        Cliente c = new Cliente(x,"","","",0);
+        Cliente c = new Cliente(x+1,"","","",0);
         model.addAttribute("cliente", c);
         return "modificar-cliente";
     }
