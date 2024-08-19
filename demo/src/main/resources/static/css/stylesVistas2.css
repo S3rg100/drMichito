@@ -1,4 +1,3 @@
-
 body {
     font-family: 'Roboto', serif;
     background-color: #f8f9fa;
@@ -128,49 +127,7 @@ body {
 .btn-dark:hover {
     background-color: #44344f;
 }
-/*******************/
-.foto_mascota{
-    width: 100px;
-}
-#mascotas_table{
-    padding: 40px;
-    background-color:  #46315f;
-    height: 1600px;
 
+button,a{
+    margin-top: 18px;
 }
-
-.LogoPrincipal{
-    width: 100px;
-    height: 100px;
-    margin: 0px;
-}
-.auth-buttons{
-    margin: 15px;
-}
-.auth-buttons a {
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 5px;
-  font-size: 16px;
-}
-.auth-buttons .register {
-  background-color: #564d80;
-  color: #fff;
-  border: none;
-}
-.auth-buttons .infobtn {
-    background-color: #b8aee6;
-    color: #fff;
-    border: none;
-}
-.auth-buttons .deletebtn {
-    background-color: #d61e18;
-    color: #fff;
-    border: none;
-}
-
-
-
-
- 
-  
