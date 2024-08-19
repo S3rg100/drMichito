@@ -14,4 +14,6 @@ public interface Servicio {
     public void updateCliente(Cliente cliente);
     public void addCliente(Cliente cliente);
     public Collection<Mascota> searchMascotasDeCliente(int id);
+    public void updateMascota(Mascota mascotaEditada);
+    public void eliminarMascota(int id);
 }

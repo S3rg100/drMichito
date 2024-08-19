@@ -103,21 +103,13 @@
                     <a href="" class="btn btn-green">Ver</a>
                   </td>
                   <td>
-                    <a href="#" class="btn btn-sm btn-edit">
-                      <img
-                        th:src="@{/images/iconos/editIcon.png}"
-                        alt="Editar"
-                        class="action-icon"
-                      />
+                    <a th:href="@{editar/{id}(id=${mascota.id})}" class="btn btn-sm btn-edit">
+                        <img th:src="@{/images/iconos/editIcon.png}" alt="Editar" class="action-icon" />
                     </a>
-                    <a href="#" class="btn btn-sm btn-delete">
-                      <img
-                        th:src="@{/images/iconos/trashicon.png}"
-                        alt="Eliminar"
-                        class="action-icon"
-                      />
-                    </a>
-                  </td>
+                    <a th:href="@{/Mascotas/eliminar/{id}(id=${mascota.id})}" class="btn btn-sm btn-delete" onclick="return confirm('¿Estás seguro de que deseas eliminar esta mascota?');">
+                      <img th:src="@{/images/iconos/trashicon.png}" alt="Eliminar" class="action-icon" />
+                  </a>              
+                </td>
                 </tr>
               </tbody>
             </table>

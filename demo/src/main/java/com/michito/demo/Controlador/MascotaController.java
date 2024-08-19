@@ -44,4 +44,27 @@ public class MascotaController {
         serv.addMascota(newMascota);
         return "redirect:/Mascotas/all";
     }
+
+    @GetMapping("/editar/{id}")
+    public String mostrarFormularioEdicion(@PathVariable("id") int identificador, Model model) {
+        Mascota mascota = serv.searchById(identificador);
+        model.addAttribute("mascota", mascota);
+        return "editarMascota";
+    }
+
+    @PostMapping("/editar/{id}")
+    public String editarMascota(@PathVariable("id") int identificador, @ModelAttribute("mascota") Mascota mascotaEditada) {
+        mascotaEditada.setId(identificador);
+        serv.updateMascota(mascotaEditada);
+        return "redirect:/Mascotas/all";
+    }
+
+
+    @GetMapping("/eliminar/{id}")
+    public String eliminarMascota(@PathVariable("id") int identificador) {
+        serv.eliminarMascota(identificador);
+        return "redirect:/Mascotas/all";
+    }
+
+    
 }

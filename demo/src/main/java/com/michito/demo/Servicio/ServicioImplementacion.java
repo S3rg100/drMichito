@@ -59,4 +59,16 @@ public class ServicioImplementacion implements Servicio{
     public Collection<Mascota> searchMascotasDeCliente(int id) {
         return repo.findByClienteId(id);
     }
+
+    @Override
+    public void updateMascota(Mascota mascotaEditada) {
+        repo.updateMascota(mascotaEditada);
+    }
+
+    @Override
+    public void eliminarMascota(int id) {
+        repo.eliminarMascota(id);;
+    }
+
+    
 }

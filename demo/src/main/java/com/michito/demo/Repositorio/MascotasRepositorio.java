@@ -2,6 +2,7 @@ package com.michito.demo.Repositorio;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
@@ -134,5 +135,33 @@ public class MascotasRepositorio {
         int last = listaMascotas.get(tam).getId();
         newMascota.setId(last + 1);
         data.get(1).agregarMascota(last + 1, newMascota);
+    }
+
+    public void updateMascota(Mascota mascotaEditada) {
+        for (Cliente c : data.values()) {
+            for (Mascota m : c.getMascotas().values()) {
+                if (m.getId() == mascotaEditada.getId()) {
+                    m.setNombre(mascotaEditada.getNombre());
+                    m.setEdad(mascotaEditada.getEdad());
+                    m.setPeso(mascotaEditada.getPeso());
+                    m.setEnfermedad(mascotaEditada.getEnfermedad());
+                    m.setFoto(mascotaEditada.getFoto());
+                    
+                }
+            }
+        }
+    }
+
+    public void eliminarMascota(int id) {
+        for (Cliente c : data.values()) {
+            Iterator<Mascota> iterator = c.getMascotas().values().iterator();
+            while (iterator.hasNext()) {
+                Mascota m = iterator.next();
+                if (m.getId() == id) {
+                    iterator.remove(); // Elimina la mascota
+                    break;
+                }
+            }
+        }
     }
 }
