@@ -59,8 +59,14 @@ public class ClienteCOntroller {
     @GetMapping("/Mascotas/{id}")
     public String mascotasDeCliente(Model model, @PathVariable("id") int identificador) {
         model.addAttribute("Mascotas", serv.searchMascotasDeCliente(identificador));
-        return "Mascotas";
+        return "MascotasXCliente";
     }
+    @GetMapping("/Mascotas/editar")
+    public String agregarMascotaAunCliente(Model model, @PathVariable("id") int identificador) {
+        model.addAttribute("Mascotas", serv.searchMascotasDeCliente(identificador));
+        return "editarMascota";
+    }
+
     
     
 
