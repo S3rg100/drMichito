@@ -35,7 +35,7 @@ public class MascotaController {
     public String redirigirAgregar(Model model) {
         Mascota newMascota = new Mascota(0, "", 0, 0, "", "");
         model.addAttribute("mascota", newMascota);
-        return "vistaMascotas";
+        return "agregarMascota";
     }
 
     @PostMapping("/agregar")
