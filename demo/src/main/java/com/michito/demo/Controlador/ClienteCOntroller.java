@@ -23,9 +23,10 @@ public class ClienteCOntroller {
     @GetMapping("/agregar")
     public String Agregar(Model model) {
         int x=serv.searchAllClientes().size();
-        Cliente c = new Cliente(x+1,"","","",0);
+        int y = serv.searchById(x).getId();
+        Cliente c = new Cliente(y+1,"","","",0);
         model.addAttribute("cliente", c);
-        return "editarCliente";
+        return "addCliente";
     }
     @GetMapping("/info/{id}")
     public String mostrar(Model model, @PathVariable("id") int identificador) {
