@@ -25,7 +25,7 @@ public class ClienteCOntroller {
         int x=serv.searchAllClientes().size();
         Cliente c = new Cliente(x+1,"","","",0);
         model.addAttribute("cliente", c);
-        return "modificar-cliente";
+        return "editarCliente";
     }
     @GetMapping("/info/{id}")
     public String mostrar(Model model, @PathVariable("id") int identificador) {
