@@ -22,6 +22,10 @@ body {
     background-color: #5a4076;
     border-radius: 4px;
 }
+.sidebar .nav-item.active {
+    background-color: #5a4076; 
+    border-radius: 4px; 
+}
 
 /* Estilo del encabezado */
 .h2 {
