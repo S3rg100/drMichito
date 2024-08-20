@@ -44,7 +44,7 @@
     </nav>
  
   </header>
-    <!--Formulario-->
+    <!--Formulario-->     
     <form th:object="${cliente}" th:action="@{/Clientes/update/{id}(id=${cliente.id})}" method="post">
         <div class="form-group">
             <label for="cedula">Cedula</label>

@@ -40,7 +40,7 @@ public class ClienteCOntroller {
     @GetMapping("/update/{id}")
     public String actualizarForm(Model model, @PathVariable("id") int identificador) {
         model.addAttribute("cliente", serv.searchByIdCliente(identificador));
-        return "modificar-cliente";
+        return "editarCliente";
     }
 
     @PostMapping("/update/{id}")
@@ -59,7 +59,7 @@ public class ClienteCOntroller {
     @GetMapping("/Mascotas/{id}")
     public String mascotasDeCliente(Model model, @PathVariable("id") int identificador) {
         model.addAttribute("Mascotas", serv.searchMascotasDeCliente(identificador));
-        return "Mascotas";
+        return "vistaMascotas";
     }
     
     
