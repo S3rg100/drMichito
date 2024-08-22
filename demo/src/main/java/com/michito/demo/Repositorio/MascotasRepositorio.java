@@ -164,4 +164,13 @@ public class MascotasRepositorio {
             }
         }
     }
+
+    public Cliente findByCedula(String cedula) {
+        for (Cliente c : data.values()) {
+            if (c.getCedula().equals(cedula)) {
+                return c;
+            }
+        }
+        return null;
+    }
 }

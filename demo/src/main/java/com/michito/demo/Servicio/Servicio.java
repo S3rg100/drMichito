@@ -16,4 +16,6 @@ public interface Servicio {
     public Collection<Mascota> searchMascotasDeCliente(int id);
     public void updateMascota(Mascota mascotaEditada);
     public void eliminarMascota(int id);
+
+    public Cliente findByCedula(String cedula);
 }
