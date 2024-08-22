@@ -67,8 +67,11 @@ public class ServicioImplementacion implements Servicio{
 
     @Override
     public void eliminarMascota(int id) {
-        repo.eliminarMascota(id);;
+        repo.eliminarMascota(id);
     }
 
-    
+    @Override
+    public Cliente findByCedula(String cedula){
+        return repo.findByCedula(cedula);
+    }
 }

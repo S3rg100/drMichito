@@ -42,9 +42,15 @@
         <div class="main-content">
           <h1>Iniciar Sesión</h1>
 
-          <label for="cedula">Cédula</label>    
-          <input type="text" id="cedula" name="cedula" />
-          <button>Iniciar Sesión</button>
+          <form th:action="@{/login}" method="post" th:object="${loginForm}">
+            <div>
+                <label for="cedula">Cédula</label>
+                <input type="text" id="cedula" th:field="*{cedula}" />
+            </div>
+            <div>
+                <button type="submit">Iniciar Sesión</button>
+            </div>
+        </form>
         </div>
       </div>
     </div>
