@@ -141,28 +141,26 @@
                   <th>Nombre</th>
                   <th>Edad</th>
                   <th>Peso</th>
-                  <th>Enfermedad</th>
                   <th>Foto</th>
                   <th>Historial</th>
                   <th>Acciones</th>
                 </tr>
               </thead>
               <tbody>
-                <tr th:each="mascota: ${Mascotas}">
-                  <td th:text="${mascota.id}"></td>
-                  <td th:text="${mascota.nombre}"></td>
-                  <td th:text="${mascota.edad}"></td>
-                  <td th:text="${mascota.peso}"></td>
-                  <td th:text="${mascota.enfermedad}"></td>
+                <tr th:each="Mascotas: ${Mascotas}">
+                  <td th:text="${Mascotas.id}"></td>
+                  <td th:text="${Mascotas.nombre}"></td>
+                  <td th:text="${Mascotas.edad}"></td>
+                  <td th:text="${Mascotas.peso}"></td>
                   <td>
-                    <img th:src="@{${mascota.foto}}" class="foto_mascota" />
+                    <img th:src="@{${Mascotas.foto}}" class="foto_mascota" />
                   </td>
                   <td>
                     <a href="" class="btn btn-green">Ver</a>
                   </td>
                   <td>
                     <a
-                      th:href="@{editar/{id}(id=${mascota.id})}"
+                      th:href="@{editar/{id}(id=${Mascotas.id})}"
                       class="btn btn-sm btn-edit"
                     >
                       <img
@@ -172,7 +170,7 @@
                       />
                     </a>
                     <a
-                      th:href="@{/Mascotas/eliminar/{id}(id=${mascota.id})}"
+                      th:href="@{/Mascotas/eliminar/{id}(id=${Mascotas.id})}"
                       class="btn btn-sm btn-delete"
                       onclick="return confirm('¿Estás seguro de que deseas eliminar esta mascota?');"
                     >

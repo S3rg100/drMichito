@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.michito.demo.Entidades.Cliente;
-import com.michito.demo.Entidades.LoginForm;
+import com.michito.demo.Entidades.Login;
 import com.michito.demo.Servicio.Servicio;
 
 @Controller
@@ -21,13 +21,13 @@ public class LogInController {
 
     @GetMapping("")
     public String iniciar(Model model) {
-        model.addAttribute("loginForm", new LoginForm());
+        model.addAttribute("loginForm", new Cliente());
         return "logIn";
     }
     
     @PostMapping("")
-    public String procesarLogin(@ModelAttribute("loginForm") LoginForm loginForm) {
-        String cedula = loginForm.getCedula();
+    public String procesarLogin(@ModelAttribute("loginForm") Login loginForm) {
+        String cedula = loginForm.getUsuario();
         Cliente cliente = serv.findByCedula(cedula);
     
         if (cliente != null) {

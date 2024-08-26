@@ -1,21 +1,54 @@
 package com.michito.demo.Entidades;
 
+import java.util.*;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+
+@Entity
 public class Mascota {
+    @Id
+    @GeneratedValue
     private int id;
+    
     private String nombre;
-    private int edad;
     private int peso;
-    private String enfermedad;
+    private int edad;
     private String foto;
+    
+    @ManyToOne
+    private Cliente cliente;
+    
+    @OneToMany(mappedBy = "mascota")
+    private List<Tratamieneto> tratamientos = new ArrayList<>();
+    
+    public List<Tratamieneto> getTratamientos() {
+        return tratamientos;
+    }
+    public void setTratamientos(List<Tratamieneto> tratamientos) {
+        this.tratamientos = tratamientos;
+    }
+    
+
+
+   
     public Mascota(){}
-    public Mascota(int id,String nombre,int edad,int peso,String enfermedad,String foto){
-        this.id=id;
+    public Mascota(String nombre,int edad,int peso ,String foto){
         this.nombre=nombre;
         this.edad=edad;
         this.peso=peso;
-        this.enfermedad=enfermedad;
         this.foto=foto;
     }
+    public Cliente getCliente() {
+        return cliente;
+    }
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+    
     public int getId(){
         return id;
     }
@@ -27,9 +60,6 @@ public class Mascota {
     }
     public int getPeso() {
         return peso;
-    }
-    public String getEnfermedad() {
-        return enfermedad;
     }
     public String getFoto() {
         return foto;
@@ -47,10 +77,8 @@ public class Mascota {
     public void setPeso(int peso) {
         this.peso = peso;
     }
-    public void setEnfermedad(String enfermedad) {
-        this.enfermedad = enfermedad;
-    }
     public void setFoto(String foto) {
         this.foto = foto;
     }
+   
 }
