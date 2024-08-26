@@ -27,40 +27,98 @@
     />
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="row">
+    
+      <div class="contenedor-principal">
         <!-- Sidebar -->
-        <nav class="col-md-2 d-none d-md-block sidebar">
-          <div class="sidebar-sticky">
-            <h2 class="sidebar-heading">Dr. Michito</h2>
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Dashboard</a>
+        <div class="barra-lateral">
+          <div>
+            <div class="nombre-pagina">
+              <img
+                id="logo"
+                th:src="@{/images/iconos/Logo_principal_dr.michito_blanco.png}"
+                alt="logo"
+              />
+              <span>Dr. Michito</span>
+            </div>
+          </div>
+
+          <nav class="navegacion">
+            <ul>
+              <li>
+                <a id="dashboard" href="#">
+                  <img
+                    th:src="@{/images/iconos/barraLateral/chart-pie.png}"
+                    alt="dashboard"
+                  />
+                  <span>Dashboard</span>
+                </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Personal</a>
+              <li>
+                <a id="personal" href="#">
+                  <img
+                    th:src="@{/images/iconos/barraLateral/identification.png}"
+                    alt="personal"
+                  />
+                  <span>Personal</span>
+                </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Medicamentos</a>
+              <li>
+                <a id="medicamentos" href="#">
+                  <img
+                    th:src="@{/images/iconos/barraLateral/pills.png}"
+                    alt="medicamentos"
+                  />
+                  <span>Medicamentos</span>
+                </a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/Mascotas/all">Mascotas</a>
+              <li>
+                <a id="mascotas" href="/Mascotas/all">
+                  <img
+                    th:src="@{/images/iconos/barraLateral/dog.png}"
+                    alt="mascotas"
+                  />
+                  <span>Mascotas</span>
+                </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/Clientes/all">Clientes</a>
+              <li>
+                <a id="clientes" href="/Clientes/all">
+                  <img
+                    th:src="@{/images/iconos/barraLateral/users.png}"
+                    alt="clientes"
+                  />
+                  <span>Clientes</span>
+                </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Tratamientos</a>
+              <li>
+                <a id="tratamientos" href="#">
+                  <img
+                    th:src="@{/images/iconos/barraLateral/Stetoscope.png}"
+                    alt="tratamientos"
+                  />
+                  <span>Tratamientos</span>
+                </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/">Salir</a>
+
+              <li>
+                <a id="salir" href="/">
+                  <img
+                    th:src="@{/images/iconos/arrow-circle-left-white.png}"
+                    alt="salir"
+                  />
+                  <span>Salir</span>
+                </a>
               </li>
             </ul>
+          </nav>
+
+          <div>
+            <div class="linea"></div>
+            <!---->
           </div>
-        </nav>
+        </div>
 
         <!-- Main content -->
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 contenido-principal">
           <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
           >
@@ -103,13 +161,28 @@
                     <a href="" class="btn btn-green">Ver</a>
                   </td>
                   <td>
-                    <a th:href="@{editar/{id}(id=${mascota.id})}" class="btn btn-sm btn-edit">
-                        <img th:src="@{/images/iconos/editIcon.png}" alt="Editar" class="action-icon" />
+                    <a
+                      th:href="@{editar/{id}(id=${mascota.id})}"
+                      class="btn btn-sm btn-edit"
+                    >
+                      <img
+                        th:src="@{/images/iconos/editIcon.png}"
+                        alt="Editar"
+                        class="action-icon"
+                      />
                     </a>
-                    <a th:href="@{/Mascotas/eliminar/{id}(id=${mascota.id})}" class="btn btn-sm btn-delete" onclick="return confirm('¿Estás seguro de que deseas eliminar esta mascota?');">
-                      <img th:src="@{/images/iconos/trashicon.png}" alt="Eliminar" class="action-icon" />
-                  </a>              
-                </td>
+                    <a
+                      th:href="@{/Mascotas/eliminar/{id}(id=${mascota.id})}"
+                      class="btn btn-sm btn-delete"
+                      onclick="return confirm('¿Estás seguro de que deseas eliminar esta mascota?');"
+                    >
+                      <img
+                        th:src="@{/images/iconos/trashicon.png}"
+                        alt="Eliminar"
+                        class="action-icon"
+                      />
+                    </a>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -131,6 +204,7 @@
           </nav>
         </main>
       </div>
-    </div>
+    
+    <script th:src="@{/scripts/lateralBar.js}"></script>
   </body>
 </html>
