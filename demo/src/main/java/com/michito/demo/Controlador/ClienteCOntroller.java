@@ -22,24 +22,22 @@ public class ClienteCOntroller {
 
     @GetMapping("/agregar")
     public String Agregar(Model model) {
-        int x=serv.searchAllClientes().size();
-        int y = serv.searchById(x).getId();
-        Cliente c = new Cliente(y+1,"","","",0);
+        Cliente c = new Cliente("","","",0);
         model.addAttribute("cliente", c);
         return "addCliente";
     }
     @GetMapping("/info/{id}")
-    public String mostrar(Model model, @PathVariable("id") int identificador) {
+    public String mostrar(Model model, @PathVariable("id") Long identificador) {
         model.addAttribute("Clientes", serv.searchByIdCliente(identificador));
         return "Clientes";
     }
     @GetMapping("/all")
     public String mostrar(Model model) {
         model.addAttribute("Clientes", serv.searchAllClientes());
-        return "Clientes";
+        return "Clientes";      
     }   
     @GetMapping("/update/{id}")
-    public String actualizarForm(Model model, @PathVariable("id") int identificador) {
+    public String actualizarForm(Model model, @PathVariable("id") Long identificador) {
         model.addAttribute("cliente", serv.searchByIdCliente(identificador));
         return "editarCliente";
     }
@@ -51,18 +49,19 @@ public class ClienteCOntroller {
     }
     
     @GetMapping("/delete/{id}")
-    public String Eliminar(Model model, @PathVariable("id") int identificador) {
+    public String Eliminar(Model model, @PathVariable("id") Long identificador) {
          serv.deleteCliente(identificador);
         return "redirect:/Clientes/all";
     }
 
-
+   
     @GetMapping("/Mascotas/{id}")
-    public String mascotasDeCliente(Model model, @PathVariable("id") int identificador) {
-        model.addAttribute("Mascotas", serv.searchMascotasDeCliente(identificador));
+    public String mascotasDeCliente(Model model, @PathVariable("id") Long identificador) {
+        Cliente c = serv.searchByIdCliente(identificador);
+        model.addAttribute("Mascotas", c.getMascotas());
         return "vistaMascotas";
     }
-    
+  
     
 
 }

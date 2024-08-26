@@ -1,33 +1,48 @@
 package com.michito.demo.Entidades;
 
-import java.util.HashMap;
-import java.util.Map;
 
+import java.util.*;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+@Entity
 public class Cliente {
+    @Id
+    @GeneratedValue
     private int id;
     private String cedula;
     private String nombre;
     private String correo;
     private long celular;
-    private Map<Integer,Mascota>mascotas = new HashMap<>();
-
-    public Cliente(int id,String cedula,String nombre,String correo, long celular){
-        this.id=id;
+    
+    @OneToMany(mappedBy = "cliente")
+    private List<Mascota> mascotas = new ArrayList<>();
+    public List<Mascota> getMascotas() {
+        return mascotas;
+    }
+    public void setMascotas(List<Mascota> mascotas) {
+        this.mascotas = mascotas;
+    }
+  
+    public Cliente(){}
+    public Cliente(String cedula,String nombre,String correo, long celular){
         this.cedula=cedula;
         this.nombre=nombre;
         this.correo=correo;
         this.celular=celular;
     }
+
+
+
+    
     public void setId(int id){
         this.id=id;
     }
     public int getId(){
         return id;
     }
-    public void agregarMascota(int id,Mascota mascota){
-        mascotas.put(id,mascota);
-    }
-    
     public void setCedula(String cedula){
         this.cedula=cedula;
     }
@@ -39,12 +54,6 @@ public class Cliente {
     }
     public void setCelular(long celular){
         this.celular=celular;
-    }
-    public void setMascotas(Map<Integer,Mascota>mascotas){
-        this.mascotas=mascotas;
-    }
-    public Map<Integer,Mascota> getMascotas() {
-        return mascotas;
     }
     public String getCedula() {
         return cedula;

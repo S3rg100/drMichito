@@ -42,14 +42,15 @@
         <div class="main-content">
           <h1>Portal Interno</h1>
 
-          <form th:action="@{/logInPortalInterno/redirect}" method="post">
+          <form th:action="@{/logInPortalInterno}" method="post" th:object="${loginForm}">
             <label for="usuario">Usuario</label>
-            <input type="text" id="usuario" name="usuario" />
-
+            
+            <input th:field="*{usuario}" id="usuario" type="text" required=""/>
+        
             <label for="contrasena">Contraseña</label>
-            <input type="password" id="contrasena" name="contrasena" />
+            <input type="password" id="contrasena" th:field="*{password}" required=""/>
+        
             <button type="submit">Iniciar Sesión</button>
-          </form>
         </div>
       </div>
     </div>

@@ -10,5 +10,5 @@ public class IndexController {
     public String iniciar(){
         return "index";
     }
-  
+     
 }

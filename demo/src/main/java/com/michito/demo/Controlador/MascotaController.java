@@ -1,5 +1,8 @@
 package com.michito.demo.Controlador;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,24 +19,26 @@ import com.michito.demo.Servicio.Servicio;
 @RequestMapping("/Mascotas")
 public class MascotaController {
     @Autowired
-    Servicio serv;
+    Servicio serv; 
+
+
 
     @GetMapping("/info/{id}")
-    public String mostrarMascota(Model model, @PathVariable("id") int identificador) {
+    public String mostrarMascota(Model model, @PathVariable("id") Long identificador) {
         
         model.addAttribute("Mascotas", serv.searchById(identificador));
-        return "Mascotas";
-    }
-
-    @GetMapping("/all")
-    public String mostrarMascota(Model model) {
-        model.addAttribute("Mascotas", serv.searchAll());
         return "vistaMascotas";
     }
 
+    @GetMapping("/all")
+    public String mostrar(Model model) {
+        model.addAttribute("Mascotas", serv.searchAll());//nombre "Mascota"   
+        return "vistaMascotas";   
+    } 
+
     @GetMapping("/agregar")
     public String redirigirAgregar(Model model) {
-        Mascota newMascota = new Mascota(0, "", 0, 0, "", "");
+        Mascota newMascota = new Mascota( "", 0, 0,  "");
         model.addAttribute("mascota", newMascota);
         return "agregarMascota";
     }
@@ -46,7 +51,7 @@ public class MascotaController {
     }
 
     @GetMapping("/editar/{id}")
-    public String mostrarFormularioEdicion(@PathVariable("id") int identificador, Model model) {
+    public String mostrarFormularioEdicion(@PathVariable("id") Long identificador, Model model) {
         Mascota mascota = serv.searchById(identificador);
         model.addAttribute("mascota", mascota);
         return "editarMascota";
@@ -61,7 +66,7 @@ public class MascotaController {
 
 
     @GetMapping("/eliminar/{id}")
-    public String eliminarMascota(@PathVariable("id") int identificador) {
+    public String eliminarMascota(@PathVariable("id") Long identificador) {
         serv.eliminarMascota(identificador);
         return "redirect:/Mascotas/all";
     }
