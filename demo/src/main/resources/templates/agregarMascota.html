@@ -110,7 +110,10 @@
         </div>
       </div>
 
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 contenido-principal">
+      <main
+        role="main"
+        class="col-md-9 ml-sm-auto col-lg-10 px-4 contenido-principal"
+      >
         <div
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
         >
@@ -125,11 +128,29 @@
         <div class="card agregar-mascota-card">
           <div class="card-body">
             <h2 class="text-center agregar-mascota-titulo">Agregar Mascota</h2>
+            <div th:if="${error}" class="alert alert-danger">
+              <p th:text="${error}"></p>
+            </div>
+
             <form
               th:object="${mascota}"
               th:action="@{/Mascotas/agregar}"
               method="post"
             >
+              <div class="mb-3">
+                <label for="cedulaCliente" class="form-label"
+                  >Cédula del Cliente</label
+                >
+                <input
+                  th:field="*{cedulaCliente}"
+                  type="text"
+                  class="form-control"
+                  id="cedulaCliente"
+                  name="cedulaCliente"
+                  placeholder="Ingrese la cédula del cliente"
+                  required
+                />
+              </div>
               <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
                 <input
@@ -168,20 +189,6 @@
                   />
                 </div>
               </div>
-              <!--
-              <div class="mb-3">
-                <label for="enfermedad" class="form-label">Enfermedad</label>
-                <input
-                  
-                  type="text"
-                  class="form-control"
-                  id="enfermedad"
-                  name="enfermedad"
-                  placeholder="Ingrese la enfermedad"
-                  required
-                />
-              </div>
-              -->
               <div class="mb-3">
                 <label for="foto" class="form-label">Foto</label>
                 <input

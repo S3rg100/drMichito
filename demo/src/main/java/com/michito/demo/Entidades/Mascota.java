@@ -1,12 +1,14 @@
 package com.michito.demo.Entidades;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Transient;
 
 @Entity
 public class Mascota {
@@ -19,6 +21,9 @@ public class Mascota {
     private int edad;
     private String foto;
     
+    @Transient // No se almacena en la base de datos
+    private String cedulaCliente;
+
     @ManyToOne
     private Cliente cliente;
     
@@ -79,6 +84,14 @@ public class Mascota {
     }
     public void setFoto(String foto) {
         this.foto = foto;
+    }
+
+    public String getCedulaCliente() {
+        return cedulaCliente;
+    }
+
+    public void setCedulaCliente(String cedulaCliente) {
+        this.cedulaCliente = cedulaCliente;
     }
    
 }
