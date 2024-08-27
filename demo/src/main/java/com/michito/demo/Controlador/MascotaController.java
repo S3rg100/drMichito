@@ -83,4 +83,17 @@ public class MascotaController {
         return "redirect:/Mascotas/all";
     }
 
+    @GetMapping("/detalle/{id}")
+public String verDetallesMascota(@PathVariable("id") Long id, Model model) {
+    Mascota mascota = serv.searchById(id);  // Usa el método correcto del servicio
+    if (mascota != null) {
+        model.addAttribute("Mascota", mascota);
+        return "detalleMascota";
+    } else {
+        model.addAttribute("errorMessage", "Mascota no encontrada");
+        return "error";  // Redirige a una página de error o muestra un mensaje adecuado
+    }
+}
+
+
 }

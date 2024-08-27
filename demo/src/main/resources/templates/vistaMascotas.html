@@ -156,7 +156,7 @@
                     <img th:src="@{${Mascotas.foto}}" class="foto_mascota" />
                   </td>
                   <td>
-                    <a href="" class="btn btn-green">Ver</a>
+                    <a th:href="@{/Mascotas/detalle/{id}(id=${Mascotas.id})}" class="btn btn-green">Ver</a>
                   </td>
                   <td>
                     <a

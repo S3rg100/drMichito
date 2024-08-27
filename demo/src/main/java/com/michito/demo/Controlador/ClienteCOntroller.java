@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.michito.demo.Entidades.Cliente;
+import com.michito.demo.Entidades.Mascota;
 import com.michito.demo.Servicio.Servicio;
 
 
@@ -26,6 +27,8 @@ public class ClienteCOntroller {
         model.addAttribute("cliente", c);
         return "addCliente";
     }
+    
+
     @GetMapping("/info/{id}")
     public String mostrar(Model model, @PathVariable("id") Long identificador) {
         model.addAttribute("Clientes", serv.searchByIdCliente(identificador));
@@ -41,6 +44,7 @@ public class ClienteCOntroller {
         model.addAttribute("cliente", serv.searchByIdCliente(identificador));
         return "editarCliente";
     }
+    
 
     @PostMapping("/update/{id}")
     public String actualizar(@ModelAttribute("cliente") Cliente cliente) {
@@ -61,6 +65,7 @@ public class ClienteCOntroller {
         model.addAttribute("Mascotas", c.getMascotas());
         return "vistaMascotas";
     }
+    
   
     
 
