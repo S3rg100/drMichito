@@ -26,8 +26,8 @@ public class LogInController {
     }
     
     @PostMapping("")
-    public String procesarLogin(@ModelAttribute("loginForm") Login loginForm) {
-        String cedula = loginForm.getUsuario();
+    public String procesarLogin(@ModelAttribute("loginForm") Cliente loginForm) {
+        String cedula = loginForm.getCedula();
         Cliente cliente = serv.findByCedula(cedula);
     
         if (cliente != null) {
