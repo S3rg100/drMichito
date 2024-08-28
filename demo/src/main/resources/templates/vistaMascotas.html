@@ -65,7 +65,7 @@
               <li>
                 <a id="medicamentos" href="#">
                   <img
-                    th:src="@{/images/iconos/barraLateral/pills.png}"
+                    th:src="@{/images/iconos/barraLateral/Pills.png}"
                     alt="medicamentos"
                   />
                   <span>Medicamentos</span>
@@ -74,7 +74,7 @@
               <li>
                 <a id="mascotas" href="/Mascotas/all">
                   <img
-                    th:src="@{/images/iconos/barraLateral/dog.png}"
+                    th:src="@{/images/iconos/barraLateral/Dog.png}"
                     alt="mascotas"
                   />
                   <span>Mascotas</span>
@@ -156,7 +156,7 @@
                     <img th:src="@{${Mascotas.foto}}" class="foto_mascota" />
                   </td>
                   <td>
-                    <a href="" class="btn btn-green">Ver</a>
+                    <a th:href="@{/Mascotas/detalle/{id}(id=${Mascotas.id})}" class="btn btn-green">Ver</a>
                   </td>
                   <td>
                     <a

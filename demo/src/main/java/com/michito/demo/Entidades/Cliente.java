@@ -1,9 +1,12 @@
 package com.michito.demo.Entidades;
 
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -12,12 +15,13 @@ public class Cliente {
     @Id
     @GeneratedValue
     private int id;
+    @Column(unique = true)
     private String cedula;
     private String nombre;
     private String correo;
     private long celular;
     
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
     private List<Mascota> mascotas = new ArrayList<>();
     public List<Mascota> getMascotas() {
         return mascotas;

@@ -11,37 +11,32 @@ public class Login {
     
     @OneToOne(mappedBy = "login")
     private Veterinario veterinario;
-    
-
-    public Veterinario getVeterinario() {
-        return veterinario;
-    }
-    public void setVeterinario(Veterinario veterinario) {
-        this.veterinario = veterinario;
-    }
-    
-    
-   
 
     private String passwords;
-    public Login(){}
-    public Login(String usuario,String passwords){
+
+    public Login() {}
+
+    public Login(String usuario, String passwords) {
         this.usuario = usuario;
-        this.passwords=passwords;
+        this.passwords = passwords;
     }
-    public String getPassword(){
+
+    public String getPassword() {
         return passwords;
     }
-    public void setPassword(String passwords){
-        this.passwords=passwords;
+
+    public void setPassword(String passwords) {
+        this.passwords = passwords;
     }
+
     public String getUsuario() {
         return usuario;
     }
 
-    public void setCedula(String usuario) {
+    public void setUsuario(String usuario) { 
         this.usuario = usuario;
     }
+
     @Override
     public String toString() {
         return "Login{" +
@@ -49,5 +44,13 @@ public class Login {
                 ", passwords='" + passwords + '\'' +
                 '}';
     }
-    
+
+    public Veterinario getVeterinario() {
+        return veterinario;
+    }
+
+    public void setVeterinario(Veterinario veterinario) {
+        this.veterinario = veterinario;
+    }
 }
+
