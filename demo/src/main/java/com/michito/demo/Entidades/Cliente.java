@@ -4,6 +4,7 @@ package com.michito.demo.Entidades;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -21,7 +22,7 @@ public class Cliente {
     private String correo;
     private long celular;
     
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Mascota> mascotas = new ArrayList<>();
     public List<Mascota> getMascotas() {
         return mascotas;

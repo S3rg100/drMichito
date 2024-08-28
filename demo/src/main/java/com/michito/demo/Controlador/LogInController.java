@@ -9,15 +9,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.michito.demo.Entidades.Cliente;
-import com.michito.demo.Entidades.Login;
-import com.michito.demo.Servicio.Servicio;
+import com.michito.demo.Servicio.ServicioCliente;
 
 @Controller
 @RequestMapping("/login")
 public class LogInController {
 
     @Autowired
-    private Servicio serv;
+    private ServicioCliente serv;
 
     @GetMapping("")
     public String iniciar(Model model) {

@@ -15,13 +15,12 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" th:href="@{/css/stylesVistas2.css}" />
+    <link rel="stylesheet" th:href="@{/css/stylesVistas.css}" />
   </head>
   <body>
-
     <div class="contenedor-principal">
       <!-- Sidebar -->
       <div class="barra-lateral">
@@ -59,7 +58,7 @@
             <li>
               <a id="medicamentos" href="#">
                 <img
-                  th:src="@{/images/iconos/barraLateral/pills.png}"
+                  th:src="@{/images/iconos/barraLateral/Pills.png}"
                   alt="medicamentos"
                 />
                 <span>Medicamentos</span>
@@ -68,7 +67,7 @@
             <li>
               <a id="mascotas" href="/Mascotas/all">
                 <img
-                  th:src="@{/images/iconos/barraLateral/dog.png}"
+                  th:src="@{/images/iconos/barraLateral/Dog.png}"
                   alt="mascotas"
                 />
                 <span>Mascotas</span>
@@ -102,7 +101,6 @@
                 <span>Salir</span>
               </a>
             </li>
-
           </ul>
         </nav>
 
@@ -112,12 +110,14 @@
         </div>
       </div>
 
-      <!-- Contenido principal -->
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 contenido-principal">
+      <main
+        role="main"
+        class="col-md-9 ml-sm-auto col-lg-10 px-4 contenido-principal"
+      >
         <div
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
         >
-          <a href="/Clientes/all" class="btn btn-outline-secondary">
+          <a href="/Mascotas/all" class="btn btn-outline-secondary">
             <img
               th:src="@{/images/iconos/arrow-circle-left-purple.png}"
               alt="Icono Atras"
@@ -127,83 +127,87 @@
 
         <div class="card agregar-mascota-card">
           <div class="card-body">
-            <h2 class="text-center agregar-mascota-titulo">Agregar Cliente</h2>
+            <h2 class="text-center agregar-mascota-titulo">Agregar Mascota</h2>
+            <div th:if="${error}" class="alert alert-danger">
+              <p th:text="${error}"></p>
+            </div>
+
             <form
-              th:object="${cliente}"
-              th:action="@{/Clientes/update/{id}(id=${cliente.id})}"
+              th:object="${mascota}"
+              th:action="@{/Mascotas/agregar}"
               method="post"
             >
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="cedula" class="form-label">Cédula</label>
-                    <input
-                      th:field="*{cedula}"
-                      type="text"
-                      id="cedula"
-                      placeholder="Ingresar cédula"
-                      required=""
-                      class="form-control"
-                    />
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input
-                      th:field="*{nombre}"
-                      type="text"
-                      id="nombre"
-                      placeholder="Ingresar nombre"
-                      required=""
-                      class="form-control"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="correo" class="form-label">Correo</label>
-                    <input
-                      th:field="*{correo}"
-                      type="text"
-                      id="correo"
-                      placeholder="Ingresar correo"
-                      required=""
-                      class="form-control"
-                    />
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="celular" class="form-label">Celular</label>
-                    <input
-                      th:field="*{celular}"
-                      type="text"
-                      id="celular"
-                      placeholder="Ingresar celular"
-                      required=""
-                      class="form-control"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div class="d-flex justify-content-between">
-                <button type="submit" class="btn btn-dark w-48">Guardar</button>
-                <a href="/Clientes/all" class="btn btn-secondary w-48"
-                  >Cancelar</a
+              <div class="mb-3">
+                <label for="cedulaCliente" class="form-label"
+                  >Cédula del Cliente</label
                 >
+                <input
+                  th:field="*{cedulaCliente}"
+                  type="text"
+                  class="form-control"
+                  id="cedulaCliente"
+                  name="cedulaCliente"
+                  placeholder="Ingrese la cédula del cliente"
+                  required
+                />
               </div>
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input
+                  th:field="*{nombre}"
+                  type="text"
+                  class="form-control"
+                  id="nombre"
+                  name="nombre"
+                  placeholder="Ingrese el nombre de la mascota"
+                  required
+                />
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="edad" class="form-label">Edad</label>
+                  <input
+                    th:field="*{edad}"
+                    type="number"
+                    class="form-control"
+                    id="edad"
+                    name="edad"
+                    placeholder="Ingrese la edad de la mascota"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="peso" class="form-label">Peso (kg)</label>
+                  <input
+                    th:field="*{peso}"
+                    type="number"
+                    class="form-control"
+                    id="peso"
+                    name="peso"
+                    placeholder="Ingrese el peso de la mascota"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="foto" class="form-label">Foto</label>
+                <input
+                  th:field="*{foto}"
+                  type="url"
+                  class="form-control"
+                  id="foto"
+                  name="foto"
+                  placeholder="Ingrese la URL de la foto"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-dark w-100">Guardar</button>
             </form>
           </div>
         </div>
       </main>
-    
     </div>
-    
+
     <script th:src="@{/scripts/lateralBar.js}"></script>
   </body>
 </html>
