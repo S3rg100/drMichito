@@ -138,7 +138,7 @@
               <thead class="table-hover">
                 <tr>
                   <th>Id</th>
-                  <th>Nedula</th>
+                  <th>Cedula</th>
                   <th>Nombre</th>
                   <th>Correo</th>
                   <th>Celular</th>
@@ -174,10 +174,10 @@
                     <a
                       th:href="@{/Clientes/delete/{id}(id=${Clientes.id})}"
                       class="btn btn-sm btn-delete"
-                      onclick="return confirm('¿Estás seguro de que deseas eliminar esta mascota?');"
+                      onclick="return confirm('¿Estás seguro de que deseas eliminar este cliente?');"
                     >
                       <img
-                        th:src="@{/images/iconos/trashicon.png}"
+                        th:src="@{/images/iconos/trashIcon.png}"
                         alt="Eliminar"
                         class="action-icon"
                       />

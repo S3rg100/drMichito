@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.michito.demo.Entidades.Login;
-import com.michito.demo.Servicio.Servicio;
+import com.michito.demo.Servicio.ServicioLogin;
 
 @Controller
 @RequestMapping("/logInPortalInterno")
 public class LogInPortalInternoController {
 
     @Autowired
-    private Servicio serv;
+    private ServicioLogin loginServicio;
 
     @GetMapping("")
     public String iniciar(Model model) {
@@ -27,7 +27,7 @@ public class LogInPortalInternoController {
     @PostMapping("")
     public String procesarLogin(@ModelAttribute("loginForm") Login loginForm, Model model) {
         System.out.println(loginForm);
-        Login login = serv.SearchByUsuario(loginForm.getUsuario());
+        Login login = loginServicio.SearchByUsuario(loginForm.getUsuario());
         if (login != null && login.getPassword().equals(loginForm.getPassword())) {
             return "redirect:/Mascotas/all";
         } else {
