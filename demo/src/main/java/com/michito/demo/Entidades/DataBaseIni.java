@@ -193,7 +193,7 @@ public class DataBaseIni implements ApplicationRunner {
         CRepo.save(new Cliente("78912", "Mario", "mario@gmail.com", 78912));
         CRepo.save(new Cliente("87452", "Alicia", "alicia@gmail.com", 87452));
         CRepo.save(new Cliente("32587", "Martin", "martin@gmail.com", 32587));
-        CRepo.save(new Cliente("58963", "Claudia", "claudia@gmail.com", 58963));
+        CRepo.save(new Cliente("58063", "Claudia", "claudia@gmail.com", 58463));
         CRepo.save(new Cliente("32589", "Julian", "julian@gmail.com", 32589));
         
         
