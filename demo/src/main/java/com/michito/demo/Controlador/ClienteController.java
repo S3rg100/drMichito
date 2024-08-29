@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import com.michito.demo.Servicio.ServicioMascota;
 
 import com.michito.demo.Entidades.Cliente;
+import com.michito.demo.Entidades.Mascota;
 import com.michito.demo.Servicio.ServicioCliente;
 
 
@@ -18,7 +20,8 @@ import com.michito.demo.Servicio.ServicioCliente;
 public class ClienteController {
     @Autowired
     ServicioCliente clienteServicio;
-
+    @Autowired
+    ServicioMascota mascotaServicio;
 
     @GetMapping("/agregar")
     public String Agregar(Model model) {
@@ -64,6 +67,21 @@ public class ClienteController {
         Cliente cliente = clienteServicio.searchByIdCliente(identificador);
         model.addAttribute("Mascotas", cliente.getMascotas());
         return "ReadMascotas";
+    }
+
+    @GetMapping("/Mascotas/editar/{id}")
+    public String mostrarFormularioEdicion(@PathVariable("id") Long identificador, Model model) {
+        Mascota mascota = mascotaServicio.searchById(identificador);
+        model.addAttribute("mascota", mascota);
+        return "UpdateMascota";
+    }
+
+    @PostMapping("/editar/{id}")
+    public String editarMascota(@PathVariable("id") int identificador,
+            @ModelAttribute("mascota") Mascota mascotaEditada) {
+        mascotaEditada.setId(identificador);
+        mascotaServicio.updateMascota(mascotaEditada);
+        return "redirect:/Mascotas/all";
     }
     
   
