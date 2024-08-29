@@ -121,12 +121,29 @@
     </div>
 
     <!-- Columna de los detalles de la mascota -->
+    <!-- Columna de los detalles de la mascota -->
     <div class="col-md-8">
       <div class="mascota_detail">
-        <h3>ID: <span th:text="${Mascota.id}"></span></h3>
-        <h3>Nombre: <span th:text="${Mascota.nombre}"></span></h3>
-        <h3>Peso: <span th:text="${Mascota.peso} + ' kg'"></span></h3>
-        <h3>Edad: <span th:text="${Mascota.edad} + ' años'"></span></h3>
+        <!-- Detalle individual con título y contenido al lado -->
+        <div class="detalle-item">
+          <h4 class="detalle-titulo">ID:</h4>
+          <p class="detalle-contenido" th:text="${Mascota.id}"></p>
+        </div>
+        
+        <div class="detalle-item">
+          <h4 class="detalle-titulo">Nombre:</h4>
+          <p class="detalle-contenido" th:text="${Mascota.nombre}"></p>
+        </div>
+        
+        <div class="detalle-item">
+          <h4 class="detalle-titulo">Peso:</h4>
+          <p class="detalle-contenido" th:text="${Mascota.peso} + ' kg'"></p>
+        </div>
+        
+        <div class="detalle-item">
+          <h4 class="detalle-titulo">Edad:</h4>
+          <p class="detalle-contenido" th:text="${Mascota.edad} + ' años'"></p>
+        </div>
       </div>
       
 
