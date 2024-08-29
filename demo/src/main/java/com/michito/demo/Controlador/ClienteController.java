@@ -49,10 +49,23 @@ public class ClienteController {
     
 
     @PostMapping("/update/{id}")
-    public String actualizar(@ModelAttribute("cliente") Cliente cliente) {
-        clienteServicio.updateCliente(cliente);
-        return "redirect:/Clientes/all";
+public String actualizar(@ModelAttribute("cliente") Cliente clienteActualizado, @PathVariable("id") Long id) {
+    // Cargar el cliente existente desde la base de datos
+    Cliente clienteExistente = clienteServicio.searchByIdCliente(id);
+
+    if (clienteExistente != null) {
+        // Actualizar solo los campos del cliente, sin tocar la lista de mascotas
+        clienteExistente.setCedula(clienteActualizado.getCedula());
+        clienteExistente.setNombre(clienteActualizado.getNombre());
+        clienteExistente.setCorreo(clienteActualizado.getCorreo());
+        clienteExistente.setCelular(clienteActualizado.getCelular());
+
+        // Guardar los cambios en el cliente
+        clienteServicio.updateCliente(clienteExistente);
     }
+
+    return "redirect:/Clientes/all";
+}
     
     @GetMapping("/delete/{id}")
     public String Eliminar( @PathVariable("id") Long identificador) {
