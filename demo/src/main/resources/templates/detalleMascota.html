@@ -108,44 +108,37 @@
         <h1 class="h2">Detalle de Mascota</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group mr-2">
-            <a href="/Mascotas/all" class="btn btn-green">Volver a Mascotas</a>
+            <button class="btn btn-green" onclick="history.back()">Volver</button>
           </div>
         </div>
       </div>
 
-        <!-- Contenedor principal de los detalles -->
-  <div class="row">
-    <!-- Columna de la imagen de la mascota -->
-    <div class="col-md-4 d-flex justify-content-center align-items-center">
-      <img th:src="@{${Mascota.foto}}" class="foto_mascota_grande img-fluid rounded" alt="Foto de la mascota" />
-    </div>
-
-    <!-- Columna de los detalles de la mascota -->
-    <!-- Columna de los detalles de la mascota -->
-    <div class="col-md-8">
-      <div class="mascota_detail">
-        <!-- Detalle individual con título y contenido al lado -->
-        <div class="detalle-item">
-          <h4 class="detalle-titulo">ID:</h4>
-          <p class="detalle-contenido" th:text="${Mascota.id}"></p>
-        </div>
-        
-        <div class="detalle-item">
-          <h4 class="detalle-titulo">Nombre:</h4>
-          <p class="detalle-contenido" th:text="${Mascota.nombre}"></p>
-        </div>
-        
-        <div class="detalle-item">
-          <h4 class="detalle-titulo">Peso:</h4>
-          <p class="detalle-contenido" th:text="${Mascota.peso} + ' kg'"></p>
-        </div>
-        
-        <div class="detalle-item">
-          <h4 class="detalle-titulo">Edad:</h4>
-          <p class="detalle-contenido" th:text="${Mascota.edad} + ' años'"></p>
+      <div class="card mb-4">
+        <div class="row g-0">
+          <!-- Columna de la imagen de la mascota -->
+          <div class="col-md-4 d-flex justify-content-center align-items-center p-3">
+            <img th:src="@{${Mascota.foto}}" class="img-fluid rounded-circle" alt="Foto de la mascota" />
+          </div>
+          <!-- Columna de los detalles de la mascota -->
+          <div class="col-md-8">
+            <div class="card-body">
+              <h4 class="card-title">Detalles de la Mascota</h4>
+              <div class="detalle-item">
+                <strong>ID:</strong> <span th:text="${Mascota.id}"></span>
+              </div>
+              <div class="detalle-item">
+                <strong>Nombre:</strong> <span th:text="${Mascota.nombre}"></span>
+              </div>
+              <div class="detalle-item">
+                <strong>Peso:</strong> <span th:text="${Mascota.peso} + ' kg'"></span>
+              </div>
+              <div class="detalle-item">
+                <strong>Edad:</strong> <span th:text="${Mascota.edad} + ' años'"></span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      
 
       <!-- TABLA DE TRATAMIENTOS -->
       <h3>Tratamientos Realizados</h3>
@@ -157,7 +150,9 @@
             <th>Veterinario</th>
           </tr>
         </thead>
-        
+        <tbody>
+          <!-- Aquí van las filas de tratamientos -->
+        </tbody>
       </table>
     </main>
   </div>

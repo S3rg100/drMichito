@@ -366,3 +366,49 @@ main.min-main{
     }
     
 }
+
+/* Estilo de la tarjeta de detalles de la mascota */
+.card {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .detalle-item {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .detalle-item strong {
+    color: #44344F;
+  }
+  
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .table th, .table td {
+    vertical-align: middle;
+    text-align: center;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: #adcc9f;
+  }
+  
+
+
+
+
