@@ -18,16 +18,88 @@
     <div class="barra-lateral">
       <div>
         <div class="nombre-pagina">
-          <img id="logo" th:src="@{/images/iconos/Logo_principal_dr.michito_blanco.png}" alt="logo" />
+          <img
+            id="logo"
+            th:src="@{/images/iconos/Logo_principal_dr.michito_blanco.png}"
+            alt="logo"
+          />
           <span>Dr. Michito</span>
         </div>
       </div>
 
       <nav class="navegacion">
         <ul>
-          <!-- Sidebar content here -->
+          <li>
+            <a id="dashboard" href="#">
+              <img
+                th:src="@{/images/iconos/barraLateral/chart-pie.png}"
+                alt="dashboard"
+              />
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a id="personal" href="#">
+              <img
+                th:src="@{/images/iconos/barraLateral/identification.png}"
+                alt="personal"
+              />
+              <span>Personal</span>
+            </a>
+          </li>
+          <li>
+            <a id="medicamentos" href="#">
+              <img
+                th:src="@{/images/iconos/barraLateral/Pills.png}"
+                alt="medicamentos"
+              />
+              <span>Medicamentos</span>
+            </a>
+          </li>
+          <li>
+            <a id="mascotas" href="/Mascotas/all">
+              <img
+                th:src="@{/images/iconos/barraLateral/Dog.png}"
+                alt="mascotas"
+              />
+              <span>Mascotas</span>
+            </a>
+          </li>
+          <li>
+            <a id="clientes" href="/Clientes/all">
+              <img
+                th:src="@{/images/iconos/barraLateral/users.png}"
+                alt="clientes"
+              />
+              <span>Clientes</span>
+            </a>
+          </li>
+          <li>
+            <a id="tratamientos" href="#">
+              <img
+                th:src="@{/images/iconos/barraLateral/Stetoscope.png}"
+                alt="tratamientos"
+              />
+              <span>Tratamientos</span>
+            </a>
+          </li>
+
+          <li>
+            <a id="salir" href="/">
+              <img
+                th:src="@{/images/iconos/arrow-circle-left-white.png}"
+                alt="salir"
+              />
+              <span>Salir</span>
+            </a>
+          </li>
         </ul>
       </nav>
+
+      <div>
+        <div class="linea"></div>
+        <!---->
+      </div>
     </div>
 
     <!-- Main content -->
@@ -41,11 +113,21 @@
         </div>
       </div>
 
-      <!-- FOTO MASCOTA -->
-      <div class="d-flex justify-content-center mb-4">
-        <img th:src="@{${Mascota.foto}}" class="foto_mascota_grande" />
-      </div>
+        <!-- Contenedor principal de los detalles -->
+  <div class="row">
+    <!-- Columna de la imagen de la mascota -->
+    <div class="col-md-4 d-flex justify-content-center align-items-center">
+      <img th:src="@{${Mascota.foto}}" class="foto_mascota_grande img-fluid rounded" alt="Foto de la mascota" />
+    </div>
 
+    <!-- Columna de los detalles de la mascota -->
+    <div class="col-md-8">
+      <div class="mascota_detail">
+        <h3>ID: <span th:text="${Mascota.id}"></span></h3>
+        <h3>Nombre: <span th:text="${Mascota.nombre}"></span></h3>
+        <h3>Peso: <span th:text="${Mascota.peso} + ' kg'"></span></h3>
+        <h3>Edad: <span th:text="${Mascota.edad} + ' años'"></span></h3>
+      </div>
       
 
       <!-- TABLA DE TRATAMIENTOS -->
