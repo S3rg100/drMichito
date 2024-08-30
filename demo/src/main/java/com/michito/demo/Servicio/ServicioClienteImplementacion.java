@@ -57,5 +57,6 @@ public class ServicioClienteImplementacion implements ServicioCliente{
     public Mascota searchById(Long id) {
         return mascotaRepositorio.findById(id).get();
     }
-   
+
+  
 }

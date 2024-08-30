@@ -90,7 +90,7 @@ public String actualizar(@ModelAttribute("cliente") Cliente clienteActualizado, 
     }
 
     @PostMapping("/editar/{id}")
-    public String editarMascota(@PathVariable("id") int identificador,
+    public String editarMascota(@PathVariable("id") Long identificador,
             @ModelAttribute("mascota") Mascota mascotaEditada) {
         mascotaEditada.setId(identificador);
         mascotaServicio.updateMascota(mascotaEditada);

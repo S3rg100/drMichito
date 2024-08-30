@@ -62,18 +62,26 @@ public class MascotaController {
 
     @GetMapping("/editar/{id}")
     public String mostrarFormularioEdicion(@PathVariable("id") Long identificador, Model model) {
+        
         Mascota mascota = mascotaServicio.searchById(identificador);
+        System.out.println("metodo get"+mascota.getCliente().getNombre());
         model.addAttribute("mascota", mascota);
         return "UpdateMascota";
     }
 
     @PostMapping("/editar/{id}")
-    public String editarMascota(@PathVariable("id") int identificador,
-            @ModelAttribute("mascota") Mascota mascotaEditada) {
-        mascotaEditada.setId(identificador);
-        mascotaServicio.updateMascota(mascotaEditada);
-        return "redirect:/Mascotas/all";
-    }
+public String editarMascota(@PathVariable("id") Long id,@ModelAttribute("mascota") Mascota mascotaEditada) {
+    
+    if (mascotaEditada.getCliente() != null && mascotaEditada.getCliente().getId() != null) {
+        Cliente cliente = clienteServicio.searchByIdCliente(mascotaEditada.getCliente().getId());
+        mascotaEditada.setCliente(cliente);
+    } 
+    mascotaServicio.updateMascota(mascotaEditada);
+
+    return "redirect:/Mascotas/all";
+}
+
+    
 
     @GetMapping("/eliminar/{id}")
     public String eliminarMascota(@PathVariable("id") Long identificador) {
@@ -82,16 +90,16 @@ public class MascotaController {
     }
 
     @GetMapping("/detalle/{id}")
-public String verDetallesMascota(@PathVariable("id") Long id, Model model) {
-    Mascota mascota = mascotaServicio.searchById(id);  
-    if (mascota != null) {
-        model.addAttribute("Mascota", mascota);
-        return "ReadMascota";
-    } else {
-        model.addAttribute("errorMessage", "Mascota no encontrada");
-        return "error";  
+    public String verDetallesMascota(@PathVariable("id") Long id, Model model) {
+        Mascota mascota = mascotaServicio.searchById(id);  
+        if (mascota != null) {
+            model.addAttribute("Mascota", mascota);
+            return "ReadMascota";
+        } else {
+            model.addAttribute("errorMessage", "Mascota no encontrada");
+            return "error";  
+        }
     }
-}
 
 
 }

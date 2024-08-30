@@ -15,7 +15,7 @@ import jakarta.persistence.OneToMany;
 public class Cliente {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     @Column(unique = true)
     private String cedula;
     private String nombre;
@@ -42,10 +42,10 @@ public class Cliente {
 
 
     
-    public void setId(int id){
+    public void setId(Long id){
         this.id=id;
     }
-    public int getId(){
+    public Long getId(){
         return id;
     }
     public void setCedula(String cedula){

@@ -169,20 +169,7 @@
                     />
                   </div>
                 </div>
-                <!--
-                <div class="mb-3">
-                  <label for="enfermedad" class="form-label">Enfermedad</label>
-                  <input
-                    th:field="*{enfermedad}"
-                    type="text"
-                    class="form-control"
-                    id="enfermedad"
-                    name="enfermedad"
-                    placeholder="Ingrese la enfermedad"
-                    required
-                  />
-                </div>
-                -->
+          
                 <div class="mb-3">
                   <label for="foto" class="form-label">Foto</label>
                   <input
@@ -194,7 +181,13 @@
                     placeholder="Ingrese la URL de la foto"
                     required
                   />
+                  
+                  
+                  <input type="hidden" th:field="*{cliente.id}" th:value="${mascota.cliente.id}">
+
+
                 </div>
+                
                 <div class="d-flex justify-content-between">
                   <button type="submit" class="btn btn-dark w-48">
                     Guardar

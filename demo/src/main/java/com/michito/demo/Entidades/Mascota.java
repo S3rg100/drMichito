@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Transient;
@@ -15,7 +15,7 @@ import jakarta.persistence.Transient;
 public class Mascota {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     
     private String nombre;
     private int peso;
@@ -25,7 +25,7 @@ public class Mascota {
     @Transient // No se almacena en la base de datos
     private String cedulaCliente;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Cliente cliente;
     
     @OneToMany(mappedBy = "mascota")
@@ -55,7 +55,7 @@ public class Mascota {
         this.cliente = cliente;
     }
     
-    public int getId(){
+    public Long getId(){
         return id;
     }
     public String getNombre() {
@@ -70,7 +70,7 @@ public class Mascota {
     public String getFoto() {
         return foto;
     }
-    public void setId(int id){
+    public void setId(Long id){
         this.id=id;
     }
     public void setNombre(String nombre) {
