@@ -29,6 +29,12 @@ public class ClienteController {
         model.addAttribute("cliente", c);
         return "CreateCliente";
     }
+
+    @PostMapping("/agregar")
+    public String crearCliente(@ModelAttribute("cliente") Cliente nuevoCliente) {
+        clienteServicio.addCliente(nuevoCliente);
+        return "redirect:/Clientes/all";
+    }
     
 
     @GetMapping("/info/{id}")
