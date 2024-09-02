@@ -546,7 +546,7 @@ nav ul {
 }
 /***********************Contacto**************************/
 .contact-form {
-  background-color: #B49FCC; /* Color de fondo morado */
+  background-color: #B49FCC;
   padding: 37px 18px;
   text-align: left;
   border-radius: 5px;
@@ -555,7 +555,7 @@ nav ul {
 
 .contact-form h2 {
   font-size: 65px;
-  color: #44344f;
+  color: #ffffff;
   margin-bottom: 10px;
   margin-left: 75px;
 }
@@ -566,37 +566,47 @@ nav ul {
   max-height: 700px;
 }
 
-.contact-form .form-group {
+.contact-form .form-row {
   display: flex;
   justify-content: space-between;
   margin-bottom: 16px;
 }
 
+.contact-form .form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-right: 16px;
+}
+
+.contact-form .form-group:last-child {
+  margin-right: 0;
+}
+
 .contact-form label {
   font-size: 16px;
-  color: #44344f;
+  color: #ffffff;
   margin-bottom: 7px;
-  display: block;
 }
 
 .contact-form input,
 .contact-form textarea {
-  width: 48%;
+  width: 100%;
   padding: 8px;
   margin-bottom: 8px;
   border: none;
-  border-bottom: 2px solid #44344f; /* Línea de subrayado */
+  border-bottom: 2px solid #ffffff;
   background-color: transparent;
   font-size: 16px;
 }
 
 .contact-form textarea {
   width: 100%;
-  height: 60px;
+  height: 100px; /* Triple de alto */
 }
 
 .contact-form button {
-  background-color: #44344f;
+  background-color: #c2f970;
   color: #fff;
   padding: 8px 20px;
   border: none;
