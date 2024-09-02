@@ -38,7 +38,7 @@ public class LogInController {
         } else {
             model.addAttribute("error", "Cédula ingresada no encontrada. Inténtelo de nuevo.");
             model.addAttribute("loginForm", loginForm);
-            return "login";
+            return "logIn";
         }
     }
 
