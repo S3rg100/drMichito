@@ -649,3 +649,6 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/sergi/O
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 64 more
+2024-09-02 14:51:24.561296Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "FOTO CHARACTER VARYING(255)": "'https://ca-times.brightspotcdn.com/dims4/default/796e6c9/2147483647/strip/true/... (276)"; SQL statement:
+insert into mascota (cliente_id,edad,foto,nombre,peso,id) values (?,?,?,?,?,?) [22001-224]

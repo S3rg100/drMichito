@@ -42,7 +42,7 @@
         <div class="main-content">
           <h1>Portal Interno</h1>
 
-          <form th:action="@{/logInPortalInterno}" method="post" th:object="${loginForm}">
+          <form th:action="@{/logIn/portalInterno}" method="post" th:object="${loginForm}">
             <label for="usuario">Usuario</label>
             <input th:field="*{usuario}" id="usuario" type="text" required=""/>
         
