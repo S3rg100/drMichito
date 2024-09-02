@@ -101,5 +101,17 @@ public String editarMascota(@PathVariable("id") Long id,@ModelAttribute("mascota
         }
     }
 
+    @GetMapping("/vistaDetalle/{id}")
+    public String verDetallesMascotaVistaCliente(@PathVariable("id") Long id, Model model) {
+        Mascota mascota = mascotaServicio.searchById(id);  
+        if (mascota != null) {
+            model.addAttribute("Mascota", mascota);
+            return "ReadMascotaVistaCliente";
+        } else {
+            model.addAttribute("errorMessage", "Mascota no encontrada");
+            return "error";  
+        }
+    }
+
 
 }
