@@ -23,17 +23,18 @@ public class LogInController {
         model.addAttribute("loginForm", new Cliente());
         return "logIn";
     }
-    
+
     @PostMapping("")
-    public String procesarLogin(@ModelAttribute("loginForm") Cliente loginForm) {
+    public String procesarLogin(@ModelAttribute("loginForm") Cliente loginForm, Model model) {
         String cedula = loginForm.getCedula();
         Cliente cliente = serv.findByCedula(cedula);
-    
+
         if (cliente != null) {
-            return "redirect:/Clientes/Mascotas/" + cliente.getId();
+            return "redirect:/Clientes/VistaMascotas/" + cliente.getId();
         } else {
-            System.out.println(cedula + " no encontrada");
-            return "redirect:/login";
+            model.addAttribute("error", "Cédula ingresada no encontrada. Inténtelo de nuevo.");
+            model.addAttribute("loginForm", loginForm);
+            return "login";
         }
     }
 
