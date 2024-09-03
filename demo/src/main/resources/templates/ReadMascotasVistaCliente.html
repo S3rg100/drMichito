@@ -107,14 +107,6 @@
   </div>
 
   <script th:src="@{/scripts/lateralBar.js}"></script>
-  <script>
-    document.querySelectorAll('.card__details-toggle i').forEach(function (element) {
-      element.addEventListener('click', function () {
-        var url = this.getAttribute('th:href');
-        window.location.href = url;
-      });
-    });
-  </script>
 </body>
 
 </html>
