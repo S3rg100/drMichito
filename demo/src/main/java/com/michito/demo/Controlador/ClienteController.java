@@ -1,6 +1,7 @@
 package com.michito.demo.Controlador;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.michito.demo.Entidades.Cliente;
 import com.michito.demo.Entidades.Mascota;
@@ -34,7 +36,7 @@ public class ClienteController {
         Cliente clienteExistente = clienteServicio.findByCedula(nuevoCliente.getCedula());
         if(clienteExistente==null){
             clienteServicio.addCliente(nuevoCliente);
-            return "redirect:/Clientes/all";
+            return "redirect:/Clientes/all/paginated";
         }else{
             model.addAttribute("error", "Ya existe un cliente con la cédula "+nuevoCliente.getCedula());
             return "CreateCliente";
@@ -42,9 +44,14 @@ public class ClienteController {
         
     }
 
-    @GetMapping("/info/{id}")
-    public String mostrar(Model model, @PathVariable("id") Long identificador) {
-        model.addAttribute("Clientes", clienteServicio.searchByIdCliente(identificador));
+    @GetMapping("/all/paginated")
+    public String mostrar(Model model,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "8") int size) {
+        Page<Cliente> clientePage = clienteServicio.findAllPaginated(page, size);
+        model.addAttribute("Clientes", clientePage.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", clientePage.getTotalPages());
         return "ReadClientes";
     }
 
@@ -79,19 +86,18 @@ public class ClienteController {
                 // Guardar los cambios en el cliente
                 clienteServicio.updateCliente(clienteExistente);
             }
-            return "redirect:/Clientes/all";
+            return "redirect:/Clientes/all/paginated";
         }else{
             model.addAttribute("error", "Ya existe un cliente con la cédula "+clienteActualizado.getCedula());
             return "CreateCliente";
         }
 
-        
     }
 
     @GetMapping("/delete/{id}")
     public String Eliminar(@PathVariable("id") Long identificador) {
         clienteServicio.deleteCliente(identificador);
-        return "redirect:/Clientes/all";
+        return "redirect:/Clientes/all/paginated";
     }
 
     @GetMapping("/Mascotas/{id}")

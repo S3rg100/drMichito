@@ -1,7 +1,10 @@
 package com.michito.demo.Servicio;
+
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.michito.demo.Entidades.Cliente;
@@ -11,18 +14,15 @@ import com.michito.demo.Repositorio.MascotasRepositorio;
 
 @Service
 
-public class ServicioClienteImplementacion implements ServicioCliente{
-    
+public class ServicioClienteImplementacion implements ServicioCliente {
+
     @Autowired
     ClientesRepositorio clienteRepositorio;
     @Autowired
     MascotasRepositorio mascotaRepositorio;
 
-    
-  
-
     @Override
-    public Cliente searchByIdCliente(Long id){
+    public Cliente searchByIdCliente(Long id) {
         return clienteRepositorio.findById(id).get();
     }
 
@@ -46,10 +46,8 @@ public class ServicioClienteImplementacion implements ServicioCliente{
         clienteRepositorio.save(cliente);
     }
 
- 
-
     @Override
-    public Cliente findByCedula(String cedula){
+    public Cliente findByCedula(String cedula) {
         return clienteRepositorio.findByCedula(cedula);
     }
 
@@ -58,7 +56,9 @@ public class ServicioClienteImplementacion implements ServicioCliente{
         return mascotaRepositorio.findById(id).get();
     }
 
-   
+    @Override
+    public Page<Cliente> findAllPaginated(int page, int size){
+        return clienteRepositorio.findAll(PageRequest.of(page, size));
+    }
 
-  
 }

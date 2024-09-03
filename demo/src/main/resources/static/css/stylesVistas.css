@@ -33,6 +33,21 @@ body {
     height: 100vh;
 }
 
+h1 {
+    font-family: 'Jomhuria', serif;
+    letter-spacing: 4px;
+    color: #5a4076;
+    font-size: 80px;
+}
+
+h2 {
+    font-family: 'Jomhuria', serif;
+    letter-spacing: 4px;
+    color: #5a4076;
+    font-size: 60px;
+    padding: 0;
+}
+
 /*-----------------Botones*/
 button,a{
     margin-top: 18px;
@@ -246,6 +261,7 @@ main.min-main{
 
 .table-responsive {
     margin-top: 20px;
+    flex-grow: 1;
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
@@ -287,14 +303,37 @@ main.min-main{
     border-color: #6f42c1;
 }
 
+/* Estilo de la barra de paginación */
+.pagination {
+    position: sticky; /* Fija la paginación al fondo del contenedor */
+    bottom: 10px; /* Ajusta la distancia desde la parte inferior */
+    background-color: white; /* Asegura un fondo consistente */
+    padding-top: 10px;
+    margin-top: auto; /* Empuja la paginación hacia la parte inferior */
+    justify-content: center;
+}
 .pagination .page-item .page-link {
     color: #6f42c1;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 50%;
+    border: none;
 }
 
 .pagination .page-item.active .page-link {
     background-color: #6f42c1;
-    border-color: #6f42c1;
     color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    padding: 0;
+}
+
+.pagination .page-item {
+    margin: 0 0.25rem; 
 }
 
 /* Estilo de la tarjeta de agregar mascota */
