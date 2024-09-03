@@ -30,9 +30,16 @@ public class ClienteController {
     }
 
     @PostMapping("/agregar")
-    public String crearCliente(@ModelAttribute("cliente") Cliente nuevoCliente) {
-        clienteServicio.addCliente(nuevoCliente);
-        return "redirect:/Clientes/all";
+    public String crearCliente(@ModelAttribute("cliente") Cliente nuevoCliente,Model model) {
+        Cliente clienteExistente = clienteServicio.findByCedula(nuevoCliente.getCedula());
+        if(clienteExistente==null){
+            clienteServicio.addCliente(nuevoCliente);
+            return "redirect:/Clientes/all";
+        }else{
+            model.addAttribute("error", "Ya existe un cliente con la cédula "+nuevoCliente.getCedula());
+            return "CreateCliente";
+        }
+        
     }
 
     @GetMapping("/info/{id}")
@@ -54,22 +61,31 @@ public class ClienteController {
     }
 
     @PostMapping("/update/{id}")
-    public String actualizar(@ModelAttribute("cliente") Cliente clienteActualizado, @PathVariable("id") Long id) {
-        // Cargar el cliente existente desde la base de datos
+    public String actualizar(@ModelAttribute("cliente") Cliente clienteActualizado, @PathVariable("id") Long id,Model model) {
+        Cliente clienteRepetido = clienteServicio.findByCedula(clienteActualizado.getCedula());
         Cliente clienteExistente = clienteServicio.searchByIdCliente(id);
 
-        if (clienteExistente != null) {
-            // Actualizar solo los campos del cliente, sin tocar la lista de mascotas
-            clienteExistente.setCedula(clienteActualizado.getCedula());
-            clienteExistente.setNombre(clienteActualizado.getNombre());
-            clienteExistente.setCorreo(clienteActualizado.getCorreo());
-            clienteExistente.setCelular(clienteActualizado.getCelular());
+        if(clienteRepetido==null || clienteRepetido.getId()==clienteExistente.getId()){
+            // Cargar el cliente existente desde la base de datos
+            
 
-            // Guardar los cambios en el cliente
-            clienteServicio.updateCliente(clienteExistente);
+            if (clienteExistente != null) {
+                // Actualizar solo los campos del cliente, sin tocar la lista de mascotas
+                clienteExistente.setCedula(clienteActualizado.getCedula());
+                clienteExistente.setNombre(clienteActualizado.getNombre());
+                clienteExistente.setCorreo(clienteActualizado.getCorreo());
+                clienteExistente.setCelular(clienteActualizado.getCelular());
+
+                // Guardar los cambios en el cliente
+                clienteServicio.updateCliente(clienteExistente);
+            }
+            return "redirect:/Clientes/all";
+        }else{
+            model.addAttribute("error", "Ya existe un cliente con la cédula "+clienteActualizado.getCedula());
+            return "CreateCliente";
         }
 
-        return "redirect:/Clientes/all";
+        
     }
 
     @GetMapping("/delete/{id}")

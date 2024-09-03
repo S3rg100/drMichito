@@ -126,6 +126,9 @@
           <div class="card agregar-mascota-card">
             <div class="card-body">
               <h2 class="text-center agregar-mascota-titulo">Editar Cliente</h2>
+              <div th:if="${error}" class="alert alert-danger">
+                <p th:text="${error}"></p>
+              </div>
               <form
                 th:object="${cliente}"
                 th:action="@{/Clientes/update/{id}(id=${cliente.id})}"
