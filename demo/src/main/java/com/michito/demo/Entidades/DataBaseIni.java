@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import com.michito.demo.Repositorio.ClientesRepositorio;
 import com.michito.demo.Repositorio.LoginRepositorio;
 import com.michito.demo.Repositorio.MascotasRepositorio;
+import com.michito.demo.Repositorio.VeterinarioRepositorio;
 
 import jakarta.transaction.Transactional;
 
@@ -22,11 +23,35 @@ public class DataBaseIni implements ApplicationRunner {
     ClientesRepositorio ClienteRepositorio;
     @Autowired
     LoginRepositorio LoginRepositorio;
+    @Autowired
+    VeterinarioRepositorio VeterinarioRepositorio;
     
     @Override
     public void run(ApplicationArguments args) throws Exception {
         LoginRepositorio.save(new Login("admin","admin"));
      
+        VeterinarioRepositorio.save(new Veterinario("123","Pedro","pedro@gmail.com",1234L,"cirujano"));
+        VeterinarioRepositorio.save(new Veterinario("001","Juan","juan@example.com",1001L,"cirujano"));
+        VeterinarioRepositorio.save(new Veterinario("002","Ana","ana@example.com",1002L,"cardiologo"));
+        VeterinarioRepositorio.save(new Veterinario("003","Luis","luis@example.com",1003L,"dentista"));
+        VeterinarioRepositorio.save(new Veterinario("004","María","maria@example.com",1004L,"dermatologo"));
+        VeterinarioRepositorio.save(new Veterinario("005","Carlos","carlos@example.com",1005L,"oftalmologo"));
+        VeterinarioRepositorio.save(new Veterinario("006","Laura","laura@example.com",1006L,"neurocirujano"));
+        VeterinarioRepositorio.save(new Veterinario("007","Pedro","pedro@example.com",1007L,"gastroenterologo"));
+        VeterinarioRepositorio.save(new Veterinario("008","Isabel","isabel@example.com",1008L,"traumatologo"));
+        VeterinarioRepositorio.save(new Veterinario("009","David","david@example.com",1009L,"internista"));
+        VeterinarioRepositorio.save(new Veterinario("010","Lucía","lucia@example.com",1010L,"oncologo"));
+        VeterinarioRepositorio.save(new Veterinario("011","Javier","javier@example.com",1011L,"cirujano"));
+        VeterinarioRepositorio.save(new Veterinario("012","Elena","elena@example.com",1012L,"cardiologo"));
+        VeterinarioRepositorio.save(new Veterinario("013","Ricardo","ricardo@example.com",1013L,"dentista"));
+        VeterinarioRepositorio.save(new Veterinario("014","Sofia","sofia@example.com",1014L,"dermatologo"));
+        VeterinarioRepositorio.save(new Veterinario("015","Miguel","miguel@example.com",1015L,"oftalmologo"));
+        VeterinarioRepositorio.save(new Veterinario("016","Raquel","raquel@example.com",1016L,"neurocirujano"));
+        VeterinarioRepositorio.save(new Veterinario("017","Andrés","andres@example.com",1017L,"gastroenterologo"));
+        VeterinarioRepositorio.save(new Veterinario("018","Carmen","carmen@example.com",1018L,"traumatologo"));
+        VeterinarioRepositorio.save(new Veterinario("019","Fernando","fernando@example.com",1019L,"internista"));
+        VeterinarioRepositorio.save(new Veterinario("020","Valeria","valeria@example.com",1020L,"oncologo"));
+
 
         MascotaRepositorio.save(new Mascota("Toby", 2, 12, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s"));
         MascotaRepositorio.save(new Mascota("Rex", 3, 17, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s"));
