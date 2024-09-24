@@ -1,7 +1,8 @@
 package com.michito.demo.Entidades;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,7 +31,7 @@ public class Medicamento {
     
 
     
-    public Medicamento(Long id,String nombre,String tipo, String descipcion,LocalDate fechaVencimiento,int stock){
+    public Medicamento(String nombre,String tipo, String descipcion,LocalDate fechaVencimiento,int stock){
         this.nombre = nombre;
         this.tipo = tipo;
         this.descipcion = descipcion;
