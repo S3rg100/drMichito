@@ -59,11 +59,10 @@ public class ClienteController {
 
     //revisar más tarde
     @GetMapping("/Mascotas/{id}")
-    public String mascotasDeCliente(Model model, @PathVariable("id") Long identificador) {
-        Cliente cliente = clienteServicio.searchByIdCliente(identificador);
-        model.addAttribute("Mascotas", cliente.getMascotas());
-        return "ReadMascotas";
+    public List<Mascota> mascotasDeCliente(@PathVariable("id") Long identificador) {
+        return mascotaServicio.searchByIdCliente(identificador);
     }
+
 
     @GetMapping("/VistaMascotas/{id}")
     public String vistaMascotasDeCliente(Model model, @PathVariable("id") Long identificador) {

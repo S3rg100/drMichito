@@ -1,21 +1,27 @@
 package com.michito.demo.Controlador;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.michito.demo.Entidades.Cliente;
 import com.michito.demo.Entidades.Mascota;
 import com.michito.demo.Servicio.ServicioCliente;
 import com.michito.demo.Servicio.ServicioMascota;
 
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+@RestController
 @Controller
 @RequestMapping("/Mascotas")
+@CrossOrigin(origins = "http://localhost:4200")
 public class MascotaController {
     @Autowired
     ServicioMascota mascotaServicio;
@@ -26,39 +32,22 @@ public class MascotaController {
   
 
     @GetMapping("/info/{id}")
-    public String mostrarMascota(Model model, @PathVariable("id") Long identificador) {
+    public Mascota mostrarMascota(Model model, @PathVariable("id") Long identificador) {
 
-        model.addAttribute("Mascotas", mascotaServicio.searchById(identificador));
-        return "ReadMascotas";
+        return mascotaServicio.searchById(identificador);
     }
 
     @GetMapping("/all")
-    public String mostrar(Model model) {
-        model.addAttribute("Mascotas", mascotaServicio.searchAll());// nombre "Mascota"
-        return "ReadMascotas";
-    }
-
-    @GetMapping("/agregar")
-    public String redirigirAgregar(Model model) {
-        Mascota newMascota = new Mascota("", 0, 0, "");
-        model.addAttribute("mascota", newMascota);
-        return "CreateMascota";
+    public List<Mascota> mostrar(Model model) {
+        return mascotaServicio.searchAll();
     }
 
     @PostMapping("/agregar")
-    public String agregarMascota(Mascota mascota, Model model) {
-        String cedulaCliente = mascota.getCedulaCliente();
-        Cliente cliente = clienteServicio.findByCedula(cedulaCliente);
-
-        if (cliente != null) {
-            mascota.setCliente(cliente);
-            mascotaServicio.addMascota(mascota);
-            return "redirect:/Mascotas/all";
-        } else {
-            model.addAttribute("error", "Cliente no encontrado");
-            return "CreateMascota";
-        }
+    public void redirigirAgregar(@RequestBody Mascota mascota) {
+        mascotaServicio.addMascota(mascota);
     }
+
+    
 
     @GetMapping("/editar/{id}")
     public String mostrarFormularioEdicion(@PathVariable("id") Long identificador, Model model) {
