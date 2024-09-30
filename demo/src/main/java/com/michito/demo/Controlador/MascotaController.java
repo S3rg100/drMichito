@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,8 @@ import com.michito.demo.Servicio.ServicioCliente;
 import com.michito.demo.Servicio.ServicioMascota;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+
 @RestController
 @Controller
 @RequestMapping("/Mascotas")
@@ -58,48 +61,26 @@ public class MascotaController {
         return "UpdateMascota";
     }
 
-    @PostMapping("/editar/{id}")
-public String editarMascota(@PathVariable("id") Long id,@ModelAttribute("mascota") Mascota mascotaEditada) {
-    
-    if (mascotaEditada.getCliente() != null && mascotaEditada.getCliente().getId() != null) {
-        Cliente cliente = clienteServicio.searchByIdCliente(mascotaEditada.getCliente().getId());
-        mascotaEditada.setCliente(cliente);
-    } 
+    @PutMapping("/editar/{id}")
+public void editarMascota(@RequestBody Mascota mascotaEditada) {
+
     mascotaServicio.updateMascota(mascotaEditada);
 
-    return "redirect:/Mascotas/all";
 }
 
     
 
-    @GetMapping("/eliminar/{id}")
-    public String eliminarMascota(@PathVariable("id") Long identificador) {
+    @DeleteMapping("/eliminar/{id}")
+    public void eliminarMascota(@PathVariable("id") Long identificador) {
         mascotaServicio.eliminarMascota(identificador);
-        return "redirect:/Mascotas/all";
+       
     }
 
-    @GetMapping("/detalle/{id}")
-    public String verDetallesMascota(@PathVariable("id") Long id, Model model) {
-        Mascota mascota = mascotaServicio.searchById(id);  
-        if (mascota != null) {
-            model.addAttribute("Mascota", mascota);
-            return "ReadMascota";
-        } else {
-            model.addAttribute("errorMessage", "Mascota no encontrada");
-            return "error";  
-        }
-    }
+   
 
     @GetMapping("/vistaDetalle/{id}")
-    public String verDetallesMascotaVistaCliente(@PathVariable("id") Long id, Model model) {
-        Mascota mascota = mascotaServicio.searchById(id);  
-        if (mascota != null) {
-            model.addAttribute("Mascota", mascota);
-            return "ReadMascotaVistaCliente";
-        } else {
-            model.addAttribute("errorMessage", "Mascota no encontrada");
-            return "error";  
-        }
+    public Mascota verDetallesMascotaVistaCliente(@PathVariable("id") Long id) {
+        return mascotaServicio.searchById(id);
     }
 
 
