@@ -1,4 +1,5 @@
 # Proyecto: Aplicativo Web Dr.Michito
+mvnw spring-boot:run //local
 
 Este proyecto implementa un aplicativo web para una clínica veterinaria llamada Dr.Michito, permitiendo la digitalización de su negocio. La página web promociona los servicios de la clínica, permite a los clientes estar atentos al estado de sus mascotas y permite al personal veterinario registrar las atenciones médicas que realizan.
 

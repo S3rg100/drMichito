@@ -4,102 +4,60 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import java.util.*;
 
 import com.michito.demo.Entidades.Cliente;
 import com.michito.demo.Entidades.Mascota;
 import com.michito.demo.Servicio.ServicioCliente;
 import com.michito.demo.Servicio.ServicioMascota;
 
-@Controller
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
+@RestController
 @RequestMapping("/Clientes")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ClienteController {
     @Autowired
     ServicioCliente clienteServicio;
     @Autowired
     ServicioMascota mascotaServicio;
 
-    @GetMapping("/agregar")
-    public String Agregar(Model model) {
-        Cliente c = new Cliente("", "", "", 0);
-        model.addAttribute("cliente", c);
-        return "CreateCliente";
-    }
+
 
     @PostMapping("/agregar")
-    public String crearCliente(@ModelAttribute("cliente") Cliente nuevoCliente,Model model) {
-        Cliente clienteExistente = clienteServicio.findByCedula(nuevoCliente.getCedula());
-        if(clienteExistente==null){
-            clienteServicio.addCliente(nuevoCliente);
-            return "redirect:/Clientes/all/paginated";
-        }else{
-            model.addAttribute("error", "Ya existe un cliente con la cédula "+nuevoCliente.getCedula());
-            return "CreateCliente";
-        }
-        
+    public void crearCliente(@RequestBody Cliente cliente) {
+        clienteServicio.addCliente(cliente);
     }
 
-    @GetMapping("/all/paginated")
-    public String mostrar(Model model,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "8") int size) {
-        Page<Cliente> clientePage = clienteServicio.findAllPaginated(page, size);
-        model.addAttribute("Clientes", clientePage.getContent());
-        model.addAttribute("currentPage", page);
-        model.addAttribute("totalPages", clientePage.getTotalPages());
-        return "ReadClientes";
-    }
 
     @GetMapping("/all")
-    public String mostrar(Model model) {
-        model.addAttribute("Clientes", clienteServicio.searchAllClientes());
-        return "ReadClientes";
+    public List<Cliente> mostrar(Model model) {
+        return clienteServicio.searchAllClientes();
     }
 
-    @GetMapping("/update/{id}")
-    public String actualizarForm(Model model, @PathVariable("id") Long identificador) {
-        model.addAttribute("cliente", clienteServicio.searchByIdCliente(identificador));
-        return "UpdateCliente";
+    @PutMapping("/update/{id}")
+    public void actualizarForm(@RequestBody Cliente cliente) {
+        clienteServicio.updateCliente(cliente);
     }
 
-    @PostMapping("/update/{id}")
-    public String actualizar(@ModelAttribute("cliente") Cliente clienteActualizado, @PathVariable("id") Long id,Model model) {
-        Cliente clienteRepetido = clienteServicio.findByCedula(clienteActualizado.getCedula());
-        Cliente clienteExistente = clienteServicio.searchByIdCliente(id);
+    
 
-        if(clienteRepetido==null || clienteRepetido.getId()==clienteExistente.getId()){
-            // Cargar el cliente existente desde la base de datos
-            
-
-            if (clienteExistente != null) {
-                // Actualizar solo los campos del cliente, sin tocar la lista de mascotas
-                clienteExistente.setCedula(clienteActualizado.getCedula());
-                clienteExistente.setNombre(clienteActualizado.getNombre());
-                clienteExistente.setCorreo(clienteActualizado.getCorreo());
-                clienteExistente.setCelular(clienteActualizado.getCelular());
-
-                // Guardar los cambios en el cliente
-                clienteServicio.updateCliente(clienteExistente);
-            }
-            return "redirect:/Clientes/all/paginated";
-        }else{
-            model.addAttribute("error", "Ya existe un cliente con la cédula "+clienteActualizado.getCedula());
-            return "CreateCliente";
-        }
-
-    }
-
-    @GetMapping("/delete/{id}")
-    public String Eliminar(@PathVariable("id") Long identificador) {
+    @DeleteMapping("/delete/{id}")
+    public void Eliminar(@PathVariable("id") Long identificador) {
         clienteServicio.deleteCliente(identificador);
-        return "redirect:/Clientes/all/paginated";
     }
 
+    //revisar más tarde
     @GetMapping("/Mascotas/{id}")
     public String mascotasDeCliente(Model model, @PathVariable("id") Long identificador) {
         Cliente cliente = clienteServicio.searchByIdCliente(identificador);

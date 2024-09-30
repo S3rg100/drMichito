@@ -3,6 +3,8 @@ package com.michito.demo.Entidades;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Transient;
+import jakarta.persistence.CascadeType;
 
 @Entity
 public class Mascota {
@@ -21,14 +24,14 @@ public class Mascota {
     private int peso;
     private int edad;
     private String foto;
-    
+    @JsonIgnore
     @Transient // No se almacena en la base de datos
     private String cedulaCliente;
-
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     private Cliente cliente;
-    
-    @OneToMany(mappedBy = "mascota")
+    @JsonIgnore
+    @OneToMany(mappedBy = "mascota", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Tratamieneto> tratamientos = new ArrayList<>();
     
     public List<Tratamieneto> getTratamientos() {

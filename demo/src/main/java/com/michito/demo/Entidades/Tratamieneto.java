@@ -3,6 +3,8 @@ package com.michito.demo.Entidades;
 import java.time.LocalDate;
 import java.util.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -24,7 +26,7 @@ public class Tratamieneto {
     
     
    
-
+    @JsonIgnore
     @ManyToMany
     @JoinTable( name = "tratamieneto_medicamento",
         joinColumns = @JoinColumn(name = "tratamieneto_id"),
@@ -38,7 +40,7 @@ public class Tratamieneto {
     public void setMedicamentos(List<Medicamento> medicamentos) {
         this.medicamentos = medicamentos;
     }
-    
+    @JsonIgnore
     @ManyToOne
     private Veterinario  veterinario;
 
@@ -48,6 +50,7 @@ public class Tratamieneto {
     public void setVeterinario(Veterinario veterinario) {
         this.veterinario = veterinario;
     }
+    @JsonIgnore
     @ManyToOne
     private Mascota mascota;
     public Mascota getMascota() {

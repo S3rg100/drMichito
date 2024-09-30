@@ -11,6 +11,7 @@ import com.michito.demo.Entidades.Cliente;
 import com.michito.demo.Entidades.Mascota;
 import com.michito.demo.Repositorio.ClientesRepositorio;
 import com.michito.demo.Repositorio.MascotasRepositorio;
+import java.util.*;
 
 @Service
 
@@ -27,7 +28,7 @@ public class ServicioClienteImplementacion implements ServicioCliente {
     }
 
     @Override
-    public Collection<Cliente> searchAllClientes() {
+    public List<Cliente> searchAllClientes() {
         return clienteRepositorio.findAll();
     }
 

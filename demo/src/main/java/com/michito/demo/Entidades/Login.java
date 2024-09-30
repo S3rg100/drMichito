@@ -1,5 +1,7 @@
 package com.michito.demo.Entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
@@ -8,7 +10,7 @@ import jakarta.persistence.OneToOne;
 public class Login {
     @Id
     private String usuario;
-    
+    @JsonIgnore
     @OneToOne(mappedBy = "login")
     private Veterinario veterinario;
 
