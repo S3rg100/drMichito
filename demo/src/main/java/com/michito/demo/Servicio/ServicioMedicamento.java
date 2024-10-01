@@ -67,4 +67,8 @@ public class ServicioMedicamento {
         // Cierra el workbook
         workbook.close();
     }
+
+    public List<Medicamento> obtenerMedicamentos() {
+        return medicamentoRepositorio.findAll();
+    }
 }
