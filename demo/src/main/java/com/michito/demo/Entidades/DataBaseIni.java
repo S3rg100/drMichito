@@ -213,14 +213,13 @@ public class DataBaseIni implements ApplicationRunner {
         ClienteRepositorio.save(new Cliente("58063", "Claudia", "claudia@gmail.com", 58463));
         ClienteRepositorio.save(new Cliente("32589", "Julian", "julian@gmail.com", 32589));
 
-
-        //Medicamentos
-        MedicamentoRepositorio.save(new Medicamento( "Ibuprofeno", "Anti-inflamatorio", "Analgésico anti-inflamatorio", LocalDate.of(2025, 6, 15), 50));
-        MedicamentoRepositorio.save(new Medicamento( "Amoxicilina", "Antibiótico", "Antibiótico de amplio espectro", LocalDate.of(2024, 12, 1), 100));
-        MedicamentoRepositorio.save(new Medicamento( "Paracetamol", "Analgésico", "Alivia dolores leves y fiebre", LocalDate.of(2023, 11, 10), 75));
         
+        //Medicamentos
+        Medicamento acolan = MedicamentoRepositorio.findByNombre("ACOLAN").orElse(null);
+        Medicamento altidox = MedicamentoRepositorio.findByNombre("ALTIDOX").orElse(null);
+        Medicamento apravet = MedicamentoRepositorio.findByNombre("APRAVET").orElse(null);
 
-            // Obtener veterinarios y mascotas desde el repositorio
+        // Obtener veterinarios y mascotas desde el repositorio
         Veterinario veterinario1 = VeterinarioRepositorio.findById(1L).orElse(null);
         Veterinario veterinario2 = VeterinarioRepositorio.findById(2L).orElse(null); 
         Veterinario veterinario3 = VeterinarioRepositorio.findById(3L).orElse(null); 
@@ -233,82 +232,79 @@ public class DataBaseIni implements ApplicationRunner {
         Mascota mascota5 = MascotaRepositorio.findById(5L).orElse(null);
         Mascota mascota6 = MascotaRepositorio.findById(6L).orElse(null);
 
-        // Obtener medicamentos desde el repositorio
-        Medicamento ibuprofeno = MedicamentoRepositorio.findById(1L).orElse(null); 
-        Medicamento amoxicilina = MedicamentoRepositorio.findById(2L).orElse(null);
-        Medicamento paracetamol = MedicamentoRepositorio.findById(3L).orElse(null);
-
         //// Tratamientos
         // Tratamiento 1
+            // Tratamiento 1
         Tratamieneto tratamiento1 = new Tratamieneto(LocalDate.of(2024, 1, 15), "Tratamiento post-operatorio");
         tratamiento1.setVeterinario(veterinario1);
         tratamiento1.setMascota(mascota1);
-        tratamiento1.setMedicamentos(Arrays.asList(ibuprofeno, amoxicilina));
+        tratamiento1.setMedicamentos(Arrays.asList(acolan, altidox));
         TratamientoRepositorio.save(tratamiento1);
 
         // Tratamiento 2
         Tratamieneto tratamiento2 = new Tratamieneto(LocalDate.of(2024, 2, 20), "Tratamiento para infección de la piel");
         tratamiento2.setVeterinario(veterinario2);
         tratamiento2.setMascota(mascota2);
-        tratamiento2.setMedicamentos(Arrays.asList(amoxicilina));
+        tratamiento2.setMedicamentos(Arrays.asList(altidox));
         TratamientoRepositorio.save(tratamiento2);
 
         // Tratamiento 3
         Tratamieneto tratamiento3 = new Tratamieneto(LocalDate.of(2024, 3, 10), "Tratamiento para fiebre leve");
         tratamiento3.setVeterinario(veterinario3);
         tratamiento3.setMascota(mascota3);
-        tratamiento3.setMedicamentos(Arrays.asList(paracetamol));
+        tratamiento3.setMedicamentos(Arrays.asList(apravet));
         TratamientoRepositorio.save(tratamiento3);
 
         // Tratamiento 4
         Tratamieneto tratamiento4 = new Tratamieneto(LocalDate.of(2024, 4, 5), "Tratamiento para dolor de articulaciones");
         tratamiento4.setVeterinario(veterinario4);
         tratamiento4.setMascota(mascota4);
-        tratamiento4.setMedicamentos(Arrays.asList(ibuprofeno));
+        tratamiento4.setMedicamentos(Arrays.asList(acolan));
         TratamientoRepositorio.save(tratamiento4);
 
         // Tratamiento 5
         Tratamieneto tratamiento5 = new Tratamieneto(LocalDate.of(2024, 5, 25), "Tratamiento post-cirugía dental");
         tratamiento5.setVeterinario(veterinario5);
         tratamiento5.setMascota(mascota5);
-        tratamiento5.setMedicamentos(Arrays.asList(amoxicilina, paracetamol));
+        tratamiento5.setMedicamentos(Arrays.asList(altidox, apravet));
         TratamientoRepositorio.save(tratamiento5);
 
         // Tratamiento 6
         Tratamieneto tratamiento6 = new Tratamieneto(LocalDate.of(2024, 6, 10), "Tratamiento para infección respiratoria");
         tratamiento6.setVeterinario(veterinario1);
         tratamiento6.setMascota(mascota6);
-        tratamiento6.setMedicamentos(Arrays.asList(amoxicilina));
+        tratamiento6.setMedicamentos(Arrays.asList(altidox));
         TratamientoRepositorio.save(tratamiento6);
 
         // Tratamiento 7
         Tratamieneto tratamiento7 = new Tratamieneto(LocalDate.of(2024, 7, 15), "Tratamiento para inflamación general");
         tratamiento7.setVeterinario(veterinario2);
         tratamiento7.setMascota(mascota1);
-        tratamiento7.setMedicamentos(Arrays.asList(ibuprofeno));
+        tratamiento7.setMedicamentos(Arrays.asList(acolan));
         TratamientoRepositorio.save(tratamiento7);
 
         // Tratamiento 8
         Tratamieneto tratamiento8 = new Tratamieneto(LocalDate.of(2024, 8, 30), "Tratamiento para dolor muscular");
         tratamiento8.setVeterinario(veterinario3);
         tratamiento8.setMascota(mascota2);
-        tratamiento8.setMedicamentos(Arrays.asList(paracetamol, ibuprofeno));
+        tratamiento8.setMedicamentos(Arrays.asList(apravet, acolan));
         TratamientoRepositorio.save(tratamiento8);
 
         // Tratamiento 9
         Tratamieneto tratamiento9 = new Tratamieneto(LocalDate.of(2024, 9, 5), "Tratamiento para infección post-quirúrgica");
         tratamiento9.setVeterinario(veterinario4);
         tratamiento9.setMascota(mascota3);
-        tratamiento9.setMedicamentos(Arrays.asList(amoxicilina));
+        tratamiento9.setMedicamentos(Arrays.asList(altidox));
         TratamientoRepositorio.save(tratamiento9);
 
         // Tratamiento 10
         Tratamieneto tratamiento10 = new Tratamieneto(LocalDate.of(2024, 10, 12), "Tratamiento para fiebre aguda");
         tratamiento10.setVeterinario(veterinario5);
         tratamiento10.setMascota(mascota4);
-        tratamiento10.setMedicamentos(Arrays.asList(paracetamol));
+        tratamiento10.setMedicamentos(Arrays.asList(apravet));
         TratamientoRepositorio.save(tratamiento10);
         
+         
         
         // Obtener todos los clientes
         List<Cliente> clientes = ClienteRepositorio.findAll();
