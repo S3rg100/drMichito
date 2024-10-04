@@ -13,18 +13,27 @@ public class Login {
     @JsonIgnore
     @OneToOne(mappedBy = "login")
     private Veterinario veterinario;
+     private String tipo;
 
     private String passwords;
 
     public Login() {}
 
-    public Login(String usuario, String passwords) {
+    public Login(String usuario, String passwords,String tipo) {
         this.usuario = usuario;
         this.passwords = passwords;
+        this.tipo=tipo;
     }
 
     public String getPassword() {
         return passwords;
+    }
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public void setPassword(String passwords) {

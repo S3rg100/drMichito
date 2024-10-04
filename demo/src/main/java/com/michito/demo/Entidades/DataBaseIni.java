@@ -36,7 +36,9 @@ public class DataBaseIni implements ApplicationRunner {
     
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        LoginRepositorio.save(new Login("admin","admin"));
+        LoginRepositorio.save(new Login("admin","admin","admin"));
+        LoginRepositorio.save(new Login("admin2","admin","admin"));
+        LoginRepositorio.save(new Login("vet","vet","veterinario"));
      
         VeterinarioRepositorio.save(new Veterinario("123","Pedro","pedro@gmail.com",1234L,"cirujano"));
         VeterinarioRepositorio.save(new Veterinario("001","Juan","juan@example.com",1001L,"cirujano"));

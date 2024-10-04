@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,12 +17,14 @@ import com.michito.demo.Servicio.ServicioCliente;
 import com.michito.demo.Servicio.ServicioLogin;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.*;
 
 @RestController
 @RequestMapping("/login")
 @CrossOrigin(origins = "http://localhost:4200")
 public class LogInController {
 
+/*
     @Autowired
     private ServicioCliente clienteServicio;
     @Autowired
@@ -70,6 +73,25 @@ public class LogInController {
     public Login getMethodName(@RequestParam String username) {
         return loginServicio.SearchByUsuario(username);
     }
+    */
+     @Autowired
+    private ServicioLogin loginServicio;
+
+    @GetMapping("")
+    public List<Login> findAll() {
+        return loginServicio.searchAllLogins();
+    }
+
+   
+
+  
+
+   
+   
     
+    @GetMapping("/portalInterno/{username}")
+    public Login findByUsuario(@PathVariable String username) {
+        return loginServicio.SearchByUsuario(username);
+    }
 
 }
