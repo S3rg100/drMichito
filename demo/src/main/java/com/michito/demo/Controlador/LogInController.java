@@ -1,23 +1,16 @@
 package com.michito.demo.Controlador;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.michito.demo.Entidades.Cliente;
 import com.michito.demo.Entidades.Login;
-import com.michito.demo.Servicio.ServicioCliente;
 import com.michito.demo.Servicio.ServicioLogin;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.*;
 
 @RestController
 @RequestMapping("/login")
@@ -81,17 +74,15 @@ public class LogInController {
     public List<Login> findAll() {
         return loginServicio.searchAllLogins();
     }
-
-   
-
-  
-
-   
-   
     
     @GetMapping("/portalInterno/{username}")
     public Login findByUsuario(@PathVariable String username) {
         return loginServicio.SearchByUsuario(username);
+    }
+
+    @GetMapping("/{cedula}")
+    public Login findByCedulaCliente(@PathVariable String cedula) {
+        return loginServicio.SearchByUsuario(cedula);
     }
 
 }

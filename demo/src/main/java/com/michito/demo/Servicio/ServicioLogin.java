@@ -7,4 +7,5 @@ public interface ServicioLogin {
 
     public List<Login> searchAllLogins();
     public Login SearchByUsuario(String usuario);
+    
 } 
