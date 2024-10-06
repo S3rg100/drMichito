@@ -1,6 +1,6 @@
 package com.michito.demo.Servicio;
-import java.util.Collection;
-import java.util.*;
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 
 import com.michito.demo.Entidades.Cliente;
@@ -17,4 +17,6 @@ public interface ServicioCliente {
     public Mascota searchById(Long id);
     /*Paginacion */
     public Page<Cliente> findAllPaginated(int page, int size);
+
+    public List<Cliente> buscarClientesPorCedula(String cedula);
 } 

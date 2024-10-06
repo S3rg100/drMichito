@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -21,7 +22,6 @@ import com.michito.demo.Entidades.Cliente;
 import com.michito.demo.Entidades.Mascota;
 import com.michito.demo.Servicio.ServicioCliente;
 import com.michito.demo.Servicio.ServicioMascota;
-
 
 @RestController
 @RequestMapping("/Clientes")
@@ -32,13 +32,10 @@ public class ClienteController {
     @Autowired
     ServicioMascota mascotaServicio;
 
-
-
     @PostMapping("/agregar")
     public void crearCliente(@RequestBody Cliente cliente) {
         clienteServicio.addCliente(cliente);
     }
-
 
     @GetMapping("/all")
     public List<Cliente> mostrar(Model model) {
@@ -47,7 +44,7 @@ public class ClienteController {
 
     @GetMapping("/{cedula}")
     public Cliente obtenerCliente(@PathVariable("cedula") String cedula) {
-            Cliente cliente = clienteServicio.findByCedula(cedula);
+        Cliente cliente = clienteServicio.findByCedula(cedula);
         if (cliente == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente no encontrado");
         }
@@ -59,19 +56,16 @@ public class ClienteController {
         clienteServicio.updateCliente(cliente);
     }
 
-    
-
     @DeleteMapping("/delete/{id}")
     public void Eliminar(@PathVariable("id") Long identificador) {
         clienteServicio.deleteCliente(identificador);
     }
 
-    //revisar más tarde
+    // revisar más tarde
     @GetMapping("/Mascotas/{id}")
     public List<Mascota> mascotasDeCliente(@PathVariable("id") Long identificador) {
         return mascotaServicio.searchByIdCliente(identificador);
     }
-
 
     @GetMapping("/VistaMascotas/{id}")
     public String vistaMascotasDeCliente(Model model, @PathVariable("id") Long identificador) {
@@ -94,6 +88,11 @@ public class ClienteController {
         mascotaEditada.setId(identificador);
         mascotaServicio.updateMascota(mascotaEditada);
         return "redirect:/Mascotas/all";
+    }
+
+    @GetMapping("/buscar")
+    public List<Cliente> buscarClientesConteniendoPorCedula(@RequestParam("cedula") String cedula) {
+        return clienteServicio.buscarClientesPorCedula(cedula);
     }
 
 }
