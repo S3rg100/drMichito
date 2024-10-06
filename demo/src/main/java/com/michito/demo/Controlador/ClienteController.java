@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
@@ -21,7 +22,6 @@ import com.michito.demo.Entidades.Mascota;
 import com.michito.demo.Servicio.ServicioCliente;
 import com.michito.demo.Servicio.ServicioMascota;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
 @RequestMapping("/Clientes")
@@ -47,7 +47,7 @@ public class ClienteController {
 
     @GetMapping("/{cedula}")
     public Cliente obtenerCliente(@PathVariable("cedula") String cedula) {
-        Cliente cliente = clienteServicio.findByCedula(cedula);
+            Cliente cliente = clienteServicio.findByCedula(cedula);
         if (cliente == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente no encontrado");
         }
