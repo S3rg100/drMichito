@@ -1,6 +1,6 @@
 package com.michito.demo.Servicio;
 
-import java.util.Collection;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,14 +12,14 @@ import com.michito.demo.Repositorio.LoginRepositorio;
 
 public class ServicioLoginImplementacion implements ServicioLogin{
    
-    @Autowired
+   @Autowired
     LoginRepositorio loginRepositorio;
 
    
 
 
     @Override
-    public Collection<Login> searchAllLogins() {
+    public List<Login> searchAllLogins() {
         return loginRepositorio.findAll();
     }
 

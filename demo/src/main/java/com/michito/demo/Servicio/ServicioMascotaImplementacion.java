@@ -3,6 +3,7 @@ package com.michito.demo.Servicio;
 
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class ServicioMascotaImplementacion implements ServicioMascota{
     }
 
     @Override
-    public Collection<Mascota> searchAll() {
+    public List<Mascota> searchAll() {
         return mascotaRepositorio.findAll();
     }
 
@@ -67,6 +68,11 @@ public class ServicioMascotaImplementacion implements ServicioMascota{
         }
     
         mascotaRepositorio.deleteById(id);
+    }
+
+    @Override
+    public List<Mascota> searchByIdCliente(long id) {
+        return mascotaRepositorio.findByClienteId(id);
     }
     
 

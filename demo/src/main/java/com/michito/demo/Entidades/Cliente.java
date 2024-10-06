@@ -4,6 +4,8 @@ package com.michito.demo.Entidades;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,8 +23,8 @@ public class Cliente {
     private String nombre;
     private String correo;
     private long celular;
-    
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JsonIgnore
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Mascota> mascotas = new ArrayList<>();
     public List<Mascota> getMascotas() {
         return mascotas;

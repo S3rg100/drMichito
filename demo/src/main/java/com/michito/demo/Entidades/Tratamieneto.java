@@ -1,15 +1,17 @@
 package com.michito.demo.Entidades;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 
 
 @Entity
@@ -22,10 +24,7 @@ public class Tratamieneto {
     private String descripcion;
     
     
-    
-   
-
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable( name = "tratamieneto_medicamento",
         joinColumns = @JoinColumn(name = "tratamieneto_id"),
         inverseJoinColumns = @JoinColumn(name = "medicamento_id")
@@ -38,7 +37,7 @@ public class Tratamieneto {
     public void setMedicamentos(List<Medicamento> medicamentos) {
         this.medicamentos = medicamentos;
     }
-    
+
     @ManyToOne
     private Veterinario  veterinario;
 
@@ -48,6 +47,7 @@ public class Tratamieneto {
     public void setVeterinario(Veterinario veterinario) {
         this.veterinario = veterinario;
     }
+
     @ManyToOne
     private Mascota mascota;
     public Mascota getMascota() {

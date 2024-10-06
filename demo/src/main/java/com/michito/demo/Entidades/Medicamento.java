@@ -1,8 +1,9 @@
 package com.michito.demo.Entidades;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,69 +12,86 @@ import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Medicamento {
+
     @Id
     @GeneratedValue
     private Long id;
-    private String nombre;
-    private String tipo;
-    private String descipcion;
-    private LocalDate fechaVencimiento;
-    private int stock;
     
+    private String nombre;
+    private double precioVenta;
+    private double precioCompra;
+    private int unidadesDisponibles;
+    private int unidadesVendidas;
+
+    @JsonIgnore
     @ManyToMany(mappedBy = "medicamentos")
     private List<Tratamieneto> tratamientos = new ArrayList<>();
-    public List<Tratamieneto> getTratamienetos() {
-        return tratamientos;
-    }
-    public void setTratamienetos(List<Tratamieneto> tratamienetos) {
-        tratamientos = tratamienetos;
-    }
-    
 
-    
-    public Medicamento(String nombre,String tipo, String descipcion,LocalDate fechaVencimiento,int stock){
+    // Constructores
+    public Medicamento() {}
+
+    public Medicamento(String nombre, double precioVenta, double precioCompra, int unidadesDisponibles, int unidadesVendidas) {
         this.nombre = nombre;
-        this.tipo = tipo;
-        this.descipcion = descipcion;
-        this.fechaVencimiento = fechaVencimiento;
-        this.stock = stock;
-
+        this.precioVenta = precioVenta;
+        this.precioCompra = precioCompra;
+        this.unidadesDisponibles = unidadesDisponibles;
+        this.unidadesVendidas = unidadesVendidas;
     }
-    public Medicamento(){}
+
+    // Getters y Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getNombre() {
         return nombre;
     }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    public String getTipo() {
-        return tipo;
+
+    public double getPrecioVenta() {
+        return precioVenta;
     }
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+
+    public void setPrecioVenta(double precioVenta) {
+        this.precioVenta = precioVenta;
     }
-    
-    public String getDescipcion() {
-        return descipcion;
+
+    public double getPrecioCompra() {
+        return precioCompra;
     }
-    public void setDescipcion(String descipcion) {
-        this.descipcion = descipcion;
+
+    public void setPrecioCompra(double precioCompra) {
+        this.precioCompra = precioCompra;
     }
-    
-    public LocalDate getFechaVencimiento() {
-        return fechaVencimiento;
+
+    public int getUnidadesDisponibles() {
+        return unidadesDisponibles;
     }
-    public void setFechaVencimiento(LocalDate fechaVencimiento) {
-        this.fechaVencimiento = fechaVencimiento;
+
+    public void setUnidadesDisponibles(int unidadesDisponibles) {
+        this.unidadesDisponibles = unidadesDisponibles;
     }
-    
-    public int getStock() {
-        return stock;
+
+    public int getUnidadesVendidas() {
+        return unidadesVendidas;
     }
-    public void setStock(int stock) {
-        this.stock = stock;
+
+    public void setUnidadesVendidas(int unidadesVendidas) {
+        this.unidadesVendidas = unidadesVendidas;
     }
-    
-    
+
+    public List<Tratamieneto> getTratamientos() {
+        return tratamientos;
+    }
+
+    public void setTratamientos(List<Tratamieneto> tratamientos) {
+        this.tratamientos = tratamientos;
+    }
 }

@@ -1,22 +1,23 @@
 package com.michito.demo.Controlador;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import java.util.List;
 
-import com.michito.demo.Entidades.Cliente;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.michito.demo.Entidades.Login;
-import com.michito.demo.Servicio.ServicioCliente;
 import com.michito.demo.Servicio.ServicioLogin;
 
-@Controller
+@RestController
 @RequestMapping("/login")
+@CrossOrigin(origins = "http://localhost:4200")
 public class LogInController {
 
+/*
     @Autowired
     private ServicioCliente clienteServicio;
     @Autowired
@@ -60,6 +61,28 @@ public class LogInController {
             model.addAttribute("loginForm", loginForm); // Mantiene los datos del formulario
             return "logInPortaInterno"; 
         }
+    }
+    @GetMapping("/portalInterno/{username}")
+    public Login getMethodName(@RequestParam String username) {
+        return loginServicio.SearchByUsuario(username);
+    }
+    */
+     @Autowired
+    private ServicioLogin loginServicio;
+
+    @GetMapping("")
+    public List<Login> findAll() {
+        return loginServicio.searchAllLogins();
+    }
+    
+    @GetMapping("/portalInterno/{username}")
+    public Login findByUsuario(@PathVariable String username) {
+        return loginServicio.SearchByUsuario(username);
+    }
+
+    @GetMapping("/{cedula}")
+    public Login findByCedulaCliente(@PathVariable String cedula) {
+        return loginServicio.SearchByUsuario(cedula);
     }
 
 }

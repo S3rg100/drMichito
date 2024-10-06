@@ -2,11 +2,15 @@ package com.michito.demo.Entidades;
 
 import java.util.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.CascadeType;
+
 
 @Entity
 public class Veterinario {
@@ -22,8 +26,8 @@ public class Veterinario {
     
     
     
-   
-    @OneToMany(mappedBy = "veterinario")
+   @JsonIgnore
+   @OneToMany(mappedBy = "veterinario", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Tratamieneto> tratamientos = new ArrayList<>();
     public List<Tratamieneto> getTratamientos() {
         return tratamientos;
@@ -32,8 +36,8 @@ public class Veterinario {
         this.tratamientos = tratamientos;
     }
 
-    
-    @OneToOne
+    @JsonIgnore
+    @OneToOne(cascade = CascadeType.REMOVE, orphanRemoval = true)
     private Login login;
     public Login getLogin() {
         return login;
