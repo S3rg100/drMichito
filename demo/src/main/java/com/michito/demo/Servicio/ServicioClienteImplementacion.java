@@ -57,11 +57,24 @@ public class ServicioClienteImplementacion implements ServicioCliente {
     }
 
     @Override
-    public Page<Cliente> findAllPaginated(int page, int size){
+    public Cliente searchByMascotaId (Long id) {
+        List<Cliente> clientes = clienteRepositorio.findAll();
+
+        for (Cliente cliente : clientes) {
+            for (Mascota mascota : cliente.getMascotas()) {
+                if (mascota.getId().equals(id)) {
+                    return cliente;
+                }
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Page<Cliente> findAllPaginated(int page, int size) {
         return clienteRepositorio.findAll(PageRequest.of(page, size));
     }
 
-    
     @Override
     public List<Cliente> buscarClientesPorCedula(String cedula) {
         return clienteRepositorio.findByCedulaContaining(cedula);

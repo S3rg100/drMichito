@@ -15,6 +15,7 @@ public interface ServicioCliente {
     public void addCliente(Cliente cliente);
     public Cliente findByCedula(String cedula);
     public Mascota searchById(Long id);
+    public Cliente searchByMascotaId (Long id);
     /*Paginacion */
     public Page<Cliente> findAllPaginated(int page, int size);
 

@@ -69,8 +69,14 @@ public class MascotaController {
 
     @PutMapping("/editar/{id}")
     public void editarMascota(@RequestBody Mascota mascotaEditada) {
-        mascotaServicio.updateMascota(mascotaEditada);
-
+        Cliente clienteMascota = clienteServicio.searchByMascotaId(mascotaEditada.getId());
+        if (clienteMascota == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente no encontrado");
+        } else {
+            mascotaEditada.setCedulaCliente(clienteMascota.getCedula());
+            mascotaEditada.setCliente(clienteMascota);
+            mascotaServicio.updateMascota(mascotaEditada);
+        }
     }
 
     
