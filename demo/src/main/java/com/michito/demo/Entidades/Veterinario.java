@@ -3,6 +3,7 @@ package com.michito.demo.Entidades;
 import java.util.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -39,6 +40,10 @@ public class Veterinario {
     @JsonIgnore
     @OneToOne(cascade = CascadeType.REMOVE, orphanRemoval = true)
     private Login login;
+
+
+
+
     public Login getLogin() {
         return login;
     }
@@ -87,6 +92,9 @@ public class Veterinario {
 
     public void setCelular(Long celular) {
         this.celular = celular;
+    }
+    public Long getId() {
+        return id;
     }
     
     
