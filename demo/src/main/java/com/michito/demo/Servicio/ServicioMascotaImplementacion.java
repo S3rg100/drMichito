@@ -36,7 +36,10 @@ public class ServicioMascotaImplementacion implements ServicioMascota{
         mascotaRepositorio.save(newMascota);
     }
 
-
+    @Override
+    public List<Mascota> obtenerMascotasPorCliente(Long clienteId) {
+        return mascotaRepositorio.findByClienteId(clienteId);
+    }
 
 
    

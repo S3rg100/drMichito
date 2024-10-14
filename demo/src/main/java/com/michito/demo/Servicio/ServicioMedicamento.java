@@ -12,10 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.michito.demo.Entidades.Medicamento;
+import com.michito.demo.Entidades.Tratamieneto;
 import com.michito.demo.Repositorio.MedicamentoRepositorio;
+import com.michito.demo.Repositorio.TratamientoRepositorio;
 
 import jakarta.annotation.PostConstruct;
-
+import jakarta.persistence.EntityManager;
+import org.springframework.transaction.annotation.Transactional;
 @Service
 public class ServicioMedicamento {
 
@@ -30,6 +33,29 @@ public class ServicioMedicamento {
             e.printStackTrace();
         }
     }
+
+
+     @Autowired
+    private EntityManager entityManager; // Para ejecutar consultas nativas
+
+    @Transactional // Asegurarse de que el método esté dentro de una transacción
+    public void eliminarMedicamento(Long id) {
+        // Eliminar las referencias del medicamento en la tabla de unión
+        String sql = "DELETE FROM tratamieneto_medicamento WHERE medicamento_id = :medicamentoId";
+        entityManager.createNativeQuery(sql)
+                     .setParameter("medicamentoId", id)
+                     .executeUpdate();
+
+        // Ahora eliminar el medicamento de la tabla
+        medicamentoRepositorio.deleteById(id);
+    }
+
+    public Medicamento actualizarMedicamento(Long id, Medicamento medicamentoActualizado) {
+        
+        
+        return medicamentoRepositorio.save(medicamentoActualizado);  
+    }
+    
 
     public void cargarDatosDesdeExcel() throws Exception {
         // Carga el archivo Excel desde la carpeta resources

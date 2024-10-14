@@ -11,4 +11,5 @@ public interface ServicioMascota {
     public List<Mascota> searchByIdCliente(long id);
     public void updateMascota(Mascota mascotaEditada);
     public void eliminarMascota(Long id);
+    public List<Mascota> obtenerMascotasPorCliente(Long clienteId);
 } 

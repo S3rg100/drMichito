@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -50,7 +51,22 @@ public class ClienteController {
         }
         return cliente;
     }
-    
+    @GetMapping("/cliente/{clienteId}")
+    public ResponseEntity<List<Mascota>> obtenerMascotasPorCliente(@PathVariable Long clienteId) {
+        List<Mascota> mascotas = mascotaServicio.obtenerMascotasPorCliente(clienteId);
+        
+        // Recorrer las mascotas y setear la cédula del cliente
+        for (Mascota mascota : mascotas) {
+            // Asegúrate de que el cliente esté cargado para cada mascota
+            if (mascota.getCliente() != null) {
+                mascota.setCedulaCliente(mascota.getCliente().getCedula());  // Asignar la cédula del cliente
+            }
+        }
+        
+        return ResponseEntity.ok(mascotas);
+    }
+
+
 
 
     @PutMapping("/update/{id}")

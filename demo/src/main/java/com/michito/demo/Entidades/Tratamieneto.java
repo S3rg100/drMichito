@@ -12,6 +12,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.CascadeType;
+
 
 
 @Entity
@@ -24,12 +26,15 @@ public class Tratamieneto {
     private String descripcion;
     
     
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable( name = "tratamieneto_medicamento",
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
+    @JoinTable(
+        name = "tratamieneto_medicamento",
         joinColumns = @JoinColumn(name = "tratamieneto_id"),
         inverseJoinColumns = @JoinColumn(name = "medicamento_id")
     )
     private List<Medicamento> medicamentos = new ArrayList<>();
+
+
 
     public List<Medicamento> getMedicamentos() {
         return medicamentos;
