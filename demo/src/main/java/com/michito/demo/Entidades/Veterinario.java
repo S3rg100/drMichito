@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 
 
 @Entity
@@ -17,7 +18,7 @@ public class Veterinario {
     @Id
     @GeneratedValue
     private Long id;
-
+    @Column(unique = true)
     private String cedula;
     private String nombre;
     private String correo;

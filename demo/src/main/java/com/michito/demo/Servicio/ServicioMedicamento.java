@@ -12,9 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.michito.demo.Entidades.Medicamento;
-import com.michito.demo.Entidades.Tratamieneto;
 import com.michito.demo.Repositorio.MedicamentoRepositorio;
-import com.michito.demo.Repositorio.TratamientoRepositorio;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.persistence.EntityManager;

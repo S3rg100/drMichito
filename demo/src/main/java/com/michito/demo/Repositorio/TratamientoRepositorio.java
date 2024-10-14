@@ -8,6 +8,7 @@ import com.michito.demo.Entidades.Tratamieneto;
 
 public interface TratamientoRepositorio extends JpaRepository<Tratamieneto,Long>{
 
+    
     List<Tratamieneto> findByMedicamentosId(Long id);
     
 }

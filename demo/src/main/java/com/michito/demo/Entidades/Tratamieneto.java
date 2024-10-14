@@ -26,6 +26,8 @@ public class Tratamieneto {
     private String descripcion;
     
     
+   
+    // Relaciones con medicamento
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
     @JoinTable(
         name = "tratamieneto_medicamento",
@@ -34,6 +36,16 @@ public class Tratamieneto {
     )
     private List<Medicamento> medicamentos = new ArrayList<>();
 
+    // Relaciones con veterinario
+    @ManyToOne
+    @JoinColumn(name = "veterinario_id", nullable = true)  // permite que sea null si el tratamiento es eliminado
+    private Veterinario veterinario;
+
+    // Relaciones con mascota
+    @ManyToOne
+    @JoinColumn(name = "mascota_id", nullable = true)  // permite que sea null si el tratamiento es eliminado
+    private Mascota mascota;
+    
 
 
     public List<Medicamento> getMedicamentos() {
@@ -42,29 +54,18 @@ public class Tratamieneto {
     public void setMedicamentos(List<Medicamento> medicamentos) {
         this.medicamentos = medicamentos;
     }
-
-    @ManyToOne
-    private Veterinario  veterinario;
-
     public Veterinario getVeterinario() {
         return veterinario;
     }
     public void setVeterinario(Veterinario veterinario) {
         this.veterinario = veterinario;
     }
-
-    @ManyToOne
-    private Mascota mascota;
     public Mascota getMascota() {
         return mascota;
     }
     public void setMascota(Mascota mascota) {
         this.mascota = mascota;
     }
-
-    
-    
-    
     public Tratamieneto(LocalDate fecha,String descripcion){
         this.fecha = fecha;
         this.descripcion = descripcion;
