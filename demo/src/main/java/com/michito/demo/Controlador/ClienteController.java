@@ -51,6 +51,16 @@ public class ClienteController {
         }
         return cliente;
     }
+
+    @GetMapping("/info/{id}")
+    public Cliente obtenerClientePorId(@PathVariable("id") Long identificador) {
+        Cliente cliente = clienteServicio.searchByIdCliente(identificador);
+        if (cliente == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente no encontrado");
+        }
+        return cliente;
+    }
+
     @GetMapping("/cliente/{clienteId}")
     public ResponseEntity<List<Mascota>> obtenerMascotasPorCliente(@PathVariable Long clienteId) {
         List<Mascota> mascotas = mascotaServicio.obtenerMascotasPorCliente(clienteId);
@@ -85,13 +95,7 @@ public class ClienteController {
         return mascotaServicio.searchByIdCliente(identificador);
     }
 
-    @GetMapping("/VistaMascotas/{id}")
-    public String vistaMascotasDeCliente(Model model, @PathVariable("id") Long identificador) {
-        Cliente cliente = clienteServicio.searchByIdCliente(identificador);
-        model.addAttribute("cliente", cliente);
-        model.addAttribute("mascotas", cliente.getMascotas());
-        return "ReadMascotasVistaCliente";
-    }
+
 
     @GetMapping("/Mascotas/editar/{id}")
     public String mostrarFormularioEdicion(@PathVariable("id") Long identificador, Model model) {
