@@ -56,7 +56,7 @@ public class veterinarioController {
 
     
 
-    @DeleteMapping("/eliminar/{id}")
+    @DeleteMapping("/delete/{id}")
     public void eliminarVeterinarioa(@PathVariable("id") Long identificador) {
         veterinarioServicio.eliminarVeterinario(identificador);
        

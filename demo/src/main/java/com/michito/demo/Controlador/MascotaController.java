@@ -1,4 +1,5 @@
 package com.michito.demo.Controlador;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.michito.demo.Entidades.Cliente;
 import com.michito.demo.Entidades.Mascota;
+import com.michito.demo.Entidades.MascotaDTO;
 import com.michito.demo.Servicio.ServicioCliente;
 import com.michito.demo.Servicio.ServicioMascota;
 
@@ -32,18 +34,57 @@ public class MascotaController {
     ServicioCliente clienteServicio;
 
    
-  
+  @GetMapping("/info/{id}")
+    public MascotaDTO obtenerMascotaPorId(@PathVariable Long id) {
+        Mascota mascota = mascotaServicio.searchById(id);
+        
+        // Si la mascota tiene un cliente, obtenemos la cédula del cliente
+        MascotaDTO dto = new MascotaDTO();
+        dto.setId(mascota.getId());
+        dto.setNombre(mascota.getNombre());
+        dto.setPeso(mascota.getPeso());
+        dto.setEdad(mascota.getEdad());
+        dto.setFoto(mascota.getFoto());
+        if (mascota.getCliente() != null) {
+            dto.setCedulaCliente(mascota.getCliente().getCedula());  // Aquí vinculamos la cédula del cliente
+        } else {
+            dto.setCedulaCliente("");  // Si no hay cliente vinculado, dejamos el campo vacío
+        }
 
-    @GetMapping("/info/{id}")
-    public Mascota mostrarMascota(Model model, @PathVariable("id") Long identificador) {
-
-        return mascotaServicio.searchById(identificador);
+        return dto;
     }
 
+
+   
     @GetMapping("/all")
-    public List<Mascota> mostrar(Model model) {
-        return mascotaServicio.searchAll();
+    public List<MascotaDTO> mostrar(Model model) {
+        // Recuperar todas las mascotas desde el servicio
+        List<Mascota> mascotas = mascotaServicio.searchAll();
+        
+        // Crear una lista para almacenar los DTO de las mascotas
+        List<MascotaDTO> mascotasDTO = new ArrayList<>();
+        
+        // Convertir cada Mascota a MascotaDTO
+        for (Mascota m : mascotas) {
+            MascotaDTO dto = new MascotaDTO();
+            dto.setId(m.getId());
+            dto.setNombre(m.getNombre());
+            dto.setPeso(m.getPeso());
+            dto.setEdad(m.getEdad());
+            dto.setFoto(m.getFoto());
+            
+            if (m.getCliente() != null) {
+                dto.setCedulaCliente(m.getCliente().getCedula());
+            } else {
+                dto.setCedulaCliente(""); 
+            }
+            
+            mascotasDTO.add(dto);
+        }
+        
+        return mascotasDTO;
     }
+    
 
     @PostMapping("/agregar")
     public void redirigirAgregar(@RequestBody Mascota mascota) {
@@ -58,15 +99,7 @@ public class MascotaController {
     }
 
     
-    @GetMapping("/editar/{id}")
-    public String mostrarFormularioEdicion(@PathVariable("id") Long identificador, Model model) {
-        
-        Mascota mascota = mascotaServicio.searchById(identificador);
-        System.out.println("metodo get"+mascota.getCliente().getNombre());
-        model.addAttribute("mascota", mascota);
-        return "UpdateMascota";
-    }
-
+ 
     @PutMapping("/editar/{id}")
     public void editarMascota(@RequestBody Mascota mascotaEditada) {
         Cliente clienteMascota = clienteServicio.searchByMascotaId(mascotaEditada.getId());
@@ -87,7 +120,7 @@ public class MascotaController {
        
     }
 
-   
+ 
 
     @GetMapping("/vistaDetalle/{id}")
     public Mascota verDetallesMascotaVistaCliente(@PathVariable("id") Long id) {
