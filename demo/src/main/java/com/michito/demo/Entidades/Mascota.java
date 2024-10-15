@@ -6,7 +6,6 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -31,7 +30,7 @@ public class Mascota {
     @ManyToOne(fetch = FetchType.EAGER)
     private Cliente cliente;
     @JsonIgnore
-    @OneToMany(mappedBy = "mascota", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(mappedBy = "mascota")
     private List<Tratamieneto> tratamientos = new ArrayList<>();
     
     public List<Tratamieneto> getTratamientos() {

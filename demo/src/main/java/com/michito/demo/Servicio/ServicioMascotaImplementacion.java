@@ -9,11 +9,12 @@ import org.springframework.stereotype.Service;
 
 import com.michito.demo.Entidades.Cliente;
 import com.michito.demo.Entidades.Mascota;
+import com.michito.demo.Entidades.Tratamieneto;
 import com.michito.demo.Repositorio.ClientesRepositorio;
 import com.michito.demo.Repositorio.MascotasRepositorio;
+import com.michito.demo.Repositorio.TratamientoRepositorio;
 
 import jakarta.transaction.Transactional;
-import jakarta.validation.OverridesAttribute;
 
 @Service
 public class ServicioMascotaImplementacion implements ServicioMascota{
@@ -21,6 +22,8 @@ public class ServicioMascotaImplementacion implements ServicioMascota{
 	MascotasRepositorio mascotaRepositorio;
     @Autowired
 	ClientesRepositorio clienteRepositorio;
+    @Autowired
+    TratamientoRepositorio tratamientoRepositorio;
     
     @Override
     public Mascota searchById(Long id) {
@@ -74,7 +77,14 @@ public class ServicioMascotaImplementacion implements ServicioMascota{
             
             clienteRepositorio.save(cliente);
         }
-    
+
+
+        List<Tratamieneto> tratamientos = tratamientoRepositorio.findByMascotaId(mascota.getId());
+        for (Tratamieneto tratamiento : tratamientos) {
+            tratamiento.setMascota(null);
+            tratamientoRepositorio.save(tratamiento); 
+        }
+        
         mascotaRepositorio.deleteById(id);
     }
 

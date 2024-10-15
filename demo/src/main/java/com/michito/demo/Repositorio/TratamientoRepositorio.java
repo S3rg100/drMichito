@@ -14,6 +14,10 @@ public interface TratamientoRepositorio extends JpaRepository<Tratamieneto, Long
 
     List<Tratamieneto> findByMascotaIn(List<Mascota> mascotas);
 
+    List<Tratamieneto> findByMascotaId(Long id);
+
+    List<Tratamieneto> findByVeterinarioId(Long id);
+
     List<Tratamieneto> findByMedicamentosId(Long id);
 
     // Cantidad total de tratamientos administrados en el último mes
