@@ -95,6 +95,16 @@ public class ClienteController {
         return mascotaServicio.searchByIdCliente(identificador);
     }
 
+     // Obtener un cliente por el id de una mascota
+     @GetMapping("/por-mascota/{idMascota}")
+     public Cliente obtenerClientePorMascotaId(@PathVariable Long idMascota) {
+         try {
+             return clienteServicio.searchByMascotaId(idMascota);
+         } catch (RuntimeException e) {
+             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
+         }
+     }
+
 
 
     @GetMapping("/Mascotas/editar/{id}")

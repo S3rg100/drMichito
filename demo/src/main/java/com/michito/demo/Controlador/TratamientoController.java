@@ -51,6 +51,13 @@ public class TratamientoController {
         return ResponseEntity.ok(tratamientoActualizado);
     }
 
+    @GetMapping("/tratamiento/{id}")
+    public Tratamieneto obtenerTratamiento(@PathVariable Long id) {
+        Tratamieneto tratamiento = tratamientoService.obtenerPorId(id);
+        System.out.println("Medicamentos del tratamiento: " + tratamiento.getMedicamentos()); // Verificar si los medicamentos son traídos
+        return tratamiento;
+    }
+
     @GetMapping("/info/{id}")
     public ResponseEntity<Tratamieneto> obtenerTratamientoPorId(@PathVariable Long id) {
         Tratamieneto tratamiento = tratamientoService.findById(id);

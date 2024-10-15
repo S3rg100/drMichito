@@ -1,5 +1,6 @@
 package com.michito.demo.Servicio;
 
+import java.util.stream.Collectors;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +49,13 @@ public class ServicioMedicamento {
         medicamentoRepositorio.deleteById(id);
     }
 
+    public List<String> obtenerNombresMedicamentosPorTratamiento(Long tratamientoId) {
+        List<Medicamento> medicamentos = medicamentoRepositorio.findByTratamientosId(tratamientoId);
+        return medicamentos.stream()
+                .map(Medicamento::getNombre)  // Extraer solo los nombres
+                .collect(Collectors.toList());
+    }
+
     public Medicamento actualizarMedicamento(Long id, Medicamento medicamentoActualizado) {
         
         
@@ -57,7 +65,7 @@ public class ServicioMedicamento {
     public List<Medicamento> buscarPorNombre(String nombre) {
         return medicamentoRepositorio.findByNombreContainingIgnoreCase(nombre);
     }
-    
+  
 
     public void cargarDatosDesdeExcel() throws Exception {
         // Carga el archivo Excel desde la carpeta resources

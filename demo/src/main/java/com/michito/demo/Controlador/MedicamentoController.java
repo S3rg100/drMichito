@@ -32,6 +32,11 @@ public class MedicamentoController {
         return ResponseEntity.ok(medicamentos);
     }
 
+    @GetMapping("/tratamiento/{id}")
+    public List<String> obtenerMedicamentosPorTratamiento(@PathVariable Long id) {
+        return servicioMedicamento.obtenerNombresMedicamentosPorTratamiento(id);
+    }
+    
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> eliminarMedicamento(@PathVariable Long id) {
         servicioMedicamento.eliminarMedicamento(id);

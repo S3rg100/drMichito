@@ -26,6 +26,7 @@ public class Medicamento {
     @JsonIgnore
     @ManyToMany(mappedBy = "medicamentos")
     private List<Tratamieneto> tratamientos = new ArrayList<>();
+    
 
     // Constructores
     public Medicamento() {}

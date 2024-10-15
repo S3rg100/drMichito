@@ -63,6 +63,28 @@ public class ServicioTratamientoImplementacion implements ServicioTratamiento{
         return tratamientoRepositorio.findByMascotaIn(mascotas);
     }
 
+  @Override
+  public Tratamieneto obtenerPorId(Long id) {
+    Optional<Tratamieneto> tratamiento = tratamientoRepositorio.findById(id);
+    if (tratamiento.isPresent()) {
+        System.out.println("Medicamentos del tratamiento: " + tratamiento.get().getMedicamentos());
+        return tratamiento.get();
+    } else {
+        throw new RuntimeException("Tratamiento no encontrado");
+    }
+}
+
+  @Override
+  public Tratamieneto obtenerTratamiento(Long id) {
+    Tratamieneto tratamiento = tratamientoRepositorio.findById(id)
+        .orElseThrow(() -> new RuntimeException("Tratamiento no encontrado"));
+
+    // Acceder a la lista de medicamentos para forzar la carga si es LAZY
+    tratamiento.getMedicamentos().size();
+
+    return tratamiento;
+}
+
   
   
 
