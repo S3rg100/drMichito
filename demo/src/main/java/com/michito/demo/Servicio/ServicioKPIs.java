@@ -2,8 +2,6 @@ package com.michito.demo.Servicio;
 
 import java.util.List;
 
-import com.michito.demo.Entidades.Medicamento;
-
 public interface ServicioKPIs {
 
     public Long getTotalMascotas();
@@ -14,5 +12,5 @@ public interface ServicioKPIs {
     public List<Object[]> getTratamientosPorMedicamento();
     public double getGananciaTotales();
     public double getVentasTotales();
-    public List<Medicamento> obtenerTop3MedicamentosMasVendidos();
+    public List<Object[]> obtenerTop3MedicamentosMasVendidos();
 }
