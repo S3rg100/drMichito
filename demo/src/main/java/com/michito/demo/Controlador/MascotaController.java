@@ -151,8 +151,25 @@ public class MascotaController {
 
     @GetMapping("/vistaDetalle/{id}")
     public Mascota verDetallesMascotaVistaCliente(@PathVariable("id") Long id) {
-        return mascotaServicio.searchById(id);
+        Mascota mascota = mascotaServicio.searchById(id);
+        Mascota dto = new Mascota();
+    
+    // Asignar datos de la mascota
+    dto.setId(mascota.getId());
+    dto.setNombre(mascota.getNombre());
+    dto.setPeso(mascota.getPeso());
+    dto.setEdad(mascota.getEdad());
+    dto.setFoto(mascota.getFoto());
+    
+    // Verificar si la mascota tiene un cliente asociado y asignar la cédula
+    if (mascota.getCliente() != null) {
+        dto.setCedulaCliente(mascota.getCliente().getCedula());
+    } else {
+        dto.setCedulaCliente(""); // Manejar caso donde no hay cliente asociado
     }
+    
+    return dto;
+}
 
 
 }
