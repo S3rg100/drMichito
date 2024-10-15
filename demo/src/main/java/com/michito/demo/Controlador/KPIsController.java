@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.michito.demo.Entidades.Medicamento;
 import com.michito.demo.Servicio.ServicioKPIs;
 
 @RestController
@@ -52,4 +53,14 @@ public class KPIsController {
     public double getGananciaTotales() {
         return kpiService.getGananciaTotales();
     }
+
+    @GetMapping("/ventas-totales")
+    public double getVentasTotales() {
+        return kpiService.getVentasTotales();
+    }
+
+    @GetMapping("/top-3-medicamentos")
+    public List<Medicamento> obtenerTop3MedicamentosMasVendidos() {
+        return kpiService.obtenerTop3MedicamentosMasVendidos();
+    } 
 }

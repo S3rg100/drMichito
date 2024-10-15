@@ -39,4 +39,8 @@ public interface TratamientoRepositorio extends JpaRepository<Tratamieneto, Long
     // Ganancias totales
     @Query("SELECT SUM(m.precioVenta - m.precioCompra) FROM Tratamieneto t JOIN t.medicamentos m")
     double totalGanancias();
+
+    // Ganancias totales
+    @Query("SELECT SUM(m.precioVenta) FROM Tratamieneto t JOIN t.medicamentos m")
+    double totalVentas();
 }

@@ -4,9 +4,13 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.michito.demo.Entidades.Medicamento;
 import com.michito.demo.Repositorio.MascotasRepositorio;
+import com.michito.demo.Repositorio.MedicamentoRepositorio;
 import com.michito.demo.Repositorio.TratamientoRepositorio;
 import com.michito.demo.Repositorio.VeterinarioRepositorio;
 
@@ -21,6 +25,9 @@ public class ServicioKPIsImplementacion implements ServicioKPIs {
 
     @Autowired
     private MascotasRepositorio mascotaRepositorio;
+
+    @Autowired
+    private MedicamentoRepositorio medicamentoRepositorio;
 
     @Override
     public Long getTotalMascotas() {
@@ -63,5 +70,16 @@ public class ServicioKPIsImplementacion implements ServicioKPIs {
     @Override
     public double getGananciaTotales() {
         return tratamientoRepositorio.totalGanancias();
+    }
+
+    @Override
+    public double getVentasTotales() {
+        return tratamientoRepositorio.totalVentas();
+    }
+
+    @Override
+    public List<Medicamento> obtenerTop3MedicamentosMasVendidos() {
+        Pageable top3 = PageRequest.of(0, 3); // Limitar a los 3 primeros resultados
+        return medicamentoRepositorio.findTop3MedicamentosMasVendidos(top3);
     }
 }

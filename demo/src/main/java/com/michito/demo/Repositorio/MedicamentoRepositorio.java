@@ -1,7 +1,9 @@
 package com.michito.demo.Repositorio;
 
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -15,4 +17,8 @@ public interface MedicamentoRepositorio extends JpaRepository<Medicamento,Long> 
     List<Tratamieneto> findByMedicamentosId(@Param("medicamentoId") Long medicamentoId);
     List<Medicamento> findByNombreContainingIgnoreCase(String nombre);
     List<Medicamento> findByTratamientosId(Long tratamientoId);
+
+    @Query("SELECT m FROM Medicamento m " +
+       "ORDER BY m.unidadesVendidas DESC")
+    List<Medicamento> findTop3MedicamentosMasVendidos(Pageable pageable);
 }
