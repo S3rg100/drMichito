@@ -18,7 +18,7 @@ public interface MedicamentoRepositorio extends JpaRepository<Medicamento,Long> 
     List<Medicamento> findByNombreContainingIgnoreCase(String nombre);
     List<Medicamento> findByTratamientosId(Long tratamientoId);
 
-    @Query("SELECT m FROM Medicamento m " +
+    @Query("SELECT m.nombre, m.unidadesVendidas FROM Medicamento m " +
        "ORDER BY m.unidadesVendidas DESC")
-    List<Medicamento> findTop3MedicamentosMasVendidos(Pageable pageable);
+    List<Object[]> findTop3MedicamentosMasVendidos(Pageable pageable);
 }

@@ -8,7 +8,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.michito.demo.Entidades.Medicamento;
 import com.michito.demo.Repositorio.MascotasRepositorio;
 import com.michito.demo.Repositorio.MedicamentoRepositorio;
 import com.michito.demo.Repositorio.TratamientoRepositorio;
@@ -78,7 +77,7 @@ public class ServicioKPIsImplementacion implements ServicioKPIs {
     }
 
     @Override
-    public List<Medicamento> obtenerTop3MedicamentosMasVendidos() {
+    public List<Object[]> obtenerTop3MedicamentosMasVendidos() {
         Pageable top3 = PageRequest.of(0, 3); // Limitar a los 3 primeros resultados
         return medicamentoRepositorio.findTop3MedicamentosMasVendidos(top3);
     }
