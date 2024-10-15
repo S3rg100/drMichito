@@ -8,4 +8,5 @@ public interface ServicioVeterinario {
     public List<Veterinario> searchAll();
     public void updateVeterinario(Veterinario VeterinarioEditado);
     public void eliminarVeterinario(Long id);
+    public List<Veterinario> buscarPorNombre(String nombre);
 }

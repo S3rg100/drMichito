@@ -13,6 +13,7 @@ import com.michito.demo.Repositorio.ClientesRepositorio;
 import com.michito.demo.Repositorio.MascotasRepositorio;
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.OverridesAttribute;
 
 @Service
 public class ServicioMascotaImplementacion implements ServicioMascota{
@@ -51,6 +52,11 @@ public class ServicioMascotaImplementacion implements ServicioMascota{
             clienteRepositorio.save(cliente);
         }
         mascotaRepositorio.save(mascotaEditada);
+    }
+    
+    @Override
+    public List<Mascota> buscarPorNombre(String nombre) {
+        return mascotaRepositorio.findByNombreContainingIgnoreCase(nombre);
     }
     
 

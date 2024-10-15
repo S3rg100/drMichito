@@ -54,6 +54,10 @@ public class ServicioMedicamento {
         return medicamentoRepositorio.save(medicamentoActualizado);  
     }
     
+    public List<Medicamento> buscarPorNombre(String nombre) {
+        return medicamentoRepositorio.findByNombreContainingIgnoreCase(nombre);
+    }
+    
 
     public void cargarDatosDesdeExcel() throws Exception {
         // Carga el archivo Excel desde la carpeta resources

@@ -6,4 +6,6 @@ import com.michito.demo.Entidades.Tratamieneto;
 public interface ServicioTratamiento {
     public void eliminarTratamiento(Long tratamientoId);
     public List<Tratamieneto> findAll();
+    public Tratamieneto addTratamiento(Tratamieneto tratamiento);
+    public Tratamieneto updateTratamiento(Long id, Tratamieneto tratamiento);
 }

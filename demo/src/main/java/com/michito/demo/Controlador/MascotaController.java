@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -53,6 +54,32 @@ public class MascotaController {
 
         return dto;
     }
+
+    @GetMapping("/buscar")
+    public List<MascotaDTO> buscarMascotasPorNombre(@RequestParam String nombre) {
+        List<Mascota> mascotas = mascotaServicio.buscarPorNombre(nombre);
+        List<MascotaDTO> mascotasDTO = new ArrayList<>();
+        
+        for (Mascota m : mascotas) {
+            MascotaDTO dto = new MascotaDTO();
+            dto.setId(m.getId());
+            dto.setNombre(m.getNombre());
+            dto.setPeso(m.getPeso());
+            dto.setEdad(m.getEdad());
+            dto.setFoto(m.getFoto());
+            
+            if (m.getCliente() != null) {
+                dto.setCedulaCliente(m.getCliente().getCedula());
+            } else {
+                dto.setCedulaCliente(""); 
+            }
+            
+            mascotasDTO.add(dto);
+        }
+        
+        return mascotasDTO;
+    }
+
 
 
    

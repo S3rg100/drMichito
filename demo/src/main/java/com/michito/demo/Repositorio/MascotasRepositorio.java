@@ -9,5 +9,6 @@ import com.michito.demo.Entidades.Mascota;
 public interface MascotasRepositorio extends JpaRepository<Mascota,Long> {
 
    public List<Mascota> findByClienteId(Long id);
+   List<Mascota> findByNombreContainingIgnoreCase(String nombre);
     
 }

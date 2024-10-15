@@ -12,4 +12,5 @@ public interface ServicioMascota {
     public void updateMascota(Mascota mascotaEditada);
     public void eliminarMascota(Long id);
     public List<Mascota> obtenerMascotasPorCliente(Long clienteId);
+    public List<Mascota> buscarPorNombre(String nombre);
 } 
