@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.michito.demo.Entidades.Login;
+import com.michito.demo.Entidades.Veterinario;
 import com.michito.demo.Servicio.ServicioLogin;
 
 @RestController
@@ -77,8 +78,18 @@ public class LogInController {
     
     @GetMapping("/portalInterno/{username}")
     public Login findByUsuario(@PathVariable String username) {
-        return loginServicio.SearchByUsuario(username);
+        Login login = loginServicio.SearchByUsuario(username);
+        
+        if (login != null) {
+            Veterinario veterinario = login.getVeterinario();
+            if (veterinario != null) {
+                login.setIdVeterinario(veterinario.getId());
+            }
+        }
+        
+        return login;
     }
+    
 
     @GetMapping("/{cedula}")
     public Login findByCedulaCliente(@PathVariable String cedula) {

@@ -38,7 +38,21 @@ public class DataBaseIni implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         LoginRepositorio.save(new Login("admin","admin","admin"));
         LoginRepositorio.save(new Login("admin2","admin","admin"));
-        LoginRepositorio.save(new Login("vet","vet","veterinario"));
+
+
+        Login login2 = new Login("vet", "vet", "veterinario");
+        login2 = LoginRepositorio.save(login2); // Guardar el login primero y obtener el objeto persistido
+
+        // Crear el veterinario y asignar el login
+        Veterinario veterinarioprim = new Veterinario("999", "Prueba", "veterinario@gmail.com", 1234L, "cirujano");
+        veterinarioprim.setLogin(login2); // Asignar login2 al veterinario
+        login2.setVeterinario(veterinarioprim); // Asignar veterinarioprim al login2
+
+        // Guardar el veterinario
+        VeterinarioRepositorio.save(veterinarioprim);
+
+        // Luego guardar el login con la relación bidireccional
+        LoginRepositorio.save(login2); 
      
         VeterinarioRepositorio.save(new Veterinario("123","Pedro","pedro@gmail.com",1234L,"cirujano"));
         VeterinarioRepositorio.save(new Veterinario("001","Juan","juan@example.com",1001L,"cirujano"));
