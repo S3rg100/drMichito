@@ -50,4 +50,14 @@ public class TratamientoController {
         Tratamieneto tratamientoActualizado = tratamientoService.updateTratamiento(id, tratamiento);
         return ResponseEntity.ok(tratamientoActualizado);
     }
+
+    @GetMapping("/info/{id}")
+    public ResponseEntity<Tratamieneto> obtenerTratamientoPorId(@PathVariable Long id) {
+        Tratamieneto tratamiento = tratamientoService.findById(id);
+        if (tratamiento != null) {
+            return ResponseEntity.ok(tratamiento);
+        } else {
+            return ResponseEntity.status(404).build();  // Si no encuentra el tratamiento, retorna 404
+        }
+    }
 }

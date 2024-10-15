@@ -45,6 +45,11 @@ public class ServicioTratamientoImplementacion implements ServicioTratamiento{
     return tratamientoRepositorio.save(tratamiento);  
 }
 
+  @Override
+  public Tratamieneto findById(Long id) {
+    return tratamientoRepositorio.findById(id).orElse(null);
+  }
+
   
 
 
