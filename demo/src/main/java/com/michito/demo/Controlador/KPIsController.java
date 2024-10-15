@@ -17,8 +17,7 @@ public class KPIsController {
 
     @Autowired
     private ServicioKPIs kpiService;
-
-
+    
     @GetMapping("/total-mascotas")
     public Long getTotalMascotas() {
         return kpiService.getTotalMascotas();
@@ -47,5 +46,10 @@ public class KPIsController {
     @GetMapping("/tratamientos-por-medicamento")
     public List<Object[]> getTratamientosPorMedicamento() {
         return kpiService.getTratamientosPorMedicamento();
+    }
+
+    @GetMapping("/ganancias-totales")
+    public double getGananciaTotales() {
+        return kpiService.getGananciaTotales();
     }
 }

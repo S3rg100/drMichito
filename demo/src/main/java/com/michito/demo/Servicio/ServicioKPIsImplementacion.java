@@ -59,4 +59,9 @@ public class ServicioKPIsImplementacion implements ServicioKPIs {
         LocalDate startDate = endDate.minusMonths(1);
         return tratamientoRepositorio.countTratamientosPorMedicamento(startDate, endDate);
     }
+
+    @Override
+    public double getGananciaTotales() {
+        return tratamientoRepositorio.totalGanancias();
+    }
 }

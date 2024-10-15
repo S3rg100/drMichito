@@ -10,4 +10,5 @@ public interface ServicioKPIs {
     public Long getVeterinariosActivos();
     public Long getVeterinariosInactivos();
     public List<Object[]> getTratamientosPorMedicamento();
+    public double getGananciaTotales();
 }

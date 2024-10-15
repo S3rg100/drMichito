@@ -12,7 +12,8 @@ import com.michito.demo.Entidades.Tratamieneto;
 
 public interface TratamientoRepositorio extends JpaRepository<Tratamieneto, Long> {
 
-     List<Tratamieneto> findByMascotaIn(List<Mascota> mascotas);
+    List<Tratamieneto> findByMascotaIn(List<Mascota> mascotas);
+
     List<Tratamieneto> findByMedicamentosId(Long id);
 
     // Cantidad total de tratamientos administrados en el último mes
@@ -30,4 +31,8 @@ public interface TratamientoRepositorio extends JpaRepository<Tratamieneto, Long
     // Cantidad de tratamientos donde se suministró cada medicamento
     @Query("SELECT m.nombre, COUNT(t) FROM Tratamieneto t JOIN t.medicamentos m WHERE t.fecha BETWEEN :startDate AND :endDate GROUP BY m.nombre")
     List<Object[]> countTratamientosPorMedicamento(@Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
+
+    // Ganancias totales
+    @Query("SELECT SUM(m.precioVenta - m.precioCompra) FROM Tratamieneto t JOIN t.medicamentos m")
+    double totalGanancias();
 }
