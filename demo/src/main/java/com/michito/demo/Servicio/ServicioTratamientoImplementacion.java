@@ -85,6 +85,11 @@ public class ServicioTratamientoImplementacion implements ServicioTratamiento{
     return tratamiento;
 }
 
+  @Override
+  public List<Tratamieneto> obtenerTratamientosPorVeterinario(Long veterinarioId) {
+    return tratamientoRepositorio.findByVeterinarioId(veterinarioId);
+}
+
   
   
 

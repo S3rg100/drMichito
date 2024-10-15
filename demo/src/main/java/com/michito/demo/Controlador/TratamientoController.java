@@ -76,4 +76,17 @@ public class TratamientoController {
         }
         return ResponseEntity.ok(tratamientos);
     }
+
+    // En el controlador del backend
+    @GetMapping("/veterinario/{veterinarioId}")
+    public ResponseEntity<List<Tratamieneto>> obtenerTratamientosPorVeterinario(@PathVariable Long veterinarioId) {
+        List<Tratamieneto> tratamientos = tratamientoService.obtenerTratamientosPorVeterinario(veterinarioId);
+        if (tratamientos.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(tratamientos);
+    }
+
+
+        
 }

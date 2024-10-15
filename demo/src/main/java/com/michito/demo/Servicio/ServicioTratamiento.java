@@ -12,5 +12,5 @@ public interface ServicioTratamiento {
     public List<Tratamieneto> obtenerTratamientosPorCliente(Long clienteId);
     public Tratamieneto obtenerPorId(Long id);
     public Tratamieneto obtenerTratamiento(Long id);
-    
+    public List<Tratamieneto> obtenerTratamientosPorVeterinario(Long veterinarioId);
 }
