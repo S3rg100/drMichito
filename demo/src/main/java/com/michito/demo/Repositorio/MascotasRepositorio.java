@@ -15,4 +15,7 @@ public interface MascotasRepositorio extends JpaRepository<Mascota,Long> {
    
    @Query("SELECT COUNT(m) FROM Mascota m")
    Long countTotalMascotas();
+   
+   List<Mascota> findByNombreContainingIgnoreCase(String nombre);
+    
 }

@@ -36,27 +36,45 @@ public class DataBaseIni implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        VeterinarioRepositorio.save(new Veterinario("123", "Pedro", "pedro@gmail.com", 1234L, "cirujano"));
-        VeterinarioRepositorio.save(new Veterinario("001", "Juan", "juan@example.com", 1001L, "cirujano"));
-        VeterinarioRepositorio.save(new Veterinario("002", "Ana", "ana@example.com", 1002L, "cardiologo"));
-        VeterinarioRepositorio.save(new Veterinario("003", "Luis", "luis@example.com", 1003L, "dentista"));
-        VeterinarioRepositorio.save(new Veterinario("004", "María", "maria@example.com", 1004L, "dermatologo"));
-        VeterinarioRepositorio.save(new Veterinario("005", "Carlos", "carlos@example.com", 1005L, "oftalmologo"));
-        VeterinarioRepositorio.save(new Veterinario("006", "Laura", "laura@example.com", 1006L, "neurocirujano"));
-        VeterinarioRepositorio.save(new Veterinario("007", "Pedro", "pedro@example.com", 1007L, "gastroenterologo"));
-        VeterinarioRepositorio.save(new Veterinario("008", "Isabel", "isabel@example.com", 1008L, "traumatologo"));
-        VeterinarioRepositorio.save(new Veterinario("009", "David", "david@example.com", 1009L, "internista"));
-        VeterinarioRepositorio.save(new Veterinario("010", "Lucía", "lucia@example.com", 1010L, "oncologo"));
-        VeterinarioRepositorio.save(new Veterinario("011", "Javier", "javier@example.com", 1011L, "cirujano"));
-        VeterinarioRepositorio.save(new Veterinario("012", "Elena", "elena@example.com", 1012L, "cardiologo"));
-        VeterinarioRepositorio.save(new Veterinario("013", "Ricardo", "ricardo@example.com", 1013L, "dentista"));
-        VeterinarioRepositorio.save(new Veterinario("014", "Sofia", "sofia@example.com", 1014L, "dermatologo"));
-        VeterinarioRepositorio.save(new Veterinario("015", "Miguel", "miguel@example.com", 1015L, "oftalmologo"));
-        VeterinarioRepositorio.save(new Veterinario("016", "Raquel", "raquel@example.com", 1016L, "neurocirujano"));
-        VeterinarioRepositorio.save(new Veterinario("017", "Andrés", "andres@example.com", 1017L, "gastroenterologo"));
-        VeterinarioRepositorio.save(new Veterinario("018", "Carmen", "carmen@example.com", 1018L, "traumatologo"));
-        VeterinarioRepositorio.save(new Veterinario("019", "Fernando", "fernando@example.com", 1019L, "internista"));
-        VeterinarioRepositorio.save(new Veterinario("020", "Valeria", "valeria@example.com", 1020L, "oncologo"));
+        LoginRepositorio.save(new Login("admin","admin","admin"));
+        LoginRepositorio.save(new Login("admin2","admin","admin"));
+
+
+        Login login2 = new Login("vet", "vet", "veterinario");
+        login2 = LoginRepositorio.save(login2); // Guardar el login primero y obtener el objeto persistido
+
+        // Crear el veterinario y asignar el login
+        Veterinario veterinarioprim = new Veterinario("999", "Prueba", "veterinario@gmail.com", 1234L, "cirujano");
+        veterinarioprim.setLogin(login2); // Asignar login2 al veterinario
+        login2.setVeterinario(veterinarioprim); // Asignar veterinarioprim al login2
+
+        // Guardar el veterinario
+        VeterinarioRepositorio.save(veterinarioprim);
+
+        // Luego guardar el login con la relación bidireccional
+        LoginRepositorio.save(login2); 
+     
+        VeterinarioRepositorio.save(new Veterinario("123","Pedro","pedro@gmail.com",1234L,"cirujano"));
+        VeterinarioRepositorio.save(new Veterinario("001","Juan","juan@example.com",1001L,"cirujano"));
+        VeterinarioRepositorio.save(new Veterinario("002","Ana","ana@example.com",1002L,"cardiologo"));
+        VeterinarioRepositorio.save(new Veterinario("003","Luis","luis@example.com",1003L,"dentista"));
+        VeterinarioRepositorio.save(new Veterinario("004","María","maria@example.com",1004L,"dermatologo"));
+        VeterinarioRepositorio.save(new Veterinario("005","Carlos","carlos@example.com",1005L,"oftalmologo"));
+        VeterinarioRepositorio.save(new Veterinario("006","Laura","laura@example.com",1006L,"neurocirujano"));
+        VeterinarioRepositorio.save(new Veterinario("007","Pedro","pedro@example.com",1007L,"gastroenterologo"));
+        VeterinarioRepositorio.save(new Veterinario("008","Isabel","isabel@example.com",1008L,"traumatologo"));
+        VeterinarioRepositorio.save(new Veterinario("009","David","david@example.com",1009L,"internista"));
+        VeterinarioRepositorio.save(new Veterinario("010","Lucía","lucia@example.com",1010L,"oncologo"));
+        VeterinarioRepositorio.save(new Veterinario("011","Javier","javier@example.com",1011L,"cirujano"));
+        VeterinarioRepositorio.save(new Veterinario("012","Elena","elena@example.com",1012L,"cardiologo"));
+        VeterinarioRepositorio.save(new Veterinario("013","Ricardo","ricardo@example.com",1013L,"dentista"));
+        VeterinarioRepositorio.save(new Veterinario("014","Sofia","sofia@example.com",1014L,"dermatologo"));
+        VeterinarioRepositorio.save(new Veterinario("015","Miguel","miguel@example.com",1015L,"oftalmologo"));
+        VeterinarioRepositorio.save(new Veterinario("016","Raquel","raquel@example.com",1016L,"neurocirujano"));
+        VeterinarioRepositorio.save(new Veterinario("017","Andrés","andres@example.com",1017L,"gastroenterologo"));
+        VeterinarioRepositorio.save(new Veterinario("018","Carmen","carmen@example.com",1018L,"traumatologo"));
+        VeterinarioRepositorio.save(new Veterinario("019","Fernando","fernando@example.com",1019L,"internista"));
+        VeterinarioRepositorio.save(new Veterinario("020","Valeria","valeria@example.com",1020L,"oncologo"));
 
         MascotaRepositorio.save(new Mascota("Toby", 2, 12,
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s"));
@@ -418,162 +436,6 @@ public class DataBaseIni implements ApplicationRunner {
         tratamiento10.setMedicamentos(Arrays.asList(apravet));
         TratamientoRepositorio.save(tratamiento10);
 
-        // Usuarios para Logins
-
-        Login adminLogin1 = new Login("admin", "admin", "admin");
-        Login adminLogin2 = new Login("admin2", "admin", "admin");
-
-        LoginRepositorio.save(adminLogin1);
-        LoginRepositorio.save(adminLogin2);
-
-        Login vetLogin1 = new Login("vet1", "vet_pass1", "veterinario");
-        Login vetLogin2 = new Login("vet2", "vet_pass2", "veterinario");
-        Login vetLogin3 = new Login("vet3", "vet_pass3", "veterinario");
-        Login vetLogin4 = new Login("vet4", "vet_pass4", "veterinario");
-        Login vetLogin5 = new Login("vet5", "vet_pass5", "veterinario");
-        Login vetLogin6 = new Login("vet6", "vet_pass6", "veterinario");
-        Login vetLogin7 = new Login("vet7", "vet_pass7", "veterinario");
-        Login vetLogin8 = new Login("vet8", "vet_pass8", "veterinario");
-        Login vetLogin9 = new Login("vet9", "vet_pass9", "veterinario");
-        Login vetLogin10 = new Login("vet10", "vet_pass10", "veterinario");
-        Login vetLogin11 = new Login("vet11", "vet_pass11", "veterinario");
-        Login vetLogin12 = new Login("vet12", "vet_pass12", "veterinario");
-        Login vetLogin13 = new Login("vet13", "vet_pass13", "veterinario");
-        Login vetLogin14 = new Login("vet14", "vet_pass14", "veterinario");
-        Login vetLogin15 = new Login("vet15", "vet_pass15", "veterinario");
-        Login vetLogin16 = new Login("vet16", "vet_pass16", "veterinario");
-        Login vetLogin17 = new Login("vet17", "vet_pass17", "veterinario");
-        Login vetLogin18 = new Login("vet18", "vet_pass18", "veterinario");
-        Login vetLogin19 = new Login("vet19", "vet_pass19", "veterinario");
-        Login vetLogin20 = new Login("vet20", "vet_pass20", "veterinario");
-
-        List<Login> logins = Arrays.asList(
-            vetLogin1, vetLogin2, vetLogin3, vetLogin4, vetLogin5, vetLogin6, vetLogin7, vetLogin8, vetLogin9, vetLogin10,
-            vetLogin11, vetLogin12, vetLogin13, vetLogin14, vetLogin15, vetLogin16, vetLogin17, vetLogin18, vetLogin19, vetLogin20
-        );
-        logins.forEach(LoginRepositorio::save);
-
-        /*Login veterinario 1
-        vetLogin1.setVeterinario(veterinario1);
-        LoginRepositorio.save(vetLogin1);
-        veterinario1.setLogin(vetLogin1);
-        VeterinarioRepositorio.save(veterinario1);
-
-        // Login veterinario 2
-        vetLogin2.setVeterinario(veterinario2);
-        LoginRepositorio.save(vetLogin2);
-        veterinario2.setLogin(vetLogin2);
-        VeterinarioRepositorio.save(veterinario2);
-
-        // Login veterinario 3
-        vetLogin3.setVeterinario(veterinario3);
-        LoginRepositorio.save(vetLogin3);
-        veterinario3.setLogin(vetLogin3);
-        VeterinarioRepositorio.save(veterinario3);
-
-        // Login veterinario 4
-        vetLogin4.setVeterinario(veterinario4);
-        LoginRepositorio.save(vetLogin4);
-        veterinario4.setLogin(vetLogin4);
-        VeterinarioRepositorio.save(veterinario4);
-
-        // Login veterinario 5
-        vetLogin5.setVeterinario(veterinario5);
-        LoginRepositorio.save(vetLogin5);
-        veterinario5.setLogin(vetLogin5);
-        VeterinarioRepositorio.save(veterinario5);
-
-        // Login veterinario 6
-        vetLogin6.setVeterinario(veterinario6);
-        LoginRepositorio.save(vetLogin6);
-        veterinario6.setLogin(vetLogin6);
-        VeterinarioRepositorio.save(veterinario6);
-
-        // Login veterinario 7
-        vetLogin7.setVeterinario(veterinario7);
-        LoginRepositorio.save(vetLogin7);
-        veterinario7.setLogin(vetLogin7);
-        VeterinarioRepositorio.save(veterinario7);
-
-        // Login veterinario 8
-        vetLogin8.setVeterinario(veterinario8);
-        LoginRepositorio.save(vetLogin8);
-        veterinario8.setLogin(vetLogin8);
-        VeterinarioRepositorio.save(veterinario8);
-
-        // Login veterinario 9
-        vetLogin9.setVeterinario(veterinario9);
-        LoginRepositorio.save(vetLogin9);
-        veterinario9.setLogin(vetLogin9);
-        VeterinarioRepositorio.save(veterinario9);
-
-        // Login veterinario 10
-        vetLogin10.setVeterinario(veterinario10);
-        LoginRepositorio.save(vetLogin10);
-        veterinario10.setLogin(vetLogin10);
-        VeterinarioRepositorio.save(veterinario10);
-
-        // Login veterinario 11
-        vetLogin11.setVeterinario(veterinario11);
-        LoginRepositorio.save(vetLogin11);
-        veterinario11.setLogin(vetLogin11);
-        VeterinarioRepositorio.save(veterinario11);
-
-        // Login veterinario 12
-        vetLogin12.setVeterinario(veterinario12);
-        LoginRepositorio.save(vetLogin12);
-        veterinario12.setLogin(vetLogin12);
-        VeterinarioRepositorio.save(veterinario12);
-
-        // Login veterinario 13
-        vetLogin13.setVeterinario(veterinario13);
-        LoginRepositorio.save(vetLogin13);
-        veterinario13.setLogin(vetLogin13);
-        VeterinarioRepositorio.save(veterinario13);
-
-        // Login veterinario 14
-        vetLogin14.setVeterinario(veterinario14);
-        LoginRepositorio.save(vetLogin14);
-        veterinario14.setLogin(vetLogin14);
-        VeterinarioRepositorio.save(veterinario14);
-
-        // Login veterinario 15
-        vetLogin15.setVeterinario(veterinario15);
-        LoginRepositorio.save(vetLogin15);
-        veterinario15.setLogin(vetLogin15);
-        VeterinarioRepositorio.save(veterinario15);
-
-        // Login veterinario 16
-        vetLogin16.setVeterinario(veterinario16);
-        LoginRepositorio.save(vetLogin16);
-        veterinario16.setLogin(vetLogin16);
-        VeterinarioRepositorio.save(veterinario16);
-
-        // Login veterinario 17
-        vetLogin17.setVeterinario(veterinario17);
-        LoginRepositorio.save(vetLogin17);
-        veterinario17.setLogin(vetLogin17);
-        VeterinarioRepositorio.save(veterinario17);
-
-        // Login veterinario 18
-        vetLogin18.setVeterinario(veterinario18);
-        LoginRepositorio.save(vetLogin18);
-        veterinario18.setLogin(vetLogin18);
-        VeterinarioRepositorio.save(veterinario18);
-
-        // Login veterinario 19
-        vetLogin19.setVeterinario(veterinario19);
-        LoginRepositorio.save(vetLogin19);
-        veterinario19.setLogin(vetLogin19);
-        VeterinarioRepositorio.save(veterinario19);
-
-        // Login veterinario 20
-        vetLogin20.setVeterinario(veterinario20);
-        LoginRepositorio.save(vetLogin20);
-        veterinario20.setLogin(vetLogin20);
-        VeterinarioRepositorio.save(veterinario20);
-
-        */
 
         // Obtener todos los clientes
         List<Cliente> clientes = ClienteRepositorio.findAll();

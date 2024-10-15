@@ -13,4 +13,5 @@ public interface MedicamentoRepositorio extends JpaRepository<Medicamento,Long> 
     Optional<Medicamento> findByNombre(String nombre);
     @Query("SELECT t FROM Tratamieneto t JOIN t.medicamentos m WHERE m.id = :medicamentoId")
     List<Tratamieneto> findByMedicamentosId(@Param("medicamentoId") Long medicamentoId);
+    List<Medicamento> findByNombreContainingIgnoreCase(String nombre);;
 }

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Transient;
 
 @Entity
 public class Login {
@@ -13,7 +14,17 @@ public class Login {
     @JsonIgnore
     @OneToOne(mappedBy = "login")
     private Veterinario veterinario;
-     private String tipo;
+    @Transient // No se almacena en la base de datos
+    private Long idVeterinario;
+     public Long getIdVeterinario() {
+        return idVeterinario;
+    }
+
+    public void setIdVeterinario(Long idVeterinario) {
+        this.idVeterinario = idVeterinario;
+    }
+
+    private String tipo;
 
     private String passwords;
 

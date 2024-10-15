@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.michito.demo.Entidades.Medicamento;
@@ -43,6 +44,13 @@ public class MedicamentoController {
         Medicamento medicamento = servicioMedicamento.actualizarMedicamento(id, medicamentoActualizado);
         return ResponseEntity.ok(medicamento);  // Devolver el medicamento actualizado
     }
+
+    @GetMapping("/buscar")
+    public ResponseEntity<List<Medicamento>> buscarMedicamentosPorNombre(@RequestParam String nombre) {
+        List<Medicamento> medicamentos = servicioMedicamento.buscarPorNombre(nombre);
+        return ResponseEntity.ok(medicamentos);
+    }
+
 
 
 }

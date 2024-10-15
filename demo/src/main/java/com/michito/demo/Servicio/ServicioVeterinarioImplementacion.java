@@ -23,6 +23,11 @@ public class ServicioVeterinarioImplementacion implements ServicioVeterinario {
     public List<Veterinario> searchAll() {
         return veterinarioRespositorio.findAll();
     }
+    @Override
+    public List<Veterinario> buscarPorNombre(String nombre) {
+        return veterinarioRespositorio.findByNombreContainingIgnoreCase(nombre);
+    }
+    
 
     @Override
     public void updateVeterinario(Veterinario VeterinarioEditado) {
