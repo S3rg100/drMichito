@@ -60,4 +60,13 @@ public class TratamientoController {
             return ResponseEntity.status(404).build();  // Si no encuentra el tratamiento, retorna 404
         }
     }
+
+    @GetMapping("/cliente/{clienteId}")
+    public ResponseEntity<List<Tratamieneto>> obtenerTratamientosPorCliente(@PathVariable Long clienteId) {
+        List<Tratamieneto> tratamientos = tratamientoService.obtenerTratamientosPorCliente(clienteId);
+        if (tratamientos.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(tratamientos);
+    }
 }

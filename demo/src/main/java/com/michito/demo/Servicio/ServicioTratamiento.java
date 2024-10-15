@@ -9,4 +9,5 @@ public interface ServicioTratamiento {
     public Tratamieneto addTratamiento(Tratamieneto tratamiento);
     public Tratamieneto updateTratamiento(Long id, Tratamieneto tratamiento);
     public Tratamieneto findById(Long id);
+    public List<Tratamieneto> obtenerTratamientosPorCliente(Long clienteId);
 }
