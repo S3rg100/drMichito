@@ -44,7 +44,7 @@ public class DataBaseIni implements ApplicationRunner {
         login2 = LoginRepositorio.save(login2); // Guardar el login primero y obtener el objeto persistido
 
         // Crear el veterinario y asignar el login
-        Veterinario veterinarioprim = new Veterinario("999", "Prueba", "veterinario@gmail.com", 1234L, "cirujano");
+        Veterinario veterinarioprim = new Veterinario("999", "Prueba", "veterinario@gmail.com", 1234L, "cirujano",true);
         veterinarioprim.setLogin(login2); // Asignar login2 al veterinario
         login2.setVeterinario(veterinarioprim); // Asignar veterinarioprim al login2
 
@@ -54,27 +54,27 @@ public class DataBaseIni implements ApplicationRunner {
         // Luego guardar el login con la relación bidireccional
         LoginRepositorio.save(login2); 
      
-        VeterinarioRepositorio.save(new Veterinario("123","Pedro","pedro@gmail.com",1234L,"cirujano"));
-        VeterinarioRepositorio.save(new Veterinario("001","Juan","juan@example.com",1001L,"cirujano"));
-        VeterinarioRepositorio.save(new Veterinario("002","Ana","ana@example.com",1002L,"cardiologo"));
-        VeterinarioRepositorio.save(new Veterinario("003","Luis","luis@example.com",1003L,"dentista"));
-        VeterinarioRepositorio.save(new Veterinario("004","María","maria@example.com",1004L,"dermatologo"));
-        VeterinarioRepositorio.save(new Veterinario("005","Carlos","carlos@example.com",1005L,"oftalmologo"));
-        VeterinarioRepositorio.save(new Veterinario("006","Laura","laura@example.com",1006L,"neurocirujano"));
-        VeterinarioRepositorio.save(new Veterinario("007","Pedro","pedro@example.com",1007L,"gastroenterologo"));
-        VeterinarioRepositorio.save(new Veterinario("008","Isabel","isabel@example.com",1008L,"traumatologo"));
-        VeterinarioRepositorio.save(new Veterinario("009","David","david@example.com",1009L,"internista"));
-        VeterinarioRepositorio.save(new Veterinario("010","Lucía","lucia@example.com",1010L,"oncologo"));
-        VeterinarioRepositorio.save(new Veterinario("011","Javier","javier@example.com",1011L,"cirujano"));
-        VeterinarioRepositorio.save(new Veterinario("012","Elena","elena@example.com",1012L,"cardiologo"));
-        VeterinarioRepositorio.save(new Veterinario("013","Ricardo","ricardo@example.com",1013L,"dentista"));
-        VeterinarioRepositorio.save(new Veterinario("014","Sofia","sofia@example.com",1014L,"dermatologo"));
-        VeterinarioRepositorio.save(new Veterinario("015","Miguel","miguel@example.com",1015L,"oftalmologo"));
-        VeterinarioRepositorio.save(new Veterinario("016","Raquel","raquel@example.com",1016L,"neurocirujano"));
-        VeterinarioRepositorio.save(new Veterinario("017","Andrés","andres@example.com",1017L,"gastroenterologo"));
-        VeterinarioRepositorio.save(new Veterinario("018","Carmen","carmen@example.com",1018L,"traumatologo"));
-        VeterinarioRepositorio.save(new Veterinario("019","Fernando","fernando@example.com",1019L,"internista"));
-        VeterinarioRepositorio.save(new Veterinario("020","Valeria","valeria@example.com",1020L,"oncologo"));
+        VeterinarioRepositorio.save(new Veterinario("123","Pedro","pedro@gmail.com",1234L,"cirujano",true));
+        VeterinarioRepositorio.save(new Veterinario("001","Juan","juan@example.com",1001L,"cirujano",true));
+        VeterinarioRepositorio.save(new Veterinario("002","Ana","ana@example.com",1002L,"cardiologo",true));
+        VeterinarioRepositorio.save(new Veterinario("003","Luis","luis@example.com",1003L,"dentista",true));
+        VeterinarioRepositorio.save(new Veterinario("004","María","maria@example.com",1004L,"dermatologo",true));
+        VeterinarioRepositorio.save(new Veterinario("005","Carlos","carlos@example.com",1005L,"oftalmologo",true));
+        VeterinarioRepositorio.save(new Veterinario("006","Laura","laura@example.com",1006L,"neurocirujano",true));
+        VeterinarioRepositorio.save(new Veterinario("007","Pedro","pedro@example.com",1007L,"gastroenterologo",true));
+        VeterinarioRepositorio.save(new Veterinario("008","Isabel","isabel@example.com",1008L,"traumatologo",true));
+        VeterinarioRepositorio.save(new Veterinario("009","David","david@example.com",1009L,"internista",true));
+        VeterinarioRepositorio.save(new Veterinario("010","Lucía","lucia@example.com",1010L,"oncologo",true));
+        VeterinarioRepositorio.save(new Veterinario("011","Javier","javier@example.com",1011L,"cirujano",true));
+        VeterinarioRepositorio.save(new Veterinario("012","Elena","elena@example.com",1012L,"cardiologo",true));
+        VeterinarioRepositorio.save(new Veterinario("013","Ricardo","ricardo@example.com",1013L,"dentista",true));
+        VeterinarioRepositorio.save(new Veterinario("014","Sofia","sofia@example.com",1014L,"dermatologo",true));
+        VeterinarioRepositorio.save(new Veterinario("015","Miguel","miguel@example.com",1015L,"oftalmologo",true));
+        VeterinarioRepositorio.save(new Veterinario("016","Raquel","raquel@example.com",1016L,"neurocirujano",true));
+        VeterinarioRepositorio.save(new Veterinario("017","Andrés","andres@example.com",1017L,"gastroenterologo",true));
+        VeterinarioRepositorio.save(new Veterinario("018","Carmen","carmen@example.com",1018L,"traumatologo",true));
+        VeterinarioRepositorio.save(new Veterinario("019","Fernando","fernando@example.com",1019L,"internista",true));
+        VeterinarioRepositorio.save(new Veterinario("020","Valeria","valeria@example.com",1020L,"oncologo",true));
 
         MascotaRepositorio.save(new Mascota("Toby", 2, 12,
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s",true));
