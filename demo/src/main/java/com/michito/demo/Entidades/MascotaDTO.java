@@ -7,7 +7,17 @@ public class MascotaDTO {
     private int edad;
     private String foto;
     private String cedulaCliente;  // Este campo lo obtenemos del cliente
+    private boolean estado;
 
+    public MascotaDTO(){
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
     // Getters y Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }

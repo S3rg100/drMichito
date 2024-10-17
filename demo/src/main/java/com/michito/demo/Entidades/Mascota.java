@@ -20,7 +20,16 @@ public class Mascota {
     @Id
     @GeneratedValue
     private Long id;
+    private boolean estado;
     
+    public boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
     private String nombre;
     private int peso;
     private int edad;
@@ -53,13 +62,16 @@ public class Mascota {
         this.tratamientos = tratamientos;
     }
    
-    public Mascota(){}
+    public Mascota(){
+        this.estado=true;   
+    }
     
-    public Mascota(String nombre, int edad, int peso, String foto) {
+    public Mascota(String nombre, int edad, int peso, String foto,boolean estado) {
         this.nombre = nombre;
         this.edad = edad;
         this.peso = peso;
         this.foto = foto;
+        this.estado=estado;
     }
 
     public Cliente getCliente() {
