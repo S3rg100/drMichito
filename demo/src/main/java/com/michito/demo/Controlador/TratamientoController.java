@@ -87,6 +87,15 @@ public class TratamientoController {
         return ResponseEntity.ok(tratamientos);
     }
 
+    @GetMapping("/mascota/{mascotaId}")
+    public ResponseEntity<List<Tratamieneto>> obtenerTratamientosPorMascota(@PathVariable Long mascotaId) {
+        List<Tratamieneto> tratamientos = tratamientoService.obtenerTratamientosPorMascota(mascotaId);
+        if (tratamientos.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(tratamientos);
+    }
+
 
         
 }

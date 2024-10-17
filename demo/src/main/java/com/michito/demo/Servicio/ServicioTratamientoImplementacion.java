@@ -90,6 +90,12 @@ public class ServicioTratamientoImplementacion implements ServicioTratamiento{
     return tratamientoRepositorio.findByVeterinarioId(veterinarioId);
 }
 
+  @Override
+  public List<Tratamieneto> obtenerTratamientosPorMascota(Long mascotaId) {
+    return tratamientoRepositorio.findByMascotaId(mascotaId); // Asume que tienes un método en el repositorio que filtre por Mascota ID
+}
+
+
   
   
 
