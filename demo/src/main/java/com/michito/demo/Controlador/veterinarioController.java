@@ -51,8 +51,22 @@ public class veterinarioController {
   
 
     @PutMapping("/editar/{id}")
-    public void editarVeterinario(@RequestBody Veterinario veterinarioEditado) {
-        veterinarioServicio.updateVeterinario(veterinarioEditado);
+    public void editarVeterinario(@PathVariable Long id, @RequestBody Veterinario veterinario) {
+        Veterinario veterinarioExistente = veterinarioServicio.searchById(id);
+        
+        if (veterinarioExistente != null) {
+            // Mantener el login existente
+            veterinario.setLogin(veterinarioExistente.getLogin());
+            
+            // Actualizar otros campos del veterinario
+            veterinarioExistente.setNombre(veterinario.getNombre());
+            veterinarioExistente.setEspecialidad(veterinario.getEspecialidad());
+            veterinarioExistente.setEstado(veterinario.isEstado());
+            
+            // Guardar el veterinario actualizado
+            veterinarioServicio.addVeterinario(veterinarioExistente);
+            
+        } 
     }
 
     
