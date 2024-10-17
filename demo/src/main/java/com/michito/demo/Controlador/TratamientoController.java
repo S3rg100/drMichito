@@ -34,9 +34,8 @@ public class TratamientoController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> eliminarTratamiento(@PathVariable Long id) {
+    public void eliminarTratamiento(@PathVariable Long id) {
         tratamientoService.eliminarTratamiento(id);
-        return ResponseEntity.noContent().build();
     }
 
     @PostMapping("/agregar")
