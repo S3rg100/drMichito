@@ -25,9 +25,6 @@ public interface TratamientoRepositorio extends JpaRepository<Tratamieneto, Long
     @Query("SELECT COUNT(t) FROM Tratamieneto t WHERE t.fecha BETWEEN :startDate AND :endDate")
     Long countTratamientosUltimoMes(@Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
 
-    // Cantidad de mascotas diferentes que tienen tratamientos
-    @Query("SELECT COUNT(DISTINCT t.mascota) FROM Tratamieneto t")
-    Long countMascotasConTratamiento();
 
     // Cantidad de veterinarios activos
     @Query("SELECT COUNT(DISTINCT t.veterinario) FROM Tratamieneto t WHERE t.fecha BETWEEN :startDate AND :endDate")

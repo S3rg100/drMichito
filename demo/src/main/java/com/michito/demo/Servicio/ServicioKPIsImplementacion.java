@@ -42,21 +42,17 @@ public class ServicioKPIsImplementacion implements ServicioKPIs {
 
     @Override
     public Long getMascotasConTratamientos() {
-        return tratamientoRepositorio.countMascotasConTratamiento();
+        return mascotaRepositorio.countMascotasActivas();
     }
 
     @Override
     public Long getVeterinariosActivos() {
-        LocalDate endDate = LocalDate.now();
-        LocalDate startDate = endDate.minusMonths(12);
-        return tratamientoRepositorio.countVeterinariosActivos(startDate, endDate);
+        return veterinarioRepositorio.countVeterinariosActivos();
     }
 
     @Override
     public Long getVeterinariosInactivos() {
-        LocalDate endDate = LocalDate.now();
-        LocalDate startDate = endDate.minusMonths(12);
-        return veterinarioRepositorio.countVeterinariosInactivos(startDate, endDate);
+        return veterinarioRepositorio.countVeterinariosInactivos();
     }
 
     @Override
