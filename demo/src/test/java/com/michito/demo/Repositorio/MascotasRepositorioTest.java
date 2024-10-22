@@ -9,10 +9,12 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.assertj.core.api.Assertions;
+
 import com.michito.demo.Entidades.Mascota;
 import com.michito.demo.config.TestConfig;
 
 import java.util.*;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -73,7 +75,7 @@ public class MascotasRepositorioTest {
         Optional<Mascota> mascota=mascotasRepositorio.findById(index);
         Assertions.assertThat(mascota).isEmpty();
     }
-    //Consultas propias
+    //Consultas propias 1
     @Test
     public void MascotasRepositorio_countMascotasActivas_Long(){
         Mascota mascota1=new Mascota("Nuevo", 4, 5, "FOTOOO", true);
@@ -83,5 +85,18 @@ public class MascotasRepositorioTest {
         Long count = mascotasRepositorio.countMascotasActivas();
         Assertions.assertThat(count).isEqualTo(2);
         Assertions.assertThat(count).isGreaterThan(0);
+    }
+    //Consultas propias 2
+    @Test
+    public void MascotasRepositorio_countTotalMascotas_Long(){
+        Mascota mascota1=new Mascota("Nuevo", 4, 5, "FOTOOO", true);
+        Mascota mascota2=new Mascota("Nuevo2", 3, 6, "URL Foto", false);
+        mascotasRepositorio.save(mascota1);
+        mascotasRepositorio.save(mascota2);
+        Long count = mascotasRepositorio.countTotalMascotas();
+        List<Mascota>mascotas=mascotasRepositorio.findAll();
+        Assertions.assertThat(count).isEqualTo(3); //Se crea una en Before Each
+        Assertions.assertThat(count).isGreaterThan(0);
+        Assertions.assertThat(count).isEqualTo(mascotas.size());
     }
 }

@@ -42,7 +42,7 @@ public class ServicioTratamientoImplementacion implements ServicioTratamiento{
     @Override
     public Tratamieneto addTratamiento(Tratamieneto tratamiento) {
       return tratamientoRepositorio.save(tratamiento);  
-  }
+    }
       
   public Tratamieneto updateTratamiento(Long id, Tratamieneto tratamiento) {
     

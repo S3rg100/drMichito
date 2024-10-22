@@ -85,8 +85,8 @@ public class ServicioMedicamento {
             Row row = sheet.getRow(i);
 
             String nombre = row.getCell(0).getStringCellValue();
-            double precioVenta = row.getCell(1).getNumericCellValue();
-            double precioCompra = row.getCell(2).getNumericCellValue();
+            float precioVenta = (float) row.getCell(1).getNumericCellValue();
+            float precioCompra = (float) row.getCell(2).getNumericCellValue();
             int unidadesDisponibles = (int) row.getCell(3).getNumericCellValue();
             int unidadesVendidas = (int) row.getCell(4).getNumericCellValue();
 

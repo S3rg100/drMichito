@@ -60,6 +60,9 @@ public class Tratamieneto {  // Dejo el nombre tal cual
     public void setMedicamentos(List<Medicamento> medicamentos) {
         this.medicamentos = medicamentos;
     }
+    public void agregarMedicamentos(Medicamento medicamento){
+        this.medicamentos.add(medicamento);
+    }
 
     public Veterinario getVeterinario() {
         return veterinario;
