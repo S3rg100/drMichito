@@ -6,10 +6,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.context.ActiveProfiles;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.time.LocalDate;
@@ -19,11 +15,7 @@ import org.assertj.core.api.Assertions;
 
 import java.util.*;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
 
-import com.michito.demo.Entidades.Mascota;
 import com.michito.demo.Entidades.Tratamieneto;
 import com.michito.demo.Entidades.Veterinario;
 import com.michito.demo.Repositorio.TratamientoRepositorio;

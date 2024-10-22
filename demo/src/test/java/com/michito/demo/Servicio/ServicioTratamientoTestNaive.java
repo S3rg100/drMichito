@@ -18,8 +18,6 @@ public class ServicioTratamientoTestNaive {
     @Autowired
     private ServicioTratamiento servicioTratamiento;
 
-    @Autowired
-    private ServicioVeterinario servicioVeterinario;
 
     //16 Buscar Todos
     @Test
