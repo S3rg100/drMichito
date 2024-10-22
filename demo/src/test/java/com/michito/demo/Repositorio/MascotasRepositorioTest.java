@@ -47,6 +47,18 @@ public class MascotasRepositorioTest {
         Assertions.assertThat(mascotas.size()).isEqualTo(3);//before Each ya cargó un dato
         Assertions.assertThat(mascotas.size()).isGreaterThan(0);
     }
+    //Update
+    @Test
+    public void MascotasRepositorio_updateById_Mascota(){
+        String name = "MODIFICADO";
+        Mascota mascota2=new Mascota("Nuevo2", 3, 6, "URL Foto", false);
+        mascotasRepositorio.save(mascota2);
+        Mascota mascota=mascotasRepositorio.findByNombre("Nuevo2");
+        mascota.setNombre(name);
+        Mascota mascotaModificada = mascotasRepositorio.save(mascota);
+        Assertions.assertThat(mascotaModificada).isNotNull();
+        Assertions.assertThat(mascotaModificada.getNombre()).isEqualTo(name);
+    }
     //Delete
     @Test
     public void MascotasRepositorio_deleteById_EmptyMascota(){
@@ -60,5 +72,16 @@ public class MascotasRepositorioTest {
         long index = -1L;
         Optional<Mascota> mascota=mascotasRepositorio.findById(index);
         Assertions.assertThat(mascota).isEmpty();
+    }
+    //Consultas propias
+    @Test
+    public void MascotasRepositorio_countMascotasActivas_Long(){
+        Mascota mascota1=new Mascota("Nuevo", 4, 5, "FOTOOO", true);
+        Mascota mascota2=new Mascota("Nuevo2", 3, 6, "URL Foto", false);
+        mascotasRepositorio.save(mascota1);
+        mascotasRepositorio.save(mascota2);
+        Long count = mascotasRepositorio.countMascotasActivas();
+        Assertions.assertThat(count).isEqualTo(2);
+        Assertions.assertThat(count).isGreaterThan(0);
     }
 }

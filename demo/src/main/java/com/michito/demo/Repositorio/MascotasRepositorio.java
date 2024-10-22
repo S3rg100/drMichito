@@ -20,5 +20,5 @@ public interface MascotasRepositorio extends JpaRepository<Mascota,Long> {
    Long countMascotasActivas();
    
    List<Mascota> findByNombreContainingIgnoreCase(String nombre);
-    
+    Mascota findByNombre(String nombre);
 }
