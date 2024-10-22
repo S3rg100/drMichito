@@ -29,14 +29,14 @@ public class VeterinarioRepositorioTest {
         veterinarioRepositorio.save(new Veterinario("333","Pepe","cor@gm.com",111L,"cirujano",false));
         veterinarioRepositorio.save(new Veterinario("444","Pepe","cor@gm.com",111L,"cirujano",false));
     }
-    //Consultas propias 3
+    //11 Consultas propias 3
     @Test
     public void VeterinarioRepositorio_countVeterinariosInactivos_Long(){
         Long count = veterinarioRepositorio.countVeterinariosInactivos();
         Assertions.assertThat(count).isGreaterThan(0);
         Assertions.assertThat(count).isEqualTo(2);
     }
-    //Consultas propias 4
+    //12 Consultas propias 4
     @Test
     public void VeterinarioRepositorio_countVeterinariosActivos_Long(){
         Long count = veterinarioRepositorio.countVeterinariosActivos();

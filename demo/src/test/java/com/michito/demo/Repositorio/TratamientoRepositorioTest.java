@@ -72,7 +72,7 @@ public class TratamientoRepositorioTest {
 
     }
 
-
+    //8
     @Test
     public void testCountTratamientosUltimoMes() {
         LocalDate startDate = LocalDate.now().minusMonths(1);
@@ -81,13 +81,13 @@ public class TratamientoRepositorioTest {
         Long count = tratamientoRepositorio.countTratamientosUltimoMes(startDate, endDate);
         Assertions.assertThat(count).isEqualTo(2);
     }
-
+    //9
     @Test
     public void testTotalGanancias() {
         double totalGanancias = tratamientoRepositorio.totalGanancias();
         Assertions.assertThat(totalGanancias).isEqualTo(60.0);  // (50 - 30) + (100 - 60) = 20 + 40 = 60
     }
-
+    //10
     @Test
     public void testTotalVentas() {
         double totalVentas = tratamientoRepositorio.totalVentas();

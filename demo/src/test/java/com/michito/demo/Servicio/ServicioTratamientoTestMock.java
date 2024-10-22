@@ -28,14 +28,15 @@ import com.michito.demo.Repositorio.TratamientoRepositorio;
 @ExtendWith(MockitoExtension.class)
 public class ServicioTratamientoTestMock {
     @InjectMocks 
-    ServicioTratamiento servicioTratamiento;
+    ServicioTratamientoImplementacion servicioTratamiento;
     @InjectMocks
-    ServicioVeterinario servicioVeterinario;
+    ServicioVeterinarioImplementacion servicioVeterinario;
     @InjectMocks
-    ServicioMascota servicioMascota;
+    ServicioMascotaImplementacion servicioMascota;
 
     @Mock
     TratamientoRepositorio tratamientoRepositorio;
+    //13
     @Test
     public void ServicioTratamiento_addTratamiento_Tratamiento(){
         //arrange
@@ -46,7 +47,7 @@ public class ServicioTratamientoTestMock {
         //assert
         Assertions.assertThat(nuevoTratamiento).isNotNull();
     }
-
+    //14
     @Test
     public void ServicioTratamiento_obtenerTratamientosPorVeterinario_TratamientoList(){
         //arrange
@@ -65,7 +66,7 @@ public class ServicioTratamientoTestMock {
         Assertions.assertThat(tratamientos.size()).isGreaterThan(0);
         Assertions.assertThat(tratamientos.size()).isEqualTo(2);
     }
-
+    //15
     @Test
     public void ServicioTratamiento_obtenerTratamientosPorMascota_TratamientoList(){
         Mascota mascota = new Mascota("mike",4,5,"URL",true);

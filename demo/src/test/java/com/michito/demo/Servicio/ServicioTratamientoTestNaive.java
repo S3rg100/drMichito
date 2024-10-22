@@ -21,7 +21,7 @@ public class ServicioTratamientoTestNaive {
     @Autowired
     private ServicioVeterinario servicioVeterinario;
 
-    // Buscar Todos
+    //16 Buscar Todos
     @Test
     public void ServicioTratamiento_findAll_test() {
         List<Tratamieneto> tratamientos = servicioTratamiento.findAll();
@@ -29,7 +29,7 @@ public class ServicioTratamientoTestNaive {
         Assertions.assertThat(tratamientos.size()).isEqualTo(10);
     }
 
-    // Encontrar por ID
+    //17 Encontrar por ID
     @Test
     public void ServicioTratamiento_findById_test() {
         Long tratamientoId = 1L;
@@ -38,7 +38,7 @@ public class ServicioTratamientoTestNaive {
         Assertions.assertThat(tratamiento.getId()).isEqualTo(tratamientoId);
     }
 
-    //Obetener tratamientos por cliente
+    //18 Obetener tratamientos por cliente
     @Test
     public void ServicioTratamiento_obtenerTratamientosPorCliente_test() {
         Long clienteId = 1L;
@@ -47,7 +47,7 @@ public class ServicioTratamientoTestNaive {
         Assertions.assertThat(tratamientos.size()).isEqualTo(2);
     }
 
-    //Agregar Tratamiento
+    //19 Agregar Tratamiento
     @Test
     public void ServicioTratamiento_addTratamiento_test() {
         Tratamieneto tratamiento1 = new Tratamieneto(LocalDate.of(2024, 9, 15), "Tratamiento de prueba");
@@ -56,7 +56,7 @@ public class ServicioTratamientoTestNaive {
         Assertions.assertThat(resultado.getDescripcion()).isEqualTo("Tratamiento de prueba");
     }
 
-    //Actualizar Tratamiento
+    //20 Actualizar Tratamiento
     @Test
     public void ServicioTratamiento_updateTratamiento_test() {
         Long tratamientoId = 1L;
@@ -67,7 +67,7 @@ public class ServicioTratamientoTestNaive {
         Assertions.assertThat(resultado.getFecha()).isEqualTo(LocalDate.of(2025, 6, 12));
     }
 
-    //Eliminar Tratamiento
+    //21 Eliminar Tratamiento
     @Test
     public void ServicioTratamiento_eliminarTratamiento_test() {
         Long tratamientoId = 1L;
@@ -78,7 +78,7 @@ public class ServicioTratamientoTestNaive {
         Assertions.assertThat(tratamiento).isNull();
     }
 
-    //Obtener tratamientos por veterinario
+    //22 Obtener tratamientos por veterinario
     @Test
     public void ServicioTratamiento_obtenerTratamientosPorVeterinario_test() {
         Long veterinarioId = 1L;
@@ -87,7 +87,7 @@ public class ServicioTratamientoTestNaive {
         Assertions.assertThat(tratamientos.size()).isEqualTo(2);
     }
 
-    //Obtener tratamientos por mascota
+    //23 Obtener tratamientos por mascota
     @Test
     public void ServicioTratamiento_obtenerTratamientosPorMascota_test() {
         Long mascotaId = 6L;
