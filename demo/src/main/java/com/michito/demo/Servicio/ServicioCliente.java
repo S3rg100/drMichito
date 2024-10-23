@@ -12,7 +12,7 @@ public interface ServicioCliente {
     public List<Cliente> searchAllClientes();
     public void deleteCliente(Long id);
     public void updateCliente(Cliente cliente);
-    public void addCliente(Cliente cliente);
+    public Cliente addCliente(Cliente cliente);
     public Cliente findByCedula(String cedula);
     public Mascota searchById(Long id);
     public Cliente searchByMascotaId (Long id);

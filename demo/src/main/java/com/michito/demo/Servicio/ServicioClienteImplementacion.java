@@ -42,8 +42,9 @@ public class ServicioClienteImplementacion implements ServicioCliente {
     }
 
     @Override
-    public void addCliente(Cliente cliente) {
+    public Cliente addCliente(Cliente cliente) {
         clienteRepositorio.save(cliente);
+        return cliente;
     }
 
     @Override

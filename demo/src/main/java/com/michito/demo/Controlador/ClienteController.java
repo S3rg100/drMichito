@@ -34,31 +34,37 @@ public class ClienteController {
     ServicioMascota mascotaServicio;
 
     @PostMapping("/agregar")
-    public void crearCliente(@RequestBody Cliente cliente) {
-        clienteServicio.addCliente(cliente);
+    public ResponseEntity<Cliente> crearCliente(@RequestBody Cliente cliente) {
+        Cliente nuevoCliente = clienteServicio.addCliente(cliente);
+        if (nuevoCliente == null) {
+            return new ResponseEntity<Cliente>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<Cliente>(nuevoCliente, HttpStatus.CREATED);
     }
 
     @GetMapping("/all")
-    public List<Cliente> mostrar(Model model) {
-        return clienteServicio.searchAllClientes();
+    public ResponseEntity<List<Cliente>> mostrar(Model model) {
+        List<Cliente> clientes = clienteServicio.searchAllClientes();
+        ResponseEntity<List<Cliente>> response = new ResponseEntity<>(clientes, HttpStatus.OK);
+        return response;
     }
 
     @GetMapping("/{cedula}")
-    public Cliente obtenerCliente(@PathVariable("cedula") String cedula) {
+    public ResponseEntity<Cliente> obtenerCliente(@PathVariable("cedula") String cedula) {
         Cliente cliente = clienteServicio.findByCedula(cedula);
         if (cliente == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente no encontrado");
         }
-        return cliente;
+        return  new ResponseEntity<Cliente>(cliente, HttpStatus.OK);
     }
 
     @GetMapping("/info/{id}")
-    public Cliente obtenerClientePorId(@PathVariable("id") Long identificador) {
+    public ResponseEntity<Cliente> obtenerClientePorId(@PathVariable("id") Long identificador) {
         Cliente cliente = clienteServicio.searchByIdCliente(identificador);
         if (cliente == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente no encontrado");
         }
-        return cliente;
+        return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);
     }
 
     @GetMapping("/cliente/{clienteId}")
@@ -80,26 +86,28 @@ public class ClienteController {
 
 
     @PutMapping("/update/{id}")
-    public void actualizarForm(@RequestBody Cliente cliente) {
+    public ResponseEntity<Cliente> actualizarForm(@RequestBody Cliente cliente) {
         clienteServicio.updateCliente(cliente);
+        return new ResponseEntity<>(cliente, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
-    public void Eliminar(@PathVariable("id") Long identificador) {
+    public ResponseEntity<String> Eliminar(@PathVariable("id") Long identificador) {
         clienteServicio.deleteCliente(identificador);
+        return new ResponseEntity<>("DELETED", HttpStatus.NO_CONTENT);
     }
 
     // revisar más tarde
     @GetMapping("/Mascotas/{id}")
-    public List<Mascota> mascotasDeCliente(@PathVariable("id") Long identificador) {
-        return mascotaServicio.searchByIdCliente(identificador);
+    public ResponseEntity<List<Mascota>> mascotasDeCliente(@PathVariable("id") Long identificador) {
+        return new ResponseEntity<>(mascotaServicio.obtenerMascotasPorCliente(identificador), HttpStatus.OK);
     }
 
      // Obtener un cliente por el id de una mascota
      @GetMapping("/por-mascota/{idMascota}")
-     public Cliente obtenerClientePorMascotaId(@PathVariable Long idMascota) {
+     public ResponseEntity<Cliente> obtenerClientePorMascotaId(@PathVariable Long idMascota) {
          try {
-             return clienteServicio.searchByMascotaId(idMascota);
+             return new ResponseEntity<>(clienteServicio.searchByMascotaId(idMascota), HttpStatus.OK);
          } catch (RuntimeException e) {
              throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
          }
@@ -108,10 +116,10 @@ public class ClienteController {
 
 
     @GetMapping("/Mascotas/editar/{id}")
-    public String mostrarFormularioEdicion(@PathVariable("id") Long identificador, Model model) {
+    public ResponseEntity<String> mostrarFormularioEdicion(@PathVariable("id") Long identificador, Model model) {
         Mascota mascota = mascotaServicio.searchById(identificador);
         model.addAttribute("mascota", mascota);
-        return "UpdateMascota";
+        return new ResponseEntity<>("UpdateMascota", HttpStatus.OK);
     }
 
     @PostMapping("/editar/{id}")
@@ -123,8 +131,8 @@ public class ClienteController {
     }
 
     @GetMapping("/buscar")
-    public List<Cliente> buscarClientesConteniendoPorCedula(@RequestParam("cedula") String cedula) {
-        return clienteServicio.buscarClientesPorCedula(cedula);
+    public ResponseEntity<List<Cliente>> buscarClientesConteniendoPorCedula(@RequestParam("cedula") String cedula) {
+        return new ResponseEntity<>(clienteServicio.buscarClientesPorCedula(cedula), HttpStatus.OK);
     }
 
 }
