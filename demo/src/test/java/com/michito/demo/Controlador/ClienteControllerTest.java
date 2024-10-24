@@ -87,10 +87,7 @@ public class ClienteControllerTest {
 
 
 
-
-
-
-
+    //24
     @Test
     public void ClienteController_crearCliente_Cliente() throws Exception {
         Cliente cliente = new Cliente("1231", "Fabito", "fabio@gmail.com", 31824094);
@@ -113,7 +110,7 @@ public class ClienteControllerTest {
         .andExpect(jsonPath("$.correo").value(cliente.getCorreo()))
         .andExpect(jsonPath("$.celular").value(cliente.getCelular()));
     }
-
+    //25
     @Test
     public void ClienteController_mostrarCliente_ClienteNoEncontrado() throws Exception {
         // Simulamos que el cliente no existe
@@ -127,7 +124,7 @@ public class ClienteControllerTest {
         // Verificamos que la respuesta sea NOT_FOUND
         response.andExpect(status().isNotFound());
     }
-
+    //26
     @Test
     public void ClienteController_buscarTodos_Clientes() throws Exception {
         // Simulamos el comportamiento del servicio
@@ -144,7 +141,7 @@ public class ClienteControllerTest {
         response.andExpect(status().isOk())
         .andExpect(content().json(objectMapper.writeValueAsString(clientes)));
     }
-
+    //27
     @Test
     public void ClienteController_buscarPorId_Cliente() throws Exception {
         // Simulamos el comportamiento del servicio
@@ -158,7 +155,7 @@ public class ClienteControllerTest {
         response.andExpect(status().isOk())
         .andExpect(content().json(objectMapper.writeValueAsString(cliente.get())));
     }
-
+    //28
     @Test
     public void ClienteController_actualizarCliente_Cliente() throws Exception {
         Cliente clienteActualizado = new Cliente("1231", "Fabito", "fabio@gmail.com", 31824094);
@@ -176,7 +173,7 @@ public class ClienteControllerTest {
                 .andExpect(content().json(objectMapper.writeValueAsString(clienteActualizado)));
     }
 
-
+    //29
     @Test
     public void ClienteController_eliminarCliente_Cliente() throws Exception {
         // Simulamos el comportamiento del método void
@@ -187,7 +184,7 @@ public class ClienteControllerTest {
         response.andExpect(status().isNoContent());
     }
 
-
+    //30
     @Test
     public void ClienteController_obtenerMascotasPorCliente() throws Exception {
         // Simulamos el comportamiento del servicio
@@ -204,7 +201,7 @@ public class ClienteControllerTest {
         response.andExpect(status().isOk())
         .andExpect(content().json(objectMapper.writeValueAsString(mascotas)));
     }
-
+    //31
     @Test
     public void ClienteController_obtenerClientePorMascotaId() throws Exception {
         // Simulamos el comportamiento del servicio
