@@ -6,7 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.michito.demo.Entidades.Veterinario;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface VeterinarioRepositorio extends JpaRepository<Veterinario,Long>{
     
     //Cantidad de veterinarios inactivos

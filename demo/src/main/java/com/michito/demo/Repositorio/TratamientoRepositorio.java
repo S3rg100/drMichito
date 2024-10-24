@@ -9,7 +9,9 @@ import org.springframework.data.repository.query.Param;
 
 import com.michito.demo.Entidades.Mascota;
 import com.michito.demo.Entidades.Tratamieneto;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TratamientoRepositorio extends JpaRepository<Tratamieneto, Long> {
 
 

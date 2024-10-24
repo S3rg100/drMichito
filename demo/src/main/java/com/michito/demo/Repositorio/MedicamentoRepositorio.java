@@ -10,7 +10,9 @@ import org.springframework.data.repository.query.Param;
 
 import com.michito.demo.Entidades.Medicamento;
 import com.michito.demo.Entidades.Tratamieneto;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface MedicamentoRepositorio extends JpaRepository<Medicamento,Long> {
     Optional<Medicamento> findByNombre(String nombre);
     @Query("SELECT t FROM Tratamieneto t JOIN t.medicamentos m WHERE m.id = :medicamentoId")
