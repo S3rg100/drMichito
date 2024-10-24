@@ -1,6 +1,7 @@
 package com.michito.demo.Controlador;
 
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
 import java.util.List;
@@ -23,6 +24,7 @@ import org.springframework.test.web.servlet.ResultActions;
 import com.michito.demo.Entidades.Cliente;
 import com.michito.demo.Entidades.Mascota;
 import com.michito.demo.Servicio.ServicioCliente;
+import com.michito.demo.Servicio.ServicioMascota;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @WebMvcTest(controllers = ClienteController.class) 
@@ -36,8 +38,12 @@ public class ClienteControllerTest {
     @MockBean
     private ServicioCliente clienteService;
 
+    @MockBean
+    private ServicioMascota mascotaService;
+
     @Autowired
     private ObjectMapper objectMapper;
+
 
     @Test
     public void ClienteController_crearCliente_Cliente() throws Exception {
@@ -111,32 +117,30 @@ public class ClienteControllerTest {
     public void ClienteController_actualizarCliente_Cliente() throws Exception {
         Cliente clienteActualizado = new Cliente("1231", "Fabito", "fabio@gmail.com", 31824094);
 
-        // Simulamos el comportamiento del servicio
-        when(clienteService.updateCliente(Mockito.any(Cliente.class))).thenReturn(clienteActualizado);
+        // Simulamos el comportamiento del método void
+        doNothing().when(clienteService).updateCliente(Mockito.any(Cliente.class));
 
-        // Realizamos la petición con la ruta correcta
         ResultActions response = mockMvc.perform(
             put("/Clientes/update/{id}", 1L)
             .contentType("application/json")
             .content(objectMapper.writeValueAsString(clienteActualizado))
         );
 
-        // Comprobamos que la respuesta es correcta
         response.andExpect(status().isOk())
-        .andExpect(content().json(objectMapper.writeValueAsString(clienteActualizado)));
+                .andExpect(content().json(objectMapper.writeValueAsString(clienteActualizado)));
     }
+
 
     @Test
     public void ClienteController_eliminarCliente_Cliente() throws Exception {
-        // Simulamos el comportamiento del servicio
-        when(clienteService.deleteCliente(Mockito.anyLong())).thenReturn(new Cliente("1231", "Fabito", "fabio@gmail.com", 31824094));
+        // Simulamos el comportamiento del método void
+        doNothing().when(clienteService).deleteCliente(Mockito.anyLong());
 
-        // Realizamos la petición con la ruta correcta  
         ResultActions response = mockMvc.perform(delete("/Clientes/delete/{id}", 1L));
 
-        // Comprobamos que la respuesta es correcta
         response.andExpect(status().isNoContent());
     }
+
 
     @Test
     public void ClienteController_obtenerMascotasPorCliente() throws Exception {
@@ -145,7 +149,7 @@ public class ClienteControllerTest {
             new Mascota("Laura", 19, 13, "https://chatgpt.com/c/67196b42-45a0-800c-bf2b-cbd07ac8a00b", true),
             new Mascota("Camila", 20, 13, "https://chatgpt.com/c/67196b42-800c-bf2b-cbd07ac8a00b", true)
         );
-        when(mascotaServicio.obtenerMascotasPorCliente(1L)).thenReturn(mascotas);
+        when(mascotaService.obtenerMascotasPorCliente(1L)).thenReturn(mascotas);
 
         // Realizamos la petición
         ResultActions response = mockMvc.perform(get("/Clientes/cliente/{clienteId}", 1L));
