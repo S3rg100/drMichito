@@ -3,6 +3,8 @@ package com.michito.demo.Entidades;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -445,14 +447,20 @@ public class DataBaseIniTest implements ApplicationRunner {
         int clienteIndex = 0;
 
         // Asignar las mascotas a los clientes de manera secuencial
-        for (Long mascotaId = 1L; mascotaId <= 99L; mascotaId++) { // Suponiendo que hay 8 mascotas
-            Mascota mascota = MascotaRepositorio.findById(mascotaId).get();
-            Cliente cliente = clientes.get(clienteIndex);
-            mascota.setCliente(cliente);
-            MascotaRepositorio.save(mascota);
+        for (Long mascotaId = 1L; mascotaId <= 99L; mascotaId++) {
+                Optional<Mascota> optionalMascota = MascotaRepositorio.findById(mascotaId);
+                if (optionalMascota.isPresent()) {
+                        Mascota mascota = optionalMascota.get();
+                        Cliente cliente = clientes.get(clienteIndex);
+                        mascota.setCliente(cliente);
+                        MascotaRepositorio.save(mascota);
+                } else {
+                        System.out.println("Mascota con ID " + mascotaId + " no encontrada.");
+                }
 
-            // Avanzar al siguiente cliente, y volver al primero si ya se recorrieron todos
-            clienteIndex = (clienteIndex + 1) % totalClientes;
-        }
+                // Avanzar al siguiente cliente, y volver al primero si ya se recorrieron todos
+                clienteIndex = (clienteIndex + 1) % totalClientes;
+                }
+
     }
 }
