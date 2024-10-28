@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.michito.demo.Entidades.Login;
+import com.michito.demo.Entidades.Veterinario;
+import com.michito.demo.Entidades.VeterinarioDTO;
 import com.michito.demo.Repositorio.LoginRepositorio;
 
 @Service
@@ -15,7 +17,8 @@ public class ServicioLoginImplementacion implements ServicioLogin{
    @Autowired
     LoginRepositorio loginRepositorio;
 
-   
+    
+
 
 
     @Override
@@ -26,6 +29,11 @@ public class ServicioLoginImplementacion implements ServicioLogin{
     @Override
     public Login SearchByUsuario(String usuario) {
         return loginRepositorio.findByUsuario(usuario);
+    }
+
+    @Override
+    public void save(Login login) {
+        loginRepositorio.save(login);
     }
 
    

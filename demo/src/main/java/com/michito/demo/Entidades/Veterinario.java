@@ -106,6 +106,22 @@ public class Veterinario {
     public Long getId() {
         return id;
     }
+    public void setId(Long id){
+        this.id=id;
+    }
     
     
+    @Override
+public String toString() {
+    return "Veterinario{" +
+            "id=" + id +
+            ", cedula='" + cedula + '\'' +
+            ", nombre='" + nombre + '\'' +
+            ", correo='" + correo + '\'' +
+            ", celular=" + celular +
+            ", especialidad='" + especialidad + '\'' +
+            ", estado=" + estado +
+            "login:"+login;
+}
+
 }

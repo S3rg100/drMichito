@@ -2,6 +2,7 @@ package com.michito.demo.Controlador;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,8 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.michito.demo.Entidades.Login;
 import com.michito.demo.Entidades.Veterinario;
+import com.michito.demo.Entidades.VeterinarioDTO;
+import com.michito.demo.Servicio.ServicioLogin;
 import com.michito.demo.Servicio.ServicioVeterinario;
+import org.springframework.http.HttpStatus;
 
 @RestController
 @Controller
@@ -25,6 +30,8 @@ import com.michito.demo.Servicio.ServicioVeterinario;
 public class veterinarioController {
     @Autowired
     ServicioVeterinario veterinarioServicio;
+    @Autowired
+    ServicioLogin loginServicio;
 
 
 
@@ -43,10 +50,37 @@ public class veterinarioController {
     }
 
     @PostMapping("/agregar")
-    public void Agregar(@RequestBody Veterinario veterinario) {
-        veterinarioServicio.addVeterinario(veterinario);
-       
+    public ResponseEntity<String> agregarVeterinario(@RequestBody VeterinarioDTO dto) {
+        try {
+            Veterinario veterinario = new Veterinario();
+            veterinario.setId(dto.getId());
+            veterinario.setCedula(dto.getCedula());
+            veterinario.setNombre(dto.getNombre());
+            veterinario.setCorreo(dto.getCorreo());
+            veterinario.setCelular(dto.getCelular());
+            veterinario.setEspecialidad(dto.getEspecialidad());
+            veterinario.setEstado(dto.isEstado());
+
+            Login login = new Login();
+            login.setUsuario(dto.getUsuario());
+            login.setPassword(dto.getPasswords());
+            login.setTipo(dto.getTipo());
+            loginServicio.save(login);
+            veterinario.setLogin(login);
+
+            veterinarioServicio.addVeterinario(veterinario);
+            return ResponseEntity.ok("Veterinario guardado correctamente");
+        } catch (Exception e) {
+            // Imprimir el error en el log para diagnóstico
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al guardar el veterinario: " + e.getMessage());
+        }
     }
+
+
+
+
+
 
   
 
