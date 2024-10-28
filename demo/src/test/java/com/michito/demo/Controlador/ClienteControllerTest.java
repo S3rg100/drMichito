@@ -2,17 +2,15 @@ package com.michito.demo.Controlador;
 
 
 
-import static org.mockito.Mockito.when;
-
 import java.util.List;
 import java.util.Optional;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import static org.mockito.ArgumentMatchers.anyLong;
 import org.mockito.Mockito;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.when;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -20,31 +18,23 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.michito.demo.Controlador.ClienteController;
-import com.michito.demo.Entidades.Cliente;
-import com.michito.demo.Servicio.ServicioCliente;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-
-
-
-
-
-
-
-
-
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.doNothing;
-
-
+import com.michito.demo.Entidades.Cliente;
 import com.michito.demo.Entidades.Mascota;
 import com.michito.demo.Repositorio.LoginRepositorio;
 import com.michito.demo.Repositorio.MascotasRepositorio;
 import com.michito.demo.Repositorio.MedicamentoRepositorio;
 import com.michito.demo.Repositorio.TratamientoRepositorio;
 import com.michito.demo.Repositorio.VeterinarioRepositorio;
+import com.michito.demo.Servicio.ServicioCliente;
 import com.michito.demo.Servicio.ServicioMascota;
 
 import jakarta.persistence.EntityManager;
