@@ -41,7 +41,6 @@ public class ServicioVeterinarioImplementacion implements ServicioVeterinario {
 
     @Override
     public void eliminarVeterinario(Long id) {
-        Veterinario veterinario = veterinarioRespositorio.findById(id).get();
 
         List<Tratamieneto> tratamientos = tratamientoRepositorio.findByVeterinarioId(id);
         for (Tratamieneto tratamiento : tratamientos) {
@@ -50,5 +49,7 @@ public class ServicioVeterinarioImplementacion implements ServicioVeterinario {
         }
         veterinarioRespositorio.deleteById(id);
     }
+
+  
     
 }

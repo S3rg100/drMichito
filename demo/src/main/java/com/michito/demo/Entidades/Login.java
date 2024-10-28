@@ -59,13 +59,7 @@ public class Login {
         this.usuario = usuario;
     }
 
-    @Override
-    public String toString() {
-        return "Login{" +
-                "usuario='" + usuario + '\'' +
-                ", passwords='" + passwords + '\'' +
-                '}';
-    }
+ 
 
     public Veterinario getVeterinario() {
         return veterinario;
@@ -74,5 +68,15 @@ public class Login {
     public void setVeterinario(Veterinario veterinario) {
         this.veterinario = veterinario;
     }
+    @Override
+    public String toString() {
+        return "Login{" +
+                "usuario='" + usuario + '\'' +
+                ", tipo='" + tipo + '\'' +
+                ", passwords='" + passwords + '\'' +
+                ", idVeterinario=" + idVeterinario +
+                '}';
+    }
+
 }
 
