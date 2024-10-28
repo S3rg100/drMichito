@@ -93,23 +93,15 @@ public class casoUso2Test {
         wait.until(ExpectedConditions.elementToBeClickable(By.id("dashboard")));
         WebElement botonDashboard = driver.findElement(By.id("dashboard"));
         botonDashboard.click();
-                /* 
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//p[@id='gananciasTotalesValor']")));
-        WebElement gananciasTotalesElement = driver.findElement(By.xpath("//p[@id='gananciasTotalesValor']"));
-        String gananciasText = "";
-        int retries = 5; // Intentos para verificar el valor
-        Thread.sleep(100000);
-        while (gananciasText.isEmpty() && retries > 0) {
-            gananciasText = gananciasTotalesElement.getText();
-            Thread.sleep(500); // Espera breve antes de volver a intentar
-            retries--;
-        }
-            
+                
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("gananciasTotalesValor")));
+        WebElement gananciasTotalesElement = driver.findElement(By.id("gananciasTotalesValor"));
 
         Assertions.assertThat(gananciasTotalesElement).isNotNull();
         Assertions.assertThat(gananciasTotalesElement.getText()).isEqualTo("741640");
-        int gananciasIniciales = Integer.parseInt(gananciasTotalesElement.getText());
-                */
+        Double gananciasIniciales = Double.parseDouble(gananciasTotalesElement.getText());
+
+                
         // Cerrar sesión del administrador
         WebElement botonSalir = driver.findElement(By.id("salir"));
         botonSalir.click();
@@ -197,16 +189,16 @@ public class casoUso2Test {
         wait.until(ExpectedConditions.elementToBeClickable(By.id("dashboard")));
         botonDashboard = driver.findElement(By.id("dashboard"));
         botonDashboard.click();
-                /* 
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("gananciasTotales")));
+
+
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("gananciasTotalesValor")));
         gananciasTotalesElement = driver.findElement(By.id("gananciasTotalesValor"));
         double gananciasFinales = Double
-                .parseDouble(gananciasTotalesElement.getText().replace("$", "").replace(",", "").trim());
+                .parseDouble(gananciasTotalesElement.getText());
 
         // Verificar que las ganancias finales sean iguales a las iniciales más la
         // ganancia calculada por unidad
         Assertions.assertThat(gananciasFinales).isEqualTo(gananciasIniciales + gananciaPorUnidad);
-                 */
     }
 
 }
