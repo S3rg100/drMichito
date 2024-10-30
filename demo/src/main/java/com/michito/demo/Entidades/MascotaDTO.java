@@ -1,5 +1,10 @@
 package com.michito.demo.Entidades;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
 public class MascotaDTO {
     private Long id;
     private String nombre;
@@ -8,32 +13,4 @@ public class MascotaDTO {
     private String foto;
     private String cedulaCliente;  // Este campo lo obtenemos del cliente
     private boolean estado;
-
-    public MascotaDTO(){
-    }
-
-    public boolean isEstado() {
-        return estado;
-    }
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
-    // Getters y Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
-
-    public int getPeso() { return peso; }
-    public void setPeso(int peso) { this.peso = peso; }
-
-    public int getEdad() { return edad; }
-    public void setEdad(int edad) { this.edad = edad; }
-
-    public String getFoto() { return foto; }
-    public void setFoto(String foto) { this.foto = foto; }
-
-    public String getCedulaCliente() { return cedulaCliente; }
-    public void setCedulaCliente(String cedulaCliente) { this.cedulaCliente = cedulaCliente; }
 }
