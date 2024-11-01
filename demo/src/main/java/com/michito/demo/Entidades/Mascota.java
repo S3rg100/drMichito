@@ -66,4 +66,8 @@ public class Mascota {
         return id;
     }
 
+    public void getEstado(boolean estado) {
+        this.estado = estado;
+    }
+
 }

@@ -63,7 +63,7 @@ public class veterinarioController {
 
             Login login = new Login();
             login.setUsuario(dto.getUsuario());
-            login.setPassword(dto.getPasswords());
+            login.setPasswords(dto.getPasswords());
             login.setTipo(dto.getTipo());
             loginServicio.save(login);
             veterinario.setLogin(login);

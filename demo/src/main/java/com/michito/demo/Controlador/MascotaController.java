@@ -46,7 +46,7 @@ public class MascotaController {
         dto.setPeso(mascota.getPeso());
         dto.setEdad(mascota.getEdad());
         dto.setFoto(mascota.getFoto());
-        dto.setEstado(mascota.getEstado());
+        dto.setEstado(mascota.isEstado());
         if (mascota.getCliente() != null) {
             dto.setCedulaCliente(mascota.getCliente().getCedula());  // Aquí vinculamos la cédula del cliente
         } else {
@@ -68,7 +68,7 @@ public class MascotaController {
             dto.setPeso(m.getPeso());
             dto.setEdad(m.getEdad());
             dto.setFoto(m.getFoto());
-            dto.setEstado(m.getEstado());
+            dto.setEstado(m.isEstado());
             
             if (m.getCliente() != null) {
                 dto.setCedulaCliente(m.getCliente().getCedula());
@@ -101,7 +101,7 @@ public class MascotaController {
             dto.setPeso(m.getPeso());
             dto.setEdad(m.getEdad());
             dto.setFoto(m.getFoto());
-            dto.setEstado(m.getEstado());
+            dto.setEstado(m.isEstado());
             
             if (m.getCliente() != null) {
                 dto.setCedulaCliente(m.getCliente().getCedula());
@@ -163,7 +163,7 @@ public class MascotaController {
     dto.setPeso(mascota.getPeso());
     dto.setEdad(mascota.getEdad());
     dto.setFoto(mascota.getFoto());
-    dto.setEstado(mascota.getEstado());
+    dto.setEstado(mascota.isEstado());
     
     // Verificar si la mascota tiene un cliente asociado y asignar la cédula
     if (mascota.getCliente() != null) {

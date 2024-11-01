@@ -78,6 +78,8 @@ public class DataBaseIni implements ApplicationRunner {
         VeterinarioRepositorio.save(new Veterinario("019","Fernando","fernando@example.com",1019L,"internista",true));
         VeterinarioRepositorio.save(new Veterinario("020","Valeria","valeria@example.com",1020L,"oncologo",true));
 
+
+        //Mascota mascota = new Mascota().builder().nombre("Toby").edad(2).peso(12).foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s").estado(false).build();
         MascotaRepositorio.save(new Mascota("Toby", 2, 12,
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s",false));
         MascotaRepositorio.save(new Mascota("Rex", 3, 17,
