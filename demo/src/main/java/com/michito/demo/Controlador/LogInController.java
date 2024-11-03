@@ -3,97 +3,57 @@ package com.michito.demo.Controlador;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.michito.demo.Entidades.Login;
-import com.michito.demo.Entidades.Veterinario;
 import com.michito.demo.Servicio.ServicioLogin;
+import com.michito.demo.security.JWTGenerator;
 
 @RestController
 @RequestMapping("/login")
 @CrossOrigin(origins = "http://localhost:4200")
 public class LogInController {
 
-/*
-    @Autowired
-    private ServicioCliente clienteServicio;
     @Autowired
     private ServicioLogin loginServicio;
 
-    @GetMapping("")
-    public String iniciar(Model model) {
-        model.addAttribute("loginForm", new Cliente());
-        return "logIn";
-    }
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
-    @PostMapping("")
-    public String procesarLogin(@ModelAttribute("loginForm") Cliente loginForm, Model model) {
-        String cedula = loginForm.getCedula();
-        Cliente cliente = clienteServicio.findByCedula(cedula);
-
-        if (cliente != null) {
-            return "redirect:/Clientes/VistaMascotas/" + cliente.getId();
-        } else {
-            model.addAttribute("error", "Cédula ingresada no encontrada. Inténtelo de nuevo.");
-            model.addAttribute("loginForm", loginForm);
-            return "logIn";
-        }
-    }
-
-    @GetMapping("/portalInterno")
-    public String iniciarPortalInterno(Model model) {
-        model.addAttribute("loginForm", new Login("", ""));
-        return "logInPortaInterno";
-    }
-
-    @PostMapping("/portalInterno")
-    public String procesarLoginPortalInterno(@ModelAttribute("loginForm") Login loginForm, Model model) {
-        System.out.println(loginForm);
-        Login login = loginServicio.SearchByUsuario(loginForm.getUsuario());
-        if (login != null && login.getPassword().equals(loginForm.getPassword())) {
-            return "redirect:/Mascotas/all";
-        } else {
-            // Si los datos son incorrectos, añade un mensaje de error al modelo
-            model.addAttribute("error", "Usuario o contraseña incorrectos. Inténtelo de nuevo.");
-            model.addAttribute("loginForm", loginForm); // Mantiene los datos del formulario
-            return "logInPortaInterno"; 
-        }
-    }
-    @GetMapping("/portalInterno/{username}")
-    public Login getMethodName(@RequestParam String username) {
-        return loginServicio.SearchByUsuario(username);
-    }
-    */
-     @Autowired
-    private ServicioLogin loginServicio;
+    @Autowired
+    JWTGenerator jwtGenerator;
 
     @GetMapping("")
     public List<Login> findAll() {
         return loginServicio.searchAllLogins();
     }
-    
-    @GetMapping("/portalInterno/{username}")
-    public Login findByUsuario(@PathVariable String username) {
-        Login login = loginServicio.SearchByUsuario(username);
+
+    @PostMapping("/portalInterno")
+    public ResponseEntity<String> findByUsuario(@RequestBody Login login) {
+        Authentication authentication = authenticationManager.authenticate(
+            new UsernamePasswordAuthenticationToken(login.getUsuario(), login.getPasswords())
+        );
+
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        String token = jwtGenerator.generateToken(authentication);
         
-        if (login != null) {
-            Veterinario veterinario = login.getVeterinario();
-            if (veterinario != null) {
-                login.setIdVeterinario(veterinario.getId());
-            }
-        }
-        
-        return login;
+        return new ResponseEntity<>(token, HttpStatus.OK);
     }
-    
 
     @GetMapping("/{cedula}")
     public Login findByCedulaCliente(@PathVariable String cedula) {
         return loginServicio.SearchByUsuario(cedula);
     }
-
 }

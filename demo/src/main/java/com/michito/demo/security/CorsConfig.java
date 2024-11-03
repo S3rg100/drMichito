@@ -1,9 +1,6 @@
 package com.michito.demo.security;
 
-
 import java.util.Arrays;
-
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
@@ -14,14 +11,12 @@ import org.springframework.web.filter.CorsFilter;
 
 @Configuration
 public class CorsConfig {
-    
+
     @Bean
-    public FilterRegistrationBean<CorsFilter> corsFilter() {
-
+    public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-
         CorsConfiguration config = new CorsConfiguration();
-
+        
         config.setAllowCredentials(true);
         config.addAllowedOrigin("http://localhost:4200");
         config.setAllowedHeaders(Arrays.asList(
@@ -35,11 +30,8 @@ public class CorsConfig {
             HttpMethod.PUT.name(),
             HttpMethod.DELETE.name()
         ));
-        
 
         source.registerCorsConfiguration("/**", config);
-        FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<CorsFilter>(new CorsFilter(source));
-        bean.setOrder(-102);
-        return bean;
+        return new CorsFilter(source); // Devuelve directamente CorsFilter
     }
 }

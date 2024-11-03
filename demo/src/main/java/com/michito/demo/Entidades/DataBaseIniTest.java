@@ -1,11 +1,12 @@
 package com.michito.demo.Entidades;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-
+import org.apache.poi.hpsf.Array;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -38,13 +39,23 @@ public class DataBaseIniTest implements ApplicationRunner {
     @Autowired
     TratamientoRepositorio TratamientoRepositorio;
 
+    
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        LoginRepositorio.save(new Login("admin","admin","admin"));
-        LoginRepositorio.save(new Login("admin2","admin","admin"));
+        Role adminRole = new Role("ADMIN");
+        Role veterinarioRole = new Role("VETERINARIO");
+        List<Role>adminAndVet = new ArrayList<>();
+        List<Role>veterinario = new ArrayList<>();
+        List<Role>admin = new ArrayList<>();
+        adminAndVet.add(veterinarioRole);
+        adminAndVet.add(adminRole);
+        veterinario.add(veterinarioRole);
+        admin.add(adminRole);
+        LoginRepositorio.save(new Login("admin","admin",adminAndVet));
+        LoginRepositorio.save(new Login("admin2","admin",admin));
 
 
-        Login login2 = new Login("vet", "vet", "veterinario");
+        Login login2 = new Login("vet", "vet", veterinario);
         login2 = LoginRepositorio.save(login2); // Guardar el login primero y obtener el objeto persistido
 
         // Crear el veterinario y asignar el login

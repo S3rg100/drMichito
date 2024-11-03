@@ -1,6 +1,7 @@
 package com.michito.demo.Entidades;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Profile;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 
 import com.michito.demo.Repositorio.ClientesRepositorio;
@@ -36,13 +38,39 @@ public class DataBaseIni implements ApplicationRunner {
     @Autowired
     TratamientoRepositorio TratamientoRepositorio;
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        LoginRepositorio.save(new Login("admin","admin","admin"));
-        LoginRepositorio.save(new Login("admin2","admin","admin"));
+        Role adminRole = new Role("ADMIN");
+        Role veterinarioRole = new Role("VETERINARIO");
+        List<Role>adminAndVet = new ArrayList<>();
+        List<Role>veterinario = new ArrayList<>();
+        List<Role>admin = new ArrayList<>();
+        adminAndVet.add(veterinarioRole);
+        adminAndVet.add(adminRole);
+        veterinario.add(veterinarioRole);
+        admin.add(adminRole);
+
+        Login logadnmin = new Login("admin",passwordEncoder.encode("admin"),adminAndVet);
+        LoginRepositorio.save(logadnmin);
+        Veterinario adminVet = new Veterinario("1212", "admin", "admin@gmail.com", 1L, "admin",true);
+        adminVet.setLogin(logadnmin);
+        VeterinarioRepositorio.save(adminVet);
 
 
-        Login login2 = new Login("vet", "vet", "veterinario");
+        Login loginVet = new Login("admin2",passwordEncoder.encode("admin2"),admin);
+        LoginRepositorio.save(loginVet);
+        Veterinario adminVetand = new Veterinario("1010", "admin", "admin@gmail.com", 1L, "admin",true);
+        adminVetand.setLogin(loginVet);
+        VeterinarioRepositorio.save(adminVetand);
+
+
+        
+
+
+        Login login2 = new Login("vet", passwordEncoder.encode("vet"), veterinario);
         login2 = LoginRepositorio.save(login2); // Guardar el login primero y obtener el objeto persistido
 
         // Crear el veterinario y asignar el login

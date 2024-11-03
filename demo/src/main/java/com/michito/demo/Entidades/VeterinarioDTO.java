@@ -1,5 +1,7 @@
 package com.michito.demo.Entidades;
 
+import java.util.List;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,13 +19,13 @@ public class VeterinarioDTO {
     // Datos de Login directamente en VeterinarioDTO
     private String usuario;
     private String passwords;
-    private String tipo;
+    private List<Role>roles;
 
     
 
     // Constructor completo
     public VeterinarioDTO(Long id, String cedula, String nombre, String correo, Long celular, 
-                          String especialidad, boolean estado, String usuario, String passwords, String tipo) {
+                          String especialidad, boolean estado, String usuario, String passwords, List<Role>roles) {
         this.id = id;
         this.cedula = cedula;
         this.nombre = nombre;
@@ -33,7 +35,7 @@ public class VeterinarioDTO {
         this.estado = estado;
         this.usuario = usuario;
         this.passwords = passwords;
-        this.tipo = tipo;
+        this.roles = roles;
     }
 
     
@@ -52,7 +54,7 @@ public class VeterinarioDTO {
                 ", estado=" + estado +
                 ", usuario='" + usuario + '\'' +
                 ", passwords='" + passwords + '\'' +
-                ", tipo='" + tipo + '\'' +
+                ", tipo='" + roles + '\'' +
                 '}';
     }
 }

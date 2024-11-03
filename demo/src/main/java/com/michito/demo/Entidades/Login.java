@@ -1,13 +1,19 @@
 package com.michito.demo.Entidades;
 
+import java.util.ArrayList;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Transient;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.*;
 
 @Entity
 @Data
@@ -21,27 +27,22 @@ public class Login {
     @Transient // No se almacena en la base de datos
     private Long idVeterinario;
     
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Role> roles = new ArrayList<>();
 
-    private String tipo;
+   
 
     private String passwords;
 
 
-    public Login(String usuario, String passwords,String tipo) {
+    public Login(String usuario, String passwords,List<Role> roles) {
         this.usuario = usuario;
         this.passwords = passwords;
-        this.tipo=tipo;
+        this.roles=roles;
     }
 
-    @Override
-    public String toString() {
-        return "Login{" +
-                "usuario='" + usuario + '\'' +
-                ", tipo='" + tipo + '\'' +
-                ", passwords='" + passwords + '\'' +
-                ", idVeterinario=" + idVeterinario +
-                '}';
-    }
+    
+
 
 }
 
