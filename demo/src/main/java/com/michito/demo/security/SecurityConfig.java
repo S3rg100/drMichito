@@ -27,8 +27,11 @@ public class SecurityConfig {
             .headers(headers -> headers.frameOptions(frame -> frame.disable()))
             .authorizeHttpRequests(requests -> requests
                 .requestMatchers("/h2/**").permitAll()
-                .requestMatchers("/Clientes/**").authenticated()
-                .requestMatchers("/Clientes/agregar/**").hasAnyAuthority("ADMIN")
+                //.requestMatchers("/Clientes/**").authenticated()
+                // PARA ADMIN 
+                //.requestMatchers("/Clientes/**").hasAnyAuthority("ADMIN", "VETERINARIO")
+                
+
                 .anyRequest().permitAll()
             )
             .exceptionHandling(exception -> exception.authenticationEntryPoint(jwtAuthEntryPoint));
