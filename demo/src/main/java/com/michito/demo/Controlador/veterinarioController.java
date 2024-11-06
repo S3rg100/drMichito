@@ -1,6 +1,7 @@
 package com.michito.demo.Controlador;
 import java.util.List;
 
+import org.apache.http.protocol.HTTP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,9 @@ import com.michito.demo.Entidades.Veterinario;
 import com.michito.demo.Entidades.VeterinarioDTO;
 import com.michito.demo.Servicio.ServicioLogin;
 import com.michito.demo.Servicio.ServicioVeterinario;
+
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 @RestController
 @Controller
@@ -32,11 +35,6 @@ public class veterinarioController {
     ServicioVeterinario veterinarioServicio;
     @Autowired
     ServicioLogin loginServicio;
-
-
-
-
-    
 
     @GetMapping("/info/{id}")
     public Veterinario mostrarVeterinarios(Model model, @PathVariable("id") Long identificador) {
@@ -112,16 +110,28 @@ public class veterinarioController {
     }
 
     @GetMapping("/buscar")
-public List<Veterinario> buscarVeterinariosPorNombre(@RequestParam String nombre) {
-    return veterinarioServicio.buscarPorNombre(nombre);
-}
+    public List<Veterinario> buscarVeterinariosPorNombre(@RequestParam String nombre) {
+        return veterinarioServicio.buscarPorNombre(nombre);
+    }
 
-
-   
 
     @GetMapping("/vistaDetalle/{id}")
     public Veterinario verDetallesMascotaVistaCliente(@PathVariable("id") Long id) {
         return veterinarioServicio.searchById(id);
+    }
+
+    @GetMapping("/detalles")
+    public ResponseEntity<Veterinario> buscarVeterinario (){
+        Veterinario veterinario = veterinarioServicio.searchByUsernameLogin(
+            
+            SecurityContextHolder.getContext().getAuthentication().getName()
+        );
+
+        if (veterinario == null) {
+            return new ResponseEntity<Veterinario>(veterinario, HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<Veterinario>(veterinario, HttpStatus.OK);
     }
 
 }

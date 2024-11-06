@@ -50,6 +50,16 @@ public class ServicioVeterinarioImplementacion implements ServicioVeterinario {
         veterinarioRespositorio.deleteById(id);
     }
 
+
+    @Override
+    public Veterinario searchByCorreo(String Correo) {
+        return veterinarioRespositorio.findByCorreo(Correo);
+    }
+
+    @Override
+    public Veterinario searchByUsernameLogin(String usuario) {
+        return veterinarioRespositorio.findByLogin_Usuario(usuario);
+    }
   
     
 }
