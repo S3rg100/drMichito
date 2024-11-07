@@ -339,258 +339,1305 @@ public class DataBaseIni implements ApplicationRunner {
         );
 
         //Mascota mascota = new Mascota().builder().nombre("Toby").edad(2).peso(12).foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s").estado(false).build();
-        MascotaRepositorio.save(new Mascota("Toby", 2, 12,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s",false));
-        MascotaRepositorio.save(new Mascota("Rex", 3, 17,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s",false));
-        MascotaRepositorio.save(new Mascota("Luna", 1, 8,
-                "https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913",true));
-        MascotaRepositorio.save(new Mascota("Charlie", 3, 16,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s",true));
-        MascotaRepositorio.save(new Mascota("Buddy", 4, 12,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s",true));
-        MascotaRepositorio.save(new Mascota("Lucy", 1, 9,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s",true));
-        MascotaRepositorio.save(new Mascota("Maggie", 2, 11,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s",true));
-        MascotaRepositorio.save(new Mascota("Sophie", 4, 13,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s",true));
-        MascotaRepositorio.save(new Mascota("Max", 2, 14,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s",true));
-        MascotaRepositorio.save(new Mascota("Bella", 3, 10,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s",true));
-        MascotaRepositorio.save(new Mascota("Milo", 1, 6,
-                "https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913",true));
-        MascotaRepositorio.save(new Mascota("Chloe", 2, 15,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s",true));
-        MascotaRepositorio.save(new Mascota("Rocky", 4, 11,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s",true));
-        MascotaRepositorio.save(new Mascota("Daisy", 1, 9,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s",true));
-        MascotaRepositorio.save(new Mascota("Molly", 3, 12,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s",true));
-        MascotaRepositorio.save(new Mascota("Bailey", 2, 14,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s",true));
-        MascotaRepositorio.save(new Mascota("Oscar", 1, 11,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s",true));
-        MascotaRepositorio.save(new Mascota("Coco", 4, 13,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s",true));
-        MascotaRepositorio.save(new Mascota("Buster", 2, 16,
-                "https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913",true));
-        MascotaRepositorio.save(new Mascota("Riley", 3, 15,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s",true));
-        MascotaRepositorio.save(new Mascota("Harley", 4, 14,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s",true));
-        MascotaRepositorio.save(new Mascota("Penny", 1, 10,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s",true));
-        MascotaRepositorio.save(new Mascota("Zoe", 2, 12,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s",true));
-        MascotaRepositorio.save(new Mascota("Ginger", 3, 9,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s",true));
-        MascotaRepositorio.save(new Mascota("Henry", 1, 13,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s",true));
-        MascotaRepositorio.save(new Mascota("Maddie", 2, 11,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s",true));
-        MascotaRepositorio.save(new Mascota("Ellie", 4, 16,
-                "https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913",true));
-        MascotaRepositorio.save(new Mascota("Rosie", 3, 17,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s",true));
-        MascotaRepositorio.save(new Mascota("Jake", 1, 12,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s",true));
-        MascotaRepositorio.save(new Mascota("Lilly", 4, 13,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s",true));
-        MascotaRepositorio.save(new Mascota("Lola", 2, 15,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s",true));
-        MascotaRepositorio.save(new Mascota("Teddy", 3, 16,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s",true));
-        MascotaRepositorio.save(new Mascota("Roxy", 1, 10,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s",true));
-        MascotaRepositorio.save(new Mascota("Simba", 4, 12,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s",true));
-        MascotaRepositorio.save(new Mascota("Bruno", 3, 9,
-                "https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913",true));
-        MascotaRepositorio.save(new Mascota("Pepper", 1, 8,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s",true));
-        MascotaRepositorio.save(new Mascota("Rusty", 2, 14,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s",true));
-        MascotaRepositorio.save(new Mascota("Murphy", 4, 10,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s",true));
-        MascotaRepositorio.save(new Mascota("Ruby", 3, 11,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s",true));
-        MascotaRepositorio.save(new Mascota("Bandit", 1, 9,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s",true));
-        MascotaRepositorio.save(new Mascota("Lucky", 4, 14,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s",true));
-        MascotaRepositorio.save(new Mascota("Shadow", 2, 15,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s",true));
-        MascotaRepositorio.save(new Mascota("Tucker", 3, 10,
-                "https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913",true));
-        MascotaRepositorio.save(new Mascota("Dexter", 1, 12,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s",true));
-        MascotaRepositorio.save(new Mascota("Misty", 4, 13,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s",true));
-        MascotaRepositorio.save(new Mascota("Gizmo", 3, 16,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s",true));
-        MascotaRepositorio.save(new Mascota("Jasper", 2, 11,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s",true));
-        MascotaRepositorio.save(new Mascota("Duke", 1, 14,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s",true));
-        MascotaRepositorio.save(new Mascota("Scout", 4, 10,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s",true));
-        MascotaRepositorio.save(new Mascota("Mocha", 3, 12,
-                "https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913",true));
-        MascotaRepositorio.save(new Mascota("Cookie", 2, 13,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s",true));
-        MascotaRepositorio.save(new Mascota("Max", 1, 15,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s",true));
-        MascotaRepositorio.save(new Mascota("Sadie", 4, 14,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s",true));
-        MascotaRepositorio.save(new Mascota("Bear", 3, 17,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s",true));
-        MascotaRepositorio.save(new Mascota("Rocky", 2, 10,
-                "https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913",true));
-        MascotaRepositorio.save(new Mascota("Charlie", 1, 16,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s",true));
-        MascotaRepositorio.save(new Mascota("Daisy", 4, 11,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s",true));
-        MascotaRepositorio.save(new Mascota("Chloe", 3, 12,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s",true));
-        MascotaRepositorio.save(new Mascota("Bella", 2, 13,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s",true));
-        MascotaRepositorio.save(new Mascota("Luna", 1, 14,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s",true));
-        MascotaRepositorio.save(new Mascota("Duke", 4, 9,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s",true));
-        MascotaRepositorio.save(new Mascota("Milo", 2, 14,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s",true));
-        MascotaRepositorio.save(new Mascota("Sophie", 3, 15,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s",true));
-        MascotaRepositorio.save(new Mascota("Ziggy", 1, 13,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s",true));
-        MascotaRepositorio.save(new Mascota("Trixie", 4, 11,
-                "https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913",true));
-        MascotaRepositorio.save(new Mascota("Gizmo", 2, 9,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s",true));
-        MascotaRepositorio.save(new Mascota("Nala", 3, 12,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s",true));
-        MascotaRepositorio.save(new Mascota("Rex", 4, 15,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s",true));
-        MascotaRepositorio.save(new Mascota("Lulu", 1, 10,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s",true));
-        MascotaRepositorio.save(new Mascota("Hank", 2, 16,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s",true));
-        MascotaRepositorio.save(new Mascota("Finn", 3, 17,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s",true));
-        MascotaRepositorio.save(new Mascota("Marley", 4, 12,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s",true));
-        MascotaRepositorio.save(new Mascota("Gracie", 1, 14,
-                "https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913",true));
-        MascotaRepositorio.save(new Mascota("Rocco", 2, 13,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s",true));
-        MascotaRepositorio.save(new Mascota("Hazel", 3, 11,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s",true));
-        MascotaRepositorio.save(new Mascota("Diesel", 4, 10,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s",true));
-        MascotaRepositorio.save(new Mascota("Lily", 1, 9,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s",true));
-        MascotaRepositorio.save(new Mascota("Tank", 2, 14,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s",true));
-        MascotaRepositorio.save(new Mascota("Juno", 3, 15,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s",true));
-        MascotaRepositorio.save(new Mascota("Moose", 4, 12,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s",true));
-        MascotaRepositorio.save(new Mascota("Willow", 1, 16,
-                "https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913",true));
-        MascotaRepositorio.save(new Mascota("Bowie", 2, 13,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s",true));
-        MascotaRepositorio.save(new Mascota("Annie", 3, 11,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s",true));
-        MascotaRepositorio.save(new Mascota("Winston", 4, 10,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s",true));
-        MascotaRepositorio.save(new Mascota("Ginger", 1, 9,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s",true));
-        MascotaRepositorio.save(new Mascota("Tyson", 2, 14,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s",true));
-        MascotaRepositorio.save(new Mascota("Lulu", 3, 15,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s",true));
-        MascotaRepositorio.save(new Mascota("Jasper", 4, 12,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s",true));
-        MascotaRepositorio.save(new Mascota("Piper", 1, 16,
-                "https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913",true));
-        MascotaRepositorio.save(new Mascota("Oreo", 2, 13,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s",true));
-        MascotaRepositorio.save(new Mascota("Bubba", 3, 11,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s",true));
-        MascotaRepositorio.save(new Mascota("Millie", 4, 10,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s",true));
-        MascotaRepositorio.save(new Mascota("Dolly", 1, 9,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s",true));
-        MascotaRepositorio.save(new Mascota("Chase", 2, 14,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s",true));
-        MascotaRepositorio.save(new Mascota("Bailey", 3, 15,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s",true));
-        MascotaRepositorio.save(new Mascota("Harley", 4, 12,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s",true));
-        MascotaRepositorio.save(new Mascota("Rusty", 1, 16,
-                "https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913",true));
-        MascotaRepositorio.save(new Mascota("Sasha", 2, 13,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s",true));
-        MascotaRepositorio.save(new Mascota("Blue", 3, 11,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s",true));
-        MascotaRepositorio.save(new Mascota("Ana", 58, 10,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s",true));
+        MascotaRepositorio.save(
+                Mascota.builder()
+                    .nombre("Toby")
+                    .edad(2)
+                    .peso(12)
+                    .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s")
+                    .estado(false)
+                    .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Rex")
+                .edad(3)
+                .peso(17)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s")
+                .estado(false)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Luna")
+                .edad(1)
+                .peso(8)
+                .foto("https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Charlie")
+                .edad(3)
+                .peso(16)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Buddy")
+                .edad(4)
+                .peso(12)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Lucy")
+                .edad(1)
+                .peso(9)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Maggie")
+                .edad(2)
+                .peso(11)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Sophie")
+                .edad(4)
+                .peso(13)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Max")
+                .edad(2)
+                .peso(14)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Bella")
+                .edad(3)
+                .peso(10)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Milo")
+                .edad(1)
+                .peso(6)
+                .foto("https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Chloe")
+                .edad(2)
+                .peso(15)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Rocky")
+                .edad(4)
+                .peso(11)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Daisy")
+                .edad(1)
+                .peso(9)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Molly")
+                .edad(3)
+                .peso(12)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Bailey")
+                .edad(2)
+                .peso(14)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Oscar")
+                .edad(1)
+                .peso(11)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Coco")
+                .edad(4)
+                .peso(13)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Buster")
+                .edad(2)
+                .peso(16)
+                .foto("https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Riley")
+                .edad(3)
+                .peso(15)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Harley")
+                .edad(4)
+                .peso(14)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Penny")
+                .edad(1)
+                .peso(10)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Zoe")
+                .edad(2)
+                .peso(12)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Ginger")
+                .edad(3)
+                .peso(9)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Henry")
+                .edad(1)
+                .peso(13)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Maddie")
+                .edad(2)
+                .peso(11)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Ellie")
+                .edad(4)
+                .peso(16)
+                .foto("https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Rosie")
+                .edad(3)
+                .peso(17)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Jake")
+                .edad(1)
+                .peso(12)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Lilly")
+                .edad(4)
+                .peso(13)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Lola")
+                .edad(2)
+                .peso(15)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Teddy")
+                .edad(3)
+                .peso(16)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Roxy")
+                .edad(1)
+                .peso(10)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Simba")
+                .edad(4)
+                .peso(12)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Bruno")
+                .edad(3)
+                .peso(9)
+                .foto("https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Pepper")
+                .edad(1)
+                .peso(8)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Rusty")
+                .edad(2)
+                .peso(14)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Murphy")
+                .edad(4)
+                .peso(10)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Ruby")
+                .edad(3)
+                .peso(11)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Bandit")
+                .edad(1)
+                .peso(9)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Lucky")
+                .edad(4)
+                .peso(14)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Shadow")
+                .edad(2)
+                .peso(15)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Tucker")
+                .edad(3)
+                .peso(10)
+                .foto("https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Dexter")
+                .edad(1)
+                .peso(12)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Misty")
+                .edad(4)
+                .peso(13)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Gizmo")
+                .edad(3)
+                .peso(16)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Jasper")
+                .edad(2)
+                .peso(11)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Duke")
+                .edad(1)
+                .peso(14)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Scout")
+                .edad(4)
+                .peso(10)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Mocha")
+                .edad(3)
+                .peso(12)
+                .foto("https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Cookie")
+                .edad(2)
+                .peso(13)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Max")
+                .edad(1)
+                .peso(15)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Sadie")
+                .edad(4)
+                .peso(14)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Bear")
+                .edad(3)
+                .peso(17)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s")
+                .estado(true)
+                .build()
+        );
+
+
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Rocky")
+                .edad(2)
+                .peso(10)
+                .foto("https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Charlie")
+                .edad(1)
+                .peso(16)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Daisy")
+                .edad(4)
+                .peso(11)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Chloe")
+                .edad(3)
+                .peso(12)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Bella")
+                .edad(2)
+                .peso(13)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Luna")
+                .edad(1)
+                .peso(14)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Duke")
+                .edad(4)
+                .peso(9)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Milo")
+                .edad(2)
+                .peso(14)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Sophie")
+                .edad(3)
+                .peso(15)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Ziggy")
+                .edad(1)
+                .peso(13)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Trixie")
+                .edad(4)
+                .peso(11)
+                .foto("https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Gizmo")
+                .edad(2)
+                .peso(9)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Nala")
+                .edad(3)
+                .peso(12)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Rex")
+                .edad(4)
+                .peso(15)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Lulu")
+                .edad(1)
+                .peso(10)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Hank")
+                .edad(2)
+                .peso(16)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Finn")
+                .edad(3)
+                .peso(17)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Marley")
+                .edad(4)
+                .peso(12)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Gracie")
+                .edad(1)
+                .peso(14)
+                .foto("https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Rocco")
+                .edad(2)
+                .peso(13)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Hazel")
+                .edad(3)
+                .peso(11)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Diesel")
+                .edad(4)
+                .peso(10)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Lily")
+                .edad(1)
+                .peso(9)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Tank")
+                .edad(2)
+                .peso(14)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Juno")
+                .edad(3)
+                .peso(15)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Moose")
+                .edad(4)
+                .peso(12)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Willow")
+                .edad(1)
+                .peso(16)
+                .foto("https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Bowie")
+                .edad(2)
+                .peso(13)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Annie")
+                .edad(3)
+                .peso(11)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Winston")
+                .edad(4)
+                .peso(10)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Ginger")
+                .edad(1)
+                .peso(9)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Tyson")
+                .edad(2)
+                .peso(14)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Lulu")
+                .edad(3)
+                .peso(15)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Jasper")
+                .edad(4)
+                .peso(12)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Piper")
+                .edad(1)
+                .peso(16)
+                .foto("https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Oreo")
+                .edad(2)
+                .peso(13)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Bubba")
+                .edad(3)
+                .peso(11)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Millie")
+                .edad(4)
+                .peso(10)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Dolly")
+                .edad(1)
+                .peso(9)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNSoXsa-tnlnvv48zeajd1RuuPysSViowWUQ&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Chase")
+                .edad(2)
+                .peso(14)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-p9ds2KazJEwcFryuZ9RRRVTe7M1shdXWg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Bailey")
+                .edad(3)
+                .peso(15)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Harley")
+                .edad(4)
+                .peso(12)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Vu5Oh9Jgw85wSNikDQeMVPjHxJ18ibXOsA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Rusty")
+                .edad(1)
+                .peso(16)
+                .foto("https://images.ctfassets.net/denf86kkcx7r/4IPlg4Qazd4sFRuCUHIJ1T/f6c71da7eec727babcd554d843a528b8/gatocomuneuropeo-97?fm=webp&w=913")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Sasha")
+                .edad(2)
+                .peso(13)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoN0ClLdF0KguaLrjxctlMQEwLFpmeiL7bKA&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Blue")
+                .edad(3)
+                .peso(11)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfzafApUxyGfGk2ntFguN2_rkm4UyMhgzutw&s")
+                .estado(true)
+                .build()
+        );
+        MascotaRepositorio.save(
+        Mascota.builder()
+                .nombre("Ana")
+                .edad(58)
+                .peso(10)
+                .foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_u2l5BvubSYezZrgWYUxbykMc_AJc-Z6TA&s")
+                .estado(true)
+                .build()
+        );
 
         // Inserciones de clientes
-        ClienteRepositorio.save(new Cliente("321456", "Jose", "jose@gmail.com", 12364));
-        ClienteRepositorio.save(new Cliente("79885", "Pedro", "pedro@gmail.com", 79465));
-        ClienteRepositorio.save(new Cliente("44545", "Paola", "paola@gmail.com", 88987));
-        ClienteRepositorio.save(new Cliente("48785", "Jaime", "jaime@gmail.com", 741002));
-        ClienteRepositorio.save(new Cliente("77874", "Cristian", "cristian@gmail.com", 889800));
-        ClienteRepositorio.save(new Cliente("88852", "Lorena", "lorena@gmail.com", 874521));
-        ClienteRepositorio.save(new Cliente("74565", "Ana", "ana@gmail.com", 12358));
-        ClienteRepositorio.save(new Cliente("45786", "Carlos", "carlos@gmail.com", 56478));
-        ClienteRepositorio.save(new Cliente("95875", "Sofia", "sofia@gmail.com", 98456));
-        ClienteRepositorio.save(new Cliente("24758", "Miguel", "miguel@gmail.com", 78453));
-        ClienteRepositorio.save(new Cliente("34858", "Laura", "laura@gmail.com", 23468));
-        ClienteRepositorio.save(new Cliente("14568", "Diana", "diana@gmail.com", 14587));
-        ClienteRepositorio.save(new Cliente("85678", "Andres", "andres@gmail.com", 78546));
-        ClienteRepositorio.save(new Cliente("78456", "María", "maria@gmail.com", 36574));
-        ClienteRepositorio.save(new Cliente("45679", "David", "david@gmail.com", 87965));
-        ClienteRepositorio.save(new Cliente("17845", "Valeria", "valeria@gmail.com", 45123));
-        ClienteRepositorio.save(new Cliente("68945", "Jorge", "jorge@gmail.com", 25489));
-        ClienteRepositorio.save(new Cliente("45874", "Patricia", "patricia@gmail.com", 35678));
-        ClienteRepositorio.save(new Cliente("98745", "Javier", "javier@gmail.com", 98745));
-        ClienteRepositorio.save(new Cliente("36895", "Camila", "camila@gmail.com", 56231));
-        ClienteRepositorio.save(new Cliente("47589", "Ricardo", "ricardo@gmail.com", 12347));
-        ClienteRepositorio.save(new Cliente("78546", "Nicolas", "nicolas@gmail.com", 78546));
-        ClienteRepositorio.save(new Cliente("12345", "Elena", "elena@gmail.com", 45678));
-        ClienteRepositorio.save(new Cliente("87564", "Hector", "hector@gmail.com", 65478));
-        ClienteRepositorio.save(new Cliente("21547", "Daniela", "daniela@gmail.com", 21456));
-        ClienteRepositorio.save(new Cliente("85471", "Pablo", "pablo@gmail.com", 78512));
-        ClienteRepositorio.save(new Cliente("54789", "Adriana", "adriana@gmail.com", 45678));
-        ClienteRepositorio.save(new Cliente("36987", "Esteban", "esteban@gmail.com", 36987));
-        ClienteRepositorio.save(new Cliente("45896", "Luisa", "luisa@gmail.com", 74585));
-        ClienteRepositorio.save(new Cliente("17895", "Sebastian", "sebastian@gmail.com", 12368));
-        ClienteRepositorio.save(new Cliente("78452", "Gabriela", "gabriela@gmail.com", 87452));
-        ClienteRepositorio.save(new Cliente("78956", "Alejandro", "alejandro@gmail.com", 96325));
-        ClienteRepositorio.save(new Cliente("45876", "Fernanda", "fernanda@gmail.com", 12568));
-        ClienteRepositorio.save(new Cliente("98756", "Oscar", "oscar@gmail.com", 96523));
-        ClienteRepositorio.save(new Cliente("14785", "Natalia", "natalia@gmail.com", 78596));
-        ClienteRepositorio.save(new Cliente("58963", "Felipe", "felipe@gmail.com", 56987));
-        ClienteRepositorio.save(new Cliente("47895", "Monica", "monica@gmail.com", 87412));
-        ClienteRepositorio.save(new Cliente("78965", "Liliana", "liliana@gmail.com", 78965));
-        ClienteRepositorio.save(new Cliente("45789", "Rodrigo", "rodrigo@gmail.com", 47895));
-        ClienteRepositorio.save(new Cliente("78596", "Lucia", "lucia@gmail.com", 78596));
-        ClienteRepositorio.save(new Cliente("36589", "Eduardo", "eduardo@gmail.com", 32589));
-        ClienteRepositorio.save(new Cliente("25896", "Tatiana", "tatiana@gmail.com", 25896));
-        ClienteRepositorio.save(new Cliente("36985", "Victoria", "victoria@gmail.com", 36985));
-        ClienteRepositorio.save(new Cliente("78912", "Mario", "mario@gmail.com", 78912));
-        ClienteRepositorio.save(new Cliente("87452", "Alicia", "alicia@gmail.com", 87452));
-        ClienteRepositorio.save(new Cliente("32587", "Martin", "martin@gmail.com", 32587));
-        ClienteRepositorio.save(new Cliente("58063", "Claudia", "claudia@gmail.com", 58463));
-        ClienteRepositorio.save(new Cliente("32589", "Julian", "julian@gmail.com", 32589));
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("321456")
+                .nombre("Jose")
+                .correo("jose@gmail.com")
+                .celular(12364)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("321456")
+                .nombre("Jose")
+                .correo("jose@gmail.com")
+                .celular(12364)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("79885")
+                .nombre("Pedro")
+                .correo("pedro@gmail.com")
+                .celular(79465)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("44545")
+                .nombre("Paola")
+                .correo("paola@gmail.com")
+                .celular(88987)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("48785")
+                .nombre("Jaime")
+                .correo("jaime@gmail.com")
+                .celular(741002)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("77874")
+                .nombre("Cristian")
+                .correo("cristian@gmail.com")
+                .celular(889800)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("88852")
+                .nombre("Lorena")
+                .correo("lorena@gmail.com")
+                .celular(874521)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("74565")
+                .nombre("Ana")
+                .correo("ana@gmail.com")
+                .celular(12358)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("45786")
+                .nombre("Carlos")
+                .correo("carlos@gmail.com")
+                .celular(56478)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("95875")
+                .nombre("Sofia")
+                .correo("sofia@gmail.com")
+                .celular(98456)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("24758")
+                .nombre("Miguel")
+                .correo("miguel@gmail.com")
+                .celular(78453)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("34858")
+                .nombre("Laura")
+                .correo("laura@gmail.com")
+                .celular(23468)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("14568")
+                .nombre("Diana")
+                .correo("diana@gmail.com")
+                .celular(14587)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("85678")
+                .nombre("Andres")
+                .correo("andres@gmail.com")
+                .celular(78546)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("78456")
+                .nombre("María")
+                .correo("maria@gmail.com")
+                .celular(36574)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("45679")
+                .nombre("David")
+                .correo("david@gmail.com")
+                .celular(87965)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("17845")
+                .nombre("Valeria")
+                .correo("valeria@gmail.com")
+                .celular(45123)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("68945")
+                .nombre("Jorge")
+                .correo("jorge@gmail.com")
+                .celular(25489)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("45874")
+                .nombre("Patricia")
+                .correo("patricia@gmail.com")
+                .celular(35678)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("98745")
+                .nombre("Javier")
+                .correo("javier@gmail.com")
+                .celular(98745)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("36895")
+                .nombre("Camila")
+                .correo("camila@gmail.com")
+                .celular(56231)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("47589")
+                .nombre("Ricardo")
+                .correo("ricardo@gmail.com")
+                .celular(12347)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("78546")
+                .nombre("Nicolas")
+                .correo("nicolas@gmail.com")
+                .celular(78546)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("12345")
+                .nombre("Elena")
+                .correo("elena@gmail.com")
+                .celular(45678)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("87564")
+                .nombre("Hector")
+                .correo("hector@gmail.com")
+                .celular(65478)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("21547")
+                .nombre("Daniela")
+                .correo("daniela@gmail.com")
+                .celular(21456)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("85471")
+                .nombre("Pablo")
+                .correo("pablo@gmail.com")
+                .celular(78512)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("54789")
+                .nombre("Adriana")
+                .correo("adriana@gmail.com")
+                .celular(45678)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("36987")
+                .nombre("Esteban")
+                .correo("esteban@gmail.com")
+                .celular(36987)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("45896")
+                .nombre("Luisa")
+                .correo("luisa@gmail.com")
+                .celular(74585)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("17895")
+                .nombre("Sebastian")
+                .correo("sebastian@gmail.com")
+                .celular(12368)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("78452")
+                .nombre("Gabriela")
+                .correo("gabriela@gmail.com")
+                .celular(87452)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("78956")
+                .nombre("Alejandro")
+                .correo("alejandro@gmail.com")
+                .celular(96325)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("45876")
+                .nombre("Fernanda")
+                .correo("fernanda@gmail.com")
+                .celular(12568)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("98756")
+                .nombre("Oscar")
+                .correo("oscar@gmail.com")
+                .celular(96523)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("14785")
+                .nombre("Natalia")
+                .correo("natalia@gmail.com")
+                .celular(78596)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("58963")
+                .nombre("Felipe")
+                .correo("felipe@gmail.com")
+                .celular(56987)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("47895")
+                .nombre("Monica")
+                .correo("monica@gmail.com")
+                .celular(87412)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("78965")
+                .nombre("Liliana")
+                .correo("liliana@gmail.com")
+                .celular(78965)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("45789")
+                .nombre("Rodrigo")
+                .correo("rodrigo@gmail.com")
+                .celular(47895)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("78596")
+                .nombre("Lucia")
+                .correo("lucia@gmail.com")
+                .celular(78596)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("36589")
+                .nombre("Eduardo")
+                .correo("eduardo@gmail.com")
+                .celular(32589)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("25896")
+                .nombre("Tatiana")
+                .correo("tatiana@gmail.com")
+                .celular(25896)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("36985")
+                .nombre("Victoria")
+                .correo("victoria@gmail.com")
+                .celular(36985)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("78912")
+                .nombre("Mario")
+                .correo("mario@gmail.com")
+                .celular(78912)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("87452")
+                .nombre("Alicia")
+                .correo("alicia@gmail.com")
+                .celular(87452)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("32587")
+                .nombre("Martin")
+                .correo("martin@gmail.com")
+                .celular(32587)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("58063")
+                .nombre("Claudia")
+                .correo("claudia@gmail.com")
+                .celular(58463)
+                .build()
+        );
+        ClienteRepositorio.save(
+        Cliente.builder()
+                .cedula("32589")
+                .nombre("Julian")
+                .correo("julian@gmail.com")
+                .celular(32589)
+                .build()
+        );
 
         // Medicamentos
+        
         Medicamento acolan = MedicamentoRepositorio.findByNombre("ACOLAN").orElse(null);
         Medicamento altidox = MedicamentoRepositorio.findByNombre("ALTIDOX").orElse(null);
         Medicamento apravet = MedicamentoRepositorio.findByNombre("APRAVET").orElse(null);
