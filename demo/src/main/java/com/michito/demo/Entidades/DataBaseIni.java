@@ -1245,7 +1245,7 @@ public class DataBaseIni implements ApplicationRunner {
         // Inserciones de clientes
         ClienteRepositorio.save(
         Cliente.builder()
-                .cedula("321456")
+                .cedula("321499")
                 .nombre("Jose")
                 .correo("jose@gmail.com")
                 .celular(12364)
@@ -1352,7 +1352,7 @@ public class DataBaseIni implements ApplicationRunner {
                 .cedula("85678")
                 .nombre("Andres")
                 .correo("andres@gmail.com")
-                .celular(78546)
+                .celular(78588)
                 .build()
         );
         ClienteRepositorio.save(
@@ -1496,7 +1496,7 @@ public class DataBaseIni implements ApplicationRunner {
                 .cedula("78452")
                 .nombre("Gabriela")
                 .correo("gabriela@gmail.com")
-                .celular(87452)
+                .celular(87477)
                 .build()
         );
         ClienteRepositorio.save(
@@ -1576,7 +1576,7 @@ public class DataBaseIni implements ApplicationRunner {
                 .cedula("36589")
                 .nombre("Eduardo")
                 .correo("eduardo@gmail.com")
-                .celular(32589)
+                .celular(32669)
                 .build()
         );
         ClienteRepositorio.save(
