@@ -26,12 +26,31 @@ public class SecurityConfig {
             csrf(AbstractHttpConfigurer::disable)
             .headers(headers -> headers.frameOptions(frame -> frame.disable()))
             .authorizeHttpRequests(requests -> requests
+
+                //ESte si hay que dejarlo para todos 
+                .requestMatchers("/Clientes/all**").permitAll()
                 .requestMatchers("/h2/**").permitAll()
-                .requestMatchers("/login/**").permitAll()
-                .requestMatchers("/Clientes/**").permitAll()
-                .requestMatchers("/Clientes/agregar/**").hasAnyAuthority("ADMIN")
-                .requestMatchers("/Veterinarios/**").authenticated()
+                // Todos - clientes -- si hay rol de clientes cambiar a has any authority cliente, admin y veterinario 
                 
+                .requestMatchers("/login/**").permitAll()
+                .requestMatchers("/Tratamientos/Mascota/**").permitAll()
+                .requestMatchers("/Tratamientos/Mascota/**").permitAll()
+                .requestMatchers("/Tratamientos/Info/**").permitAll()
+                .requestMatchers("/Clientes/por-mascota/**").permitAll()
+
+                // Veterinarios Y admin
+
+                .requestMatchers("/Veterinarios/detalles**").hasAnyAuthority("ADMIN", "VETERINARIO")        
+                .requestMatchers("/login**").hasAnyAuthority("ADMIN", "VETERINARIO")
+                .requestMatchers("/Clientes**").hasAnyAuthority("ADMIN", "VETERINARIO")
+                .requestMatchers("/Medicamentos**").hasAnyAuthority("ADMIN", "VETERINARIO")
+                .requestMatchers("/Tratamientos**").hasAnyAuthority("ADMIN", "VETERINARIO")
+
+                
+                // Solo Admin 
+                .requestMatchers("/Veterinarios/**").hasAuthority("ADMIN")
+                .requestMatchers("/kpis/**").hasAuthority("ADMIN")
+
                 .anyRequest().permitAll()
             )
             .exceptionHandling(exception -> exception.authenticationEntryPoint(jwtAuthEntryPoint));

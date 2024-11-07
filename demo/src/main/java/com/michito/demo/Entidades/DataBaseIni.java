@@ -84,28 +84,259 @@ public class DataBaseIni implements ApplicationRunner {
         // Luego guardar el login con la relación bidireccional
         LoginRepositorio.save(login2); 
      
-        VeterinarioRepositorio.save(new Veterinario("123","Pedro","pedro@gmail.com",1234L,"cirujano",true));
-        VeterinarioRepositorio.save(new Veterinario("001","Juan","juan@example.com",1001L,"cirujano",true));
-        VeterinarioRepositorio.save(new Veterinario("002","Ana","ana@example.com",1002L,"cardiologo",true));
-        VeterinarioRepositorio.save(new Veterinario("003","Luis","luis@example.com",1003L,"dentista",true));
-        VeterinarioRepositorio.save(new Veterinario("004","María","maria@example.com",1004L,"dermatologo",true));
-        VeterinarioRepositorio.save(new Veterinario("005","Carlos","carlos@example.com",1005L,"oftalmologo",true));
-        VeterinarioRepositorio.save(new Veterinario("006","Laura","laura@example.com",1006L,"neurocirujano",true));
-        VeterinarioRepositorio.save(new Veterinario("007","Pedro","pedro@example.com",1007L,"gastroenterologo",true));
-        VeterinarioRepositorio.save(new Veterinario("008","Isabel","isabel@example.com",1008L,"traumatologo",true));
-        VeterinarioRepositorio.save(new Veterinario("009","David","david@example.com",1009L,"internista",true));
-        VeterinarioRepositorio.save(new Veterinario("010","Lucía","lucia@example.com",1010L,"oncologo",true));
-        VeterinarioRepositorio.save(new Veterinario("011","Javier","javier@example.com",1011L,"cirujano",true));
-        VeterinarioRepositorio.save(new Veterinario("012","Elena","elena@example.com",1012L,"cardiologo",true));
-        VeterinarioRepositorio.save(new Veterinario("013","Ricardo","ricardo@example.com",1013L,"dentista",true));
-        VeterinarioRepositorio.save(new Veterinario("014","Sofia","sofia@example.com",1014L,"dermatologo",true));
-        VeterinarioRepositorio.save(new Veterinario("015","Miguel","miguel@example.com",1015L,"oftalmologo",true));
-        VeterinarioRepositorio.save(new Veterinario("016","Raquel","raquel@example.com",1016L,"neurocirujano",true));
-        VeterinarioRepositorio.save(new Veterinario("017","Andrés","andres@example.com",1017L,"gastroenterologo",true));
-        VeterinarioRepositorio.save(new Veterinario("018","Carmen","carmen@example.com",1018L,"traumatologo",false));
-        VeterinarioRepositorio.save(new Veterinario("019","Fernando","fernando@example.com",1019L,"internista",true));
-        VeterinarioRepositorio.save(new Veterinario("020","Valeria","valeria@example.com",1020L,"oncologo",true));
+        // VeterinarioRepositorio.save(new Veterinario("123","Pedro","pedro@gmail.com",1234L,"cirujano",true));
+        // VeterinarioRepositorio.save(new Veterinario("001","Juan","juan@example.com",1001L,"cirujano",true));
+        // VeterinarioRepositorio.save(new Veterinario("002","Ana","ana@example.com",1002L,"cardiologo",true));
+        // VeterinarioRepositorio.save(new Veterinario("003","Luis","luis@example.com",1003L,"dentista",true));
+        // VeterinarioRepositorio.save(new Veterinario("004","María","maria@example.com",1004L,"dermatologo",true));
+        // VeterinarioRepositorio.save(new Veterinario("005","Carlos","carlos@example.com",1005L,"oftalmologo",true));
+        // VeterinarioRepositorio.save(new Veterinario("006","Laura","laura@example.com",1006L,"neurocirujano",true));
+        // VeterinarioRepositorio.save(new Veterinario("007","Pedro","pedro@example.com",1007L,"gastroenterologo",true));
+        // VeterinarioRepositorio.save(new Veterinario("008","Isabel","isabel@example.com",1008L,"traumatologo",true));
+        // VeterinarioRepositorio.save(new Veterinario("009","David","david@example.com",1009L,"internista",true));
+        // VeterinarioRepositorio.save(new Veterinario("010","Lucía","lucia@example.com",1010L,"oncologo",true));
+        // VeterinarioRepositorio.save(new Veterinario("011","Javier","javier@example.com",1011L,"cirujano",true));
+        // VeterinarioRepositorio.save(new Veterinario("012","Elena","elena@example.com",1012L,"cardiologo",true));
+        // VeterinarioRepositorio.save(new Veterinario("013","Ricardo","ricardo@example.com",1013L,"dentista",true));
+        // VeterinarioRepositorio.save(new Veterinario("014","Sofia","sofia@example.com",1014L,"dermatologo",true));
+        // VeterinarioRepositorio.save(new Veterinario("015","Miguel","miguel@example.com",1015L,"oftalmologo",true));
+        // VeterinarioRepositorio.save(new Veterinario("016","Raquel","raquel@example.com",1016L,"neurocirujano",true));
+        // VeterinarioRepositorio.save(new Veterinario("017","Andrés","andres@example.com",1017L,"gastroenterologo",true));
+        // VeterinarioRepositorio.save(new Veterinario("018","Carmen","carmen@example.com",1018L,"traumatologo",false));
+        // VeterinarioRepositorio.save(new Veterinario("019","Fernando","fernando@example.com",1019L,"internista",true));
+        // VeterinarioRepositorio.save(new Veterinario("020","Valeria","valeria@example.com",1020L,"oncologo",true));
 
+
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("123")
+                    .nombre("Pedro")
+                    .correo("pedro@gmail.com")
+                    .celular(1234L)
+                    .especialidad("cirujano")
+                    .estado(true)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("001")
+                    .nombre("Juan")
+                    .correo("juan@example.com")
+                    .celular(1001L)
+                    .especialidad("cirujano")
+                    .estado(true)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("002")
+                    .nombre("Ana")
+                    .correo("ana@example.com")
+                    .celular(1002L)
+                    .especialidad("cardiologo")
+                    .estado(true)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("003")
+                    .nombre("Luis")
+                    .correo("luis@example.com")
+                    .celular(1003L)
+                    .especialidad("dentista")
+                    .estado(true)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("004")
+                    .nombre("María")
+                    .correo("maria@example.com")
+                    .celular(1004L)
+                    .especialidad("dermatologo")
+                    .estado(true)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("005")
+                    .nombre("Carlos")
+                    .correo("carlos@example.com")
+                    .celular(1005L)
+                    .especialidad("oftalmologo")
+                    .estado(true)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("006")
+                    .nombre("Laura")
+                    .correo("laura@example.com")
+                    .celular(1006L)
+                    .especialidad("neurocirujano")
+                    .estado(true)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("007")
+                    .nombre("Pedro")
+                    .correo("pedro@example.com")
+                    .celular(1007L)
+                    .especialidad("gastroenterologo")
+                    .estado(true)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("008")
+                    .nombre("Isabel")
+                    .correo("isabel@example.com")
+                    .celular(1008L)
+                    .especialidad("traumatologo")
+                    .estado(true)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("009")
+                    .nombre("David")
+                    .correo("david@example.com")
+                    .celular(1009L)
+                    .especialidad("internista")
+                    .estado(true)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("010")
+                    .nombre("Lucía")
+                    .correo("lucia@example.com")
+                    .celular(1010L)
+                    .especialidad("oncologo")
+                    .estado(true)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("011")
+                    .nombre("Javier")
+                    .correo("javier@example.com")
+                    .celular(1011L)
+                    .especialidad("cirujano")
+                    .estado(true)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("012")
+                    .nombre("Elena")
+                    .correo("elena@example.com")
+                    .celular(1012L)
+                    .especialidad("cardiologo")
+                    .estado(true)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("013")
+                    .nombre("Ricardo")
+                    .correo("ricardo@example.com")
+                    .celular(1013L)
+                    .especialidad("dentista")
+                    .estado(true)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("014")
+                    .nombre("Sofia")
+                    .correo("sofia@example.com")
+                    .celular(1014L)
+                    .especialidad("dermatologo")
+                    .estado(true)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("015")
+                    .nombre("Miguel")
+                    .correo("miguel@example.com")
+                    .celular(1015L)
+                    .especialidad("oftalmologo")
+                    .estado(true)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("016")
+                    .nombre("Raquel")
+                    .correo("raquel@example.com")
+                    .celular(1016L)
+                    .especialidad("neurocirujano")
+                    .estado(true)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("017")
+                    .nombre("Andrés")
+                    .correo("andres@example.com")
+                    .celular(1017L)
+                    .especialidad("gastroenterologo")
+                    .estado(true)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("018")
+                    .nombre("Carmen")
+                    .correo("carmen@example.com")
+                    .celular(1018L)
+                    .especialidad("traumatologo")
+                    .estado(false)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("019")
+                    .nombre("Fernando")
+                    .correo("fernando@example.com")
+                    .celular(1019L)
+                    .especialidad("internista")
+                    .estado(true)
+                    .build()
+        );
+    
+        VeterinarioRepositorio.save(
+                Veterinario.builder()
+                    .cedula("020")
+                    .nombre("Valeria")
+                    .correo("valeria@example.com")
+                    .celular(1020L)
+                    .especialidad("oncologo")
+                    .estado(true)
+                    .build()
+        );
 
         //Mascota mascota = new Mascota().builder().nombre("Toby").edad(2).peso(12).foto("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyLofiao7YQ07txy7F9i3wuwyb9cjtEWEGg&s").estado(false).build();
         MascotaRepositorio.save(new Mascota("Toby", 2, 12,
