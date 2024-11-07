@@ -14,9 +14,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.michito.demo.Entidades.Cliente;
 import com.michito.demo.Entidades.Login;
 import com.michito.demo.Entidades.Role;
 import com.michito.demo.Entidades.Veterinario;
+import com.michito.demo.Repositorio.ClientesRepositorio;
 import com.michito.demo.Repositorio.LoginRepositorio;
 
 @Service
@@ -27,6 +29,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private ClientesRepositorio clientesRepositorio;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -42,6 +47,22 @@ public class CustomUserDetailsService implements UserDetailsService {
             .build();
 
         return userDetails;
+    }
+
+    public UserDetails loadUserByCedula(String cedula) throws UsernameNotFoundException {
+        // Aquí necesitas buscar al cliente por cédula, asumiendo que hay un método para esto
+        Cliente cliente = clientesRepositorio.findByCedula(cedula);
+
+        if (cliente == null) {
+            throw new UsernameNotFoundException("Cliente con cédula " + cedula + " no encontrado");
+        }
+
+        // Crea los detalles del usuario con un rol CLIENTE sin contraseña
+        return User.builder()
+            .username(cedula) // Utilizamos la cédula como username en este caso
+            .password("")     // Sin contraseña ya que los clientes no la necesitan
+            .authorities(List.of(new SimpleGrantedAuthority("CLIENTE"))) // Rol de CLIENTE
+            .build();
     }
 
     private Collection<GrantedAuthority> mapToGrantedAuthorities(List<Role> roles) {

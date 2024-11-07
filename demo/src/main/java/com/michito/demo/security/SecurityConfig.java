@@ -33,10 +33,9 @@ public class SecurityConfig {
                 // Todos - clientes -- si hay rol de clientes cambiar a has any authority cliente, admin y veterinario 
                 
                 .requestMatchers("/login/**").permitAll()
-                .requestMatchers("/Tratamientos/Mascota/**").permitAll()
-                .requestMatchers("/Tratamientos/Mascota/**").permitAll()
-                .requestMatchers("/Tratamientos/Info/**").permitAll()
-                .requestMatchers("/Clientes/por-mascota/**").permitAll()
+                .requestMatchers("/Tratamientos/mascota/**").hasAnyAuthority("ADMIN", "VETERINARIO","CLIENTE") 
+                .requestMatchers("/Tratamientos/Info/**").hasAnyAuthority("ADMIN", "VETERINARIO","CLIENTE")
+                .requestMatchers("/Clientes/por-mascota/**").hasAnyAuthority("ADMIN", "VETERINARIO","CLIENTE")
 
                 // Veterinarios Y admin
 
