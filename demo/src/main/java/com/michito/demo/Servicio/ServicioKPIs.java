@@ -13,4 +13,6 @@ public interface ServicioKPIs {
     public double getGananciaTotales();
     public double getVentasTotales();
     public List<Object[]> obtenerTop3MedicamentosMasVendidos();
+    public List<Object[]> getTratamientosPorMes();
+    public List<Object[]> getTratamientosPorVeterinario();
 }

@@ -63,4 +63,15 @@ public class KPIsController {
         return kpiService.obtenerTop3MedicamentosMasVendidos();
     } 
 
+    @GetMapping("/tratamientos-por-mes")
+    public List<Object[]> getTratamientosPorMes() {
+        return kpiService.getTratamientosPorMes();
+    }
+
+    @GetMapping("/tratamientos-por-veterinario")
+    public List<Object[]> getTratamientosPorVeterinario() {
+        return kpiService.getTratamientosPorVeterinario();
+    }
+
+
 }

@@ -1674,7 +1674,7 @@ public class DataBaseIni implements ApplicationRunner {
         //// Tratamientos
         // Tratamiento 1
 
-        Tratamieneto tratamiento1 = new Tratamieneto(LocalDate.of(2024, 9, 15), "Tratamiento post-operatorio");
+        Tratamieneto tratamiento1 = new Tratamieneto(LocalDate.of(2024, 11, 15), "Tratamiento post-operatorio");
         tratamiento1.setVeterinario(veterinario1);
         tratamiento1.setMascota(mascota1);
         tratamiento1.setMedicamentos(Arrays.asList(acolan, altidox));
