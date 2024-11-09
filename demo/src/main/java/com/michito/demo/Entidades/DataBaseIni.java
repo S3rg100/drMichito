@@ -1752,6 +1752,118 @@ public class DataBaseIni implements ApplicationRunner {
         int totalClientes = clientes.size();
         int clienteIndex = 0;
 
+
+        
+
+        // Tratamiento 11
+
+        Tratamieneto tratamiento11 = new Tratamieneto(LocalDate.of(2024, 8, 15), "Tratamiento post-operatorio");
+        tratamiento11.setVeterinario(veterinario6);
+        tratamiento11.setMascota(mascota1);
+        tratamiento11.setMedicamentos(Arrays.asList(acolan, altidox));
+        TratamientoRepositorio.save(tratamiento11);
+        // Tratamiento 12
+
+        Tratamieneto tratamiento12 = new Tratamieneto(LocalDate.of(2024, 7, 15), "Tratamiento post-operatorio");
+        tratamiento12.setVeterinario(veterinario7);
+        tratamiento12.setMascota(mascota1);
+        tratamiento12.setMedicamentos(Arrays.asList(acolan, altidox));
+        TratamientoRepositorio.save(tratamiento12);
+        // Tratamiento 13
+
+        Tratamieneto tratamiento13 = new Tratamieneto(LocalDate.of(2024, 6, 15), "Tratamiento post-operatorio");
+        tratamiento13.setVeterinario(veterinario8);
+        tratamiento13.setMascota(mascota1);
+        tratamiento13.setMedicamentos(Arrays.asList(acolan, altidox));
+        TratamientoRepositorio.save(tratamiento13);
+        // Tratamiento 14
+
+        Tratamieneto tratamiento14 = new Tratamieneto(LocalDate.of(2024, 6, 15), "Tratamiento post-operatorio");
+        tratamiento14.setVeterinario(veterinario9);
+        tratamiento14.setMascota(mascota1);
+        tratamiento14.setMedicamentos(Arrays.asList(acolan, altidox));
+        TratamientoRepositorio.save(tratamiento14);
+
+        // Tratamiento 15
+
+        Tratamieneto tratamiento15 = new Tratamieneto(LocalDate.of(2024, 6, 15), "Tratamiento post-operatorio");
+        tratamiento15.setVeterinario(veterinario10);
+        tratamiento15.setMascota(mascota1);
+        tratamiento15.setMedicamentos(Arrays.asList(acolan, altidox));
+        TratamientoRepositorio.save(tratamiento15);
+        // Tratamiento 16
+
+        Tratamieneto tratamiento16 = new Tratamieneto(LocalDate.of(2024, 8, 15), "Tratamiento post-operatorio");
+        tratamiento16.setVeterinario(veterinario11);
+        tratamiento16.setMascota(mascota1);
+        tratamiento16.setMedicamentos(Arrays.asList(acolan, altidox));
+        TratamientoRepositorio.save(tratamiento16);
+        // Tratamiento 17
+
+        Tratamieneto tratamiento17 = new Tratamieneto(LocalDate.of(2024, 8, 15), "Tratamiento post-operatorio");
+        tratamiento17.setVeterinario(veterinario12);
+        tratamiento17.setMascota(mascota1);
+        tratamiento17.setMedicamentos(Arrays.asList(acolan, altidox));
+        TratamientoRepositorio.save(tratamiento17);
+        // Tratamiento 18
+
+        Tratamieneto tratamiento18 = new Tratamieneto(LocalDate.of(2024, 8, 15), "Tratamiento post-operatorio");
+        tratamiento18.setVeterinario(veterinario13);
+        tratamiento18.setMascota(mascota1);
+        tratamiento18.setMedicamentos(Arrays.asList(acolan, altidox));
+        TratamientoRepositorio.save(tratamiento18);
+        // Tratamiento 19
+
+        Tratamieneto tratamiento19 = new Tratamieneto(LocalDate.of(2024, 8, 15), "Tratamiento post-operatorio");
+        tratamiento19.setVeterinario(veterinario14);
+        tratamiento19.setMascota(mascota1);
+        tratamiento19.setMedicamentos(Arrays.asList(acolan, altidox));
+        TratamientoRepositorio.save(tratamiento19);
+        // Tratamiento 20
+
+        Tratamieneto tratamiento20 = new Tratamieneto(LocalDate.of(2024, 5, 15), "Tratamiento post-operatorio");
+        tratamiento20.setVeterinario(veterinario15);
+        tratamiento20.setMascota(mascota1);
+        tratamiento20.setMedicamentos(Arrays.asList(acolan, altidox));
+        TratamientoRepositorio.save(tratamiento20);
+        // Tratamiento 21
+
+        Tratamieneto tratamiento21 = new Tratamieneto(LocalDate.of(2024, 5, 15), "Tratamiento post-operatorio");
+        tratamiento21.setVeterinario(veterinario16);
+        tratamiento21.setMascota(mascota1);
+        tratamiento21.setMedicamentos(Arrays.asList(acolan, altidox));
+        TratamientoRepositorio.save(tratamiento21);
+        // Tratamiento 22
+
+        Tratamieneto tratamiento22 = new Tratamieneto(LocalDate.of(2024, 5, 15), "Tratamiento post-operatorio");
+        tratamiento22.setVeterinario(veterinario17);
+        tratamiento22.setMascota(mascota1);
+        tratamiento22.setMedicamentos(Arrays.asList(acolan, altidox));
+        TratamientoRepositorio.save(tratamiento22);
+        // Tratamiento 23
+
+        Tratamieneto tratamiento23 = new Tratamieneto(LocalDate.of(2024, 2, 15), "Tratamiento post-operatorio");
+        tratamiento23.setVeterinario(veterinario18);
+        tratamiento23.setMascota(mascota1);
+        tratamiento23.setMedicamentos(Arrays.asList(acolan, altidox));
+        TratamientoRepositorio.save(tratamiento23);
+        // Tratamiento 24
+
+        Tratamieneto tratamiento24 = new Tratamieneto(LocalDate.of(2024, 2, 15), "Tratamiento post-operatorio");
+        tratamiento24.setVeterinario(veterinario19);
+        tratamiento24.setMascota(mascota1);
+        tratamiento24.setMedicamentos(Arrays.asList(acolan, altidox));
+        TratamientoRepositorio.save(tratamiento24);
+        // Tratamiento 25
+
+        Tratamieneto tratamiento25 = new Tratamieneto(LocalDate.of(2024, 1, 15), "Tratamiento post-operatorio");
+        tratamiento25.setVeterinario(veterinario20);
+        tratamiento25.setMascota(mascota1);
+        tratamiento25.setMedicamentos(Arrays.asList(acolan, altidox));
+        TratamientoRepositorio.save(tratamiento25);
+
+
+
         // Asignar las mascotas a los clientes de manera secuencial
         for (Long mascotaId = 1L; mascotaId <= 99L; mascotaId++) { // Suponiendo que hay 8 mascotas
             Mascota mascota = MascotaRepositorio.findById(mascotaId).get();
