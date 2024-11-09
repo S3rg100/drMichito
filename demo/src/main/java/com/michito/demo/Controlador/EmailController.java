@@ -1,12 +1,18 @@
 package com.michito.demo.Controlador;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.michito.demo.Entidades.EmailRequest;
+import com.michito.demo.Entidades.EmailRequestWithFile;
 import com.michito.demo.Servicio.ServicioEmail;
 
 import jakarta.mail.MessagingException;
@@ -30,7 +36,7 @@ public class EmailController {
             .append(" ")
             .append(emailRequest.getApellido())
             .append("!</h2>");
-        body.append("<p>Recibimos tu mensaje: ")
+        body.append("<p>Hemos recibido tu mensaje: ")
             .append(emailRequest.getBody())
             .append("</p>");
         
@@ -47,10 +53,12 @@ public class EmailController {
             .append("<li>Limpieza y aseo</li>")
             .append("<li>Consultas de especialidades</li>")
             .append("<li>Cirugías y procedimientos</li>")
+            .append("<li>Profilaxis</li>")
+            .append("<li>Vacunación</li>")
             .append("<li>Urgencias 24/7</li>")
             .append("</ul>");
         
-        body.append("<p>Si deseas más información o tienes alguna consulta, no dudes en contactarnos a través de nuestro teléfono o <a href=\"http://localhost:4200\">nuestra página web</a>.</p>");
+        body.append("<p>Pronto uno de nuestros asesores se comunicará contigo para brindarte asesoramiento personalizado. Puedes contactarnos a través de nuestro teléfono o <a href=\"http://localhost:4200\">nuestra página web</a>.</p>");
         
         body.append("<p>Atentamente,<br>El equipo de <strong>Dr. Michito</strong></p>");
         body.append("<p style=\"font-style: italic; color: #888;\">🐾 \"Cuidamos a tus amigos de cuatro patas como si fueran los nuestros\" 🐾</p>");
@@ -59,5 +67,39 @@ public class EmailController {
         
         emailService.sendEmail(emailRequest.getEmail(), subject, body.toString());
        
+    }
+
+
+    @PostMapping("/send-email-with-attachment")
+    public void sendEmailWithAttachment(@ModelAttribute EmailRequestWithFile requestWithFile) throws MessagingException, IOException {
+        
+        String subject = requestWithFile.getAsunto();
+
+        // Construimos el contenido HTML del correo
+        StringBuilder body = new StringBuilder();
+        body.append("<div style=\"font-family: Arial, sans-serif; line-height: 1.5; color: #333;\">");
+        body.append("<h2 style=\"color: #4CAF50;\">Detalles del Tratamiento para ").append(requestWithFile.getNombreMascota()).append("</h2>");
+        
+        body.append("<p>Estimado/a cliente,</p>");
+        body.append("<p>Gracias por confiar en <strong>Dr. Michito</strong>. A continuación, encontrarás los detalles del tratamiento realizado a tu mascota.</p>");
+        
+        body.append("<p><strong>Veterinario a cargo:</strong> ").append(requestWithFile.getNombreVeterinario()).append("</p>");
+        body.append("<p><strong>Fecha del tratamiento:</strong> ").append(requestWithFile.getFechaTratamiento()).append("</p>");
+        body.append("<p><strong>Detalles:</strong> ").append(requestWithFile.getBody()).append("</p>");
+
+        body.append("<p>Para cualquier consulta adicional, puedes contactarnos en nuestro teléfono o en <a href=\"http://localhost:4200\">nuestra página web</a>.</p>");
+        
+        body.append("<p>Atentamente,<br>El equipo de <strong>Dr. Michito</strong></p>");
+        body.append("<p style=\"font-style: italic; color: #888;\">🐾 \"Cuidamos a tus amigos de cuatro patas como si fueran los nuestros\" 🐾</p>");
+        body.append("</div>");
+
+        // Envía el correo con el archivo adjunto
+        emailService.sendEmailWithAttachment(
+            requestWithFile.getEmailCliente(),
+            subject,
+            body.toString(),
+            requestWithFile.getFile().getBytes(),
+            requestWithFile.getFile().getOriginalFilename()
+        );
     }
 }

@@ -1245,17 +1245,9 @@ public class DataBaseIni implements ApplicationRunner {
         // Inserciones de clientes
         ClienteRepositorio.save(
         Cliente.builder()
-                .cedula("321499")
-                .nombre("Jose")
-                .correo("jose@gmail.com")
-                .celular(12364)
-                .build()
-        );
-        ClienteRepositorio.save(
-        Cliente.builder()
                 .cedula("321456")
                 .nombre("Jose")
-                .correo("jose@gmail.com")
+                .correo("sergioasenciorodriguez@gmail.com")
                 .celular(12364)
                 .build()
         );
