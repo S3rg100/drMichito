@@ -37,13 +37,16 @@ public class ServicioMedicamento {
      @Autowired
     private EntityManager entityManager; // Para ejecutar consultas nativas
 
-    @Transactional // Asegurarse de que el método esté dentro de una transacción
+    @Transactional // Asegura que ambas operaciones estén dentro de la misma transacción
     public void eliminarMedicamento(Long id) {
         // Eliminar las referencias del medicamento en la tabla de unión
-        String sql = "DELETE FROM tratamieneto_medicamento WHERE medicamento_id = :medicamentoId";
+        String sql = "DELETE FROM tratamiento_medicamento WHERE medicamento_id = :medicamentoId";
         entityManager.createNativeQuery(sql)
                      .setParameter("medicamentoId", id)
                      .executeUpdate();
+
+        // Sincronizar el EntityManager para asegurar que los cambios se reflejen
+        entityManager.flush();
 
         // Ahora eliminar el medicamento de la tabla
         medicamentoRepositorio.deleteById(id);
