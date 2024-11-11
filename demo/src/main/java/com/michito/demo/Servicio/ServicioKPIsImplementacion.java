@@ -57,10 +57,9 @@ public class ServicioKPIsImplementacion implements ServicioKPIs {
 
     @Override
     public List<Object[]> getTratamientosPorMedicamento() {
-        LocalDate endDate = LocalDate.now();
-        LocalDate startDate = endDate.minusMonths(1);
-        return tratamientoRepositorio.countTratamientosPorMedicamento(startDate, endDate);
+        return tratamientoRepositorio.countTratamientosPorMedicamento();
     }
+
 
     @Override
     public double getGananciaTotales() {
@@ -77,4 +76,15 @@ public class ServicioKPIsImplementacion implements ServicioKPIs {
         Pageable top3 = PageRequest.of(0, 3); // Limitar a los 3 primeros resultados
         return medicamentoRepositorio.findTop3MedicamentosMasVendidos(top3);
     }
+
+    @Override
+    public List<Object[]> getTratamientosPorMes() {
+        return tratamientoRepositorio.countTratamientosPorMes();
+    }
+
+    @Override
+    public List<Object[]> getTratamientosPorVeterinario() {
+        return tratamientoRepositorio.countTratamientosPorVeterinario();
+    }
+
 }
