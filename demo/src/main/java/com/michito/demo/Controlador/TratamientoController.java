@@ -1,5 +1,6 @@
 package com.michito.demo.Controlador;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,7 @@ public class TratamientoController {
 
     @PostMapping("/agregar")
     public ResponseEntity<Tratamieneto> agregarTratamiento(@RequestBody Tratamieneto tratamiento) {
+        tratamiento.setFecha(LocalDate.now());
         Tratamieneto nuevoTratamiento = tratamientoService.addTratamiento(tratamiento);
         return ResponseEntity.ok(nuevoTratamiento);
     }

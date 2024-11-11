@@ -33,8 +33,8 @@ public interface TratamientoRepositorio extends JpaRepository<Tratamieneto, Long
     Long countVeterinariosActivos(@Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
 
     // Cantidad de tratamientos donde se suministró cada medicamento
-    @Query("SELECT m.nombre, COUNT(t) FROM Tratamieneto t JOIN t.medicamentos m WHERE t.fecha BETWEEN :startDate AND :endDate GROUP BY m.nombre")
-    List<Object[]> countTratamientosPorMedicamento(@Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
+    @Query("SELECT m.nombre, COUNT(m) FROM Tratamieneto t JOIN t.medicamentos m GROUP BY m.nombre")
+    List<Object[]> countTratamientosPorMedicamento();
 
     // Ganancias totales
     @Query("SELECT SUM(m.precioVenta - m.precioCompra) FROM Tratamieneto t JOIN t.medicamentos m")
@@ -48,6 +48,14 @@ public interface TratamientoRepositorio extends JpaRepository<Tratamieneto, Long
     // Ganancias totales
     @Query("SELECT m.precioVenta FROM Tratamieneto t JOIN t.medicamentos m")
     List<Double> obtenerPreciosMedicamentos();
+    //Grafica tratamientos por mes
+    @Query("SELECT FUNCTION('MONTH', t.fecha) AS mes, FUNCTION('YEAR', t.fecha) AS anio, COUNT(t) FROM Tratamieneto t GROUP BY anio, mes ORDER BY anio, mes")
+    List<Object[]> countTratamientosPorMes();
+    //Grafica tratamientos por veterinario
+    @Query("SELECT v.nombre, COUNT(t) FROM Tratamieneto t JOIN t.veterinario v GROUP BY v.nombre ORDER BY v.nombre")
+    List<Object[]> countTratamientosPorVeterinario();
+
+
     
 
 }
