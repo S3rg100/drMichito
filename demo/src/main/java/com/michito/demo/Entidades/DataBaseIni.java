@@ -83,6 +83,12 @@ public class DataBaseIni implements ApplicationRunner {
 
         // Luego guardar el login con la relación bidireccional
         LoginRepositorio.save(login2); 
+
+
+
+
+        
+       
      
         // VeterinarioRepositorio.save(new Veterinario("123","Pedro","pedro@gmail.com",1234L,"cirujano",true));
         // VeterinarioRepositorio.save(new Veterinario("001","Juan","juan@example.com",1001L,"cirujano",true));
@@ -271,6 +277,14 @@ public class DataBaseIni implements ApplicationRunner {
                     .estado(true)
                     .build()
         );
+
+        Login login3 = new Login("abcđe", passwordEncoder.encode("abcde123ABCDE"), veterinario);
+        login3 = LoginRepositorio.save(login3);
+        Veterinario vetPrueba = new Veterinario("310819", "Cesar", "cesar@gmail.com", 3108L, "cirujano",true);
+        vetPrueba.setLogin(login3); 
+        login3.setVeterinario(vetPrueba);
+        VeterinarioRepositorio.save(vetPrueba);
+        LoginRepositorio.save(login3); 
     
         VeterinarioRepositorio.save(
                 Veterinario.builder()
