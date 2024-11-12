@@ -123,6 +123,7 @@ public class MascotaController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente no encontrado");
         } else {
             mascota.setCliente(cliente);
+            mascota.setEstado(true);
             mascotaServicio.addMascota(mascota);
         }
        
