@@ -30,12 +30,13 @@ public class SecurityConfig {
                 //ESte si hay que dejarlo para todos 
                 .requestMatchers("/Clientes/all**").permitAll()
                 .requestMatchers("/h2/**").permitAll()
+                .requestMatchers("/login/**").permitAll()
                 // Todos - clientes -- si hay rol de clientes cambiar a has any authority cliente, admin y veterinario 
                 
-                .requestMatchers("/login/**").permitAll()
-                .requestMatchers("/Tratamientos/mascota/**").hasAnyAuthority("ADMIN", "VETERINARIO","CLIENTE") 
+                
+                .requestMatchers("/Tratamientos/mascota**").hasAnyAuthority("ADMIN", "VETERINARIO","CLIENTE") 
                 .requestMatchers("/Tratamientos/Info/**").hasAnyAuthority("ADMIN", "VETERINARIO","CLIENTE")
-                .requestMatchers("/Clientes/por-mascota/**").hasAnyAuthority("ADMIN", "VETERINARIO","CLIENTE")
+                .requestMatchers("/Clientes/por-mascota**").hasAnyAuthority("ADMIN", "VETERINARIO","CLIENTE")
 
                 // Veterinarios Y admin
 
@@ -47,8 +48,8 @@ public class SecurityConfig {
 
                 
                 // Solo Admin 
-                .requestMatchers("/Veterinarios/**").hasAuthority("ADMIN")
-                .requestMatchers("/kpis/**").hasAuthority("ADMIN")
+                .requestMatchers("/Veterinarios**").hasAuthority("ADMIN")
+                .requestMatchers("/kpis**").hasAuthority("ADMIN")
 
                 .anyRequest().permitAll()
             )
